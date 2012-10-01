@@ -18,13 +18,13 @@ Many times you found useful information, but it is often fragmentary, put in ver
 The philosophy of __[symfonybricks.com](http://symfonybricks.com)__ follows two binaries:
 
 1. provide a repository of publicly shared:
- - recipes
- - code snippets
- - cookbooks
- - suggestions
- - help requests
- - ... (what more?)
- 
+    - recipes
+    - code snippets
+    - cookbooks
+    - suggestions
+    - help requests
+    - ... (what more?)
+
 2. leave the development of the entire platform to the community
 
 
