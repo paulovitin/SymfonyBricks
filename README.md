@@ -18,13 +18,13 @@ Many times you found useful information, but it is often fragmentary, put in ver
 The philosophy of __[symfonybricks.com](http://symfonybricks.com)__ follows two binaries:
 
 1. provide a repository of publicly shared:
- - recipes
- - code snippets
- - cookbooks
- - suggestions
- - help requests
- - ... (what more?)
- 
+    - recipes
+    - code snippets
+    - cookbooks
+    - suggestions
+    - help requests
+    - ... (what more?)
+
 2. leave the development of the entire platform to the community
 
 
@@ -47,7 +47,7 @@ Used tools optionally subjected to discussion:
 ## How you can help
 
 - The very first thing you can do after reading all this document is to comment this issue: [is the purpose of symfonybricks.com clear?](https://github.com/inmarelibero/SymfonyBricks/issues/1)
-- currently this project is not ready to be forked, more documetnation will be available soon
+- you can fork and get a local working copy following the instruction of [this wiki page](https://github.com/inmarelibero/SymfonyBricks/wiki/Get-a-working-local-copy:-instructions)
 - you can keep in touch, watch, follow, tweet, retweet and many other beautyful bozzwords!
 
 ## Who is behind symfonybricks.com
