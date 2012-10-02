@@ -1,1 +1,87 @@
-hello SymfonyBricks.com world!
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span12" style="text-align: center;">
+        
+            <br><br>
+            
+            <h1 style="font-size: 70px;">SymfonyBricks</h1>
+            
+            <br><br><br><br><br>
+            
+            <p style="font-size: 20px;">
+                Built by the community for the community
+            </p>
+            <br>
+            <p style="font-size: 20px;">
+                SymfonyBricks aims to be a repository of code, snippets and recipes useful to Symfony developers
+            </p>
+        
+            <br><br><br><br>
+            Do you want to know more?
+            <br><br>
+            
+            <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new" class="btn btn-primary btn-large">github repository</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://github.com/inmarelibero/SymfonyBricks/wiki" target="_new" class="btn btn-large">github wiki</a>
+            
+        </div>
+    </div>
+    
+    <br><br><br>
+    
+    <div class="row" style="text-align: justify;">
+        <div class="span5">
+            <h2>Open source</h2>
+            The code of the web site you are visiting is fully hosted on github, ready to be examined,
+            forked, and improved!
+            <br>
+            <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">Check out the repository now</a>
+            <br><br>
+            Everyone is invited to collaborate, you can give a hand in many, many ways. We are open-surce lovers,
+            like all the people contributing to Symfony. And we help each other ;)
+        </div>
+        <div class="span5 offset2">
+            <h2>For the community</h2>
+            The purpose is to become an homogeneous repository of code snippets, recipes and guides (and anything we cannot even imagine now)
+            about Symfony and topics related to it.
+            <br><br>
+            Contents will be submitted by you: depending on your possibilities you will post a new recipe, contribute to its translation,
+            improve them, spot errors, or just express a judgement about its utility.
+        </div>
+    </div>
+    
+    <hr>
+    
+    <div class="row">
+        <div class="span12">
+            <h3>I want to participate</h3>
+            The first important thing you can do is to use Twitter to stay tuned with the latest updates and to spread SymfonyBricks.
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="span6" style="text-align: right;">
+            <p class="text-italic text-small">
+                Follow SymfonyBricks on Twitter
+            </p>
+            <a href="https://twitter.com/SymfonyBricks" class="twitter-follow-button" data-show-count="false">Follow @SymfonyBricks</a>
+        </div>
+        <div class="span6">
+            <p class="text-italic text-small">
+                Share the link to <a href="http://symfonybricks.com" target="_new">symfonybricks.com</a>
+            </p>
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://symfonybricks.com/" data-via="SymfonyBricks">Tweet</a>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="span12">
+            The next step is to have a look at the <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">SymfonyBricks repository on github</a>
+            and participate to the development by checking the code, contributing through PRs, or just creating and commenting issue.
+        </div>
+    </div>
+    
+{% endblock %}

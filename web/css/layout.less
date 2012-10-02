@@ -1,0 +1,95 @@
+/******************************************************************************************
+HTML LAYOUT
+******************************************************************************************/
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    
+    * { font-family: inherit }
+    &, p { font-size:  16px; }
+    
+    header {
+        .navbar { margin-bottom: 0px;
+            .nav {
+                & > li > a { text-shadow: none;
+                    &#brand { padding-left: 0px; }
+                }
+                .dropdown-toggle {
+                    .caret {
+                        border-top-color:       #CCC;
+                        border-bottom-color:    #CCC;
+                    }
+                }
+            }
+            
+            .navbar-inner {
+                .border-radius(0px);
+                border-top:         0px;
+                border-left:        0px;
+                border-right:       0px;
+                
+                .container { width:  940px; }
+            }
+        }
+    }    
+    
+    #main {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    footer {
+        border-top:     1px solid #CCC;
+        padding-top:    10px;
+        background:     #FAFAFA;
+        
+        font-size:  11px;
+        
+        #gradient > .vertical(#EBEBEB, #C4C4C4);
+    }
+}
+
+/******************************************************************************************
+box-sizing hack: border-box
+
+http://paulirish.com/2012/box-sizing-border-box-ftw/
+******************************************************************************************/
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* fix for inputs */
+input[type="text"], input[type="password"], input[type="email"], input[type="date"], input[type="number"] { -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+
+/******************************************************************************************
+GENERAL STYLES
+
+general rules for common html tags
+******************************************************************************************/
+a {
+    color: #E94132;
+    font-weight:    bold;
+    
+    &:hover {
+        color: #E94132;
+    }
+}
+
+ul, li {
+    list-style-type: none;
+    margin: 0px;
+    padding:    0px;
+}
+
+table {
+    &, * { vertical-align: top }
+}
+
+/******************************************************************************************
+GENERAL CLASSES
+
+useful classes for custom styles
+******************************************************************************************/
+.text-small { font-size: 14px; }
+.text-italic { font-style: italic; }
+
+
