@@ -17,6 +17,3 @@ composer.phar
 
 # Configuration files
 app/config/parameters.ini
-
-# google analytics file
-src/Bricks/SiteBundle/Resources/views/_google_analytics.html.twig
