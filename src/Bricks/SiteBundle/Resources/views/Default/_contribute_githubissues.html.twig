@@ -1,0 +1,32 @@
+<ul id="github-issues">
+    loading github issue...
+</div>
+
+<script>
+    $(function() {
+        $.ajax({
+            url: "https://api.github.com/repos/inmarelibero/Symfonybricks/issues?state=open",
+            dataType : "jsonp",
+            success: function(json) {
+                var container = $('#github-issues');
+
+                // reset the container
+                container.html('');
+
+                // adds the issues
+                $.each( json.data, function ( i, item ) {
+
+                    var issueNode = $('<li class="issue" />').append(
+                        $('<a href="'+ this.html_url +'" target="_new" />').html( '#'+this.number+' - '+this.title ),
+                        '<br>',
+                        $('<span class="info" />').html(
+                    	    'by <a href="'+this.user.url+'">'+this.user.login+'</a> | comments: '+this.comments
+                	    ) 
+                    );
+                    
+                    container.append(issueNode);
+                });
+            }
+        });
+    });
+</script>

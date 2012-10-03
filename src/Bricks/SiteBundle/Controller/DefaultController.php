@@ -16,4 +16,13 @@ class DefaultController extends Controller
     {
         return array();
     }
+    
+    /**
+     * @Route("/contribute", name="contribute")
+     * @Template()
+     */
+    public function contributeAction()
+    {
+        return array();
+    }
 }
