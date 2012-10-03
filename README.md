@@ -8,6 +8,8 @@ __[symfonybricks.com](http://symfonybricks.com)__ wants to be a website built by
 
 The objective is to create a repository of code snippets and guides related to Symfony that can be submitted by users.
 
+A roadmap is available through the file [ROADMAP.md](ttps://github.com/inmarelibero/SymfonyBricks/blob/master/ROADMAP.md)
+
 ## Philosophy of symfonybricks.com
 
 When a developer (eg: you) has to face a difficult task for him/her, a common behavior should be (before spending *x* hours multiplied by *3*) searching on internet if someone (more or less in order) already resolved that problem, or resolved a similar problem, or wrote something requiring help and someone other helped him.
