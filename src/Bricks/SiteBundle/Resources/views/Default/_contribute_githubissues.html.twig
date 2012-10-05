@@ -1,6 +1,6 @@
 <ul id="github-issues">
     loading github issue...
-</div>
+</ul>
 
 <script>
     $(function() {
@@ -17,13 +17,13 @@
                 $.each( json.data, function ( i, item ) {
 
                     var issueNode = $('<li class="issue" />').append(
-                        $('<a href="'+ this.html_url +'" target="_new" />').html( '#'+this.number+' - '+this.title ),
+                        $('<a href="'+ item.html_url +'" target="_blank" />').html( '#'+item.number+' - '+item.title ),
                         '<br>',
                         $('<span class="info" />').html(
-                    	    'by <a href="'+this.user.url+'">'+this.user.login+'</a> | comments: '+this.comments
-                	    ) 
+                            'by <a href="'+item.user.url+'">'+item.user.login+'</a> | comments: '+item.comments
+                        )
                     );
-                    
+
                     container.append(issueNode);
                 });
             }
