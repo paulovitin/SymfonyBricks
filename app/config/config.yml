@@ -2,9 +2,12 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+parameters:
+    locale:   en #default locale
+    
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -57,3 +60,33 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Bricks\UserBundle\Entity\User
+    
+    from_email:
+        address:        contact@symfonybricks.com
+        sender_name:    SymfonyBricks.com
+        
+    service:
+        mailer: fos_user.mailer.twig_swift
+        
+    registration:
+        confirmation:
+            enabled:    true
+            template:   BricksUserBundle:Registration:registration.email.twig
+            
+    resetting:
+        email:
+            template:   BricksUserBundle:Resetting:resetting.email.twig
+            
+            
+            
+            
+            
+            
+            
+            
+            

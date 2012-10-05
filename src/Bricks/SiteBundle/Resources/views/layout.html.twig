@@ -58,14 +58,35 @@
                                 </li>
                             </ul>
                             <ul class="nav pull-right">
-                                <li style="padding-top: 11px;">
-                                    <a href="https://twitter.com/SymfonyBricks" class="twitter-follow-button" data-show-count="false">Follow @SymfonyBricks</a>
-                                </li>
                                 <li>
                                     <a href="{{ path('contribute') }}">
                                         contribute
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
+                                        github repository
+                                    </a>
+                                </li>
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <li>
+                                        <a href="{{ path('fos_user_security_logout') }}">logout</a>
+                                    </li>
+                                    <li class="username">
+                                        <a href="{{ path('fos_user_profile_show') }}" class="btn btn-small"><i class="icon-user"></i> {{ app.user.username }}</a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ path('fos_user_registration_register') }}">
+                                            register
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('fos_user_security_login') }}">
+                                            sign in
+                                        </a>
+                                    </li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
@@ -90,6 +111,7 @@
                         </ul>
                     </div>
                     <div class="span6" style="text-align: right">
+                        <a href="https://twitter.com/SymfonyBricks" class="twitter-follow-button" data-show-count="false">Follow @SymfonyBricks</a>
                         <br>
                         online since Mon 1 Oct 2012 23:15:23 CEST
                     </div>

@@ -1,0 +1,17 @@
+{% extends "BricksUserBundle::layout.html.twig" %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span8"
+            <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ user.username }}</p>
+            <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ user.email }}</p>
+        </div>
+        <div class="span4">
+            <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-mini pull-right"><i class="icon-user"></i> Edit profile</a>
+            <br><br>
+            <a href="{{ path('fos_user_change_password') }}" class="btn btn-mini pull-right"><i class="icon-lock"></i> Change password</a>
+        </div>
+    </div>
+
+{% endblock %}

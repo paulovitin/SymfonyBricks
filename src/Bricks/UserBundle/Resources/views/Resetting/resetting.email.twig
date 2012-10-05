@@ -1,0 +1,28 @@
+{% block subject %}SymfonyBricks: Registration{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Hello {{ user.username }}, you requested to reset your password.
+
+To change your password simply visit this link: {{ confirmationUrl }}
+
+You will then be able to sign in on: http://symfonybricks.com/login
+
+Regards,
+the SymfonyBricks Team.
+
+Greetings,
+the Acme team
+{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+Hello {{ user.username }}, you requested to reset your password.
+<br><br>
+To change your password simply visit <a href="{{ confirmationUrl }}">this link.</a>
+<br><br>
+You will then be able to sign in on <a href="{{ url('fos_user_security_login') }}">{{ url('fos_user_security_login') }}</a>
+<br><br><br>
+Regards,
+<br>the SymfonyBricks Team.
+{% endblock %}

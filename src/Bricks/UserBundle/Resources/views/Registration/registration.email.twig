@@ -1,0 +1,28 @@
+{% block subject %}SymfonyBricks: Registration{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Hello {{ user.username }}, thank you for registrating on SymfonyBricks.
+
+To activate your account visit this link: {{ confirmationUrl }}
+
+You will then be able to sign in on: http://symfonybricks.com/login
+
+Regards,
+the SymfonyBricks Team.
+
+Greetings,
+the Acme team
+{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}
+Hello {{ user.username }}, thank you for registrating on SymfonyBricks.
+<br><br>
+To activate your account visit <a href="{{ confirmationUrl }}">this link.</a>
+<br><br>
+You will then be able to sign in on <a href="{{ url('fos_user_security_login') }}">{{ url('fos_user_security_login') }}</a>
+<br><br><br>
+Regards,
+<br>the SymfonyBricks Team.
+{% endblock %}

@@ -19,7 +19,13 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+                
+            // FOSUserBundle
+            new FOS\UserBundle\FOSUserBundle(),
+            
+            // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
+            new Bricks\UserBundle\BricksUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

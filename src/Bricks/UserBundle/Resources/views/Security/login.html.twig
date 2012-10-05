@@ -1,0 +1,38 @@
+{% extends "BricksSiteBundle::layout.html.twig" %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span6 offset3">
+        
+            <h1>Sign in</h1>
+            
+            <br><br>
+        
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="security-form">
+            
+                {% if error %}
+                    <div class="errors">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                {% endif %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            
+                <label for="username">Username</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+            
+                <label for="password">Password</label>
+                <input type="password" id="password" name="_password" required="required" />
+            
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+            
+                <input type="submit" id="_submit" name="_submit" value="Sign in" class="btn"/>
+            </form>
+            
+            <br><br>
+            
+            <a href="{{ path('fos_user_resetting_request') }}">forgot password?</a>
+            
+        </div>
+    </div>
+    
+{% endblock %}
