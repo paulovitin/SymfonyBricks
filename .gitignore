@@ -11,6 +11,9 @@ app/logs/*
 app/cache/*
 web/uploads/*
 web/bundles/*
+web/assetic/*
+web/js/*
+web/css/*
 vendor/*
 build/*
 composer.phar

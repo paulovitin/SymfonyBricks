@@ -4,7 +4,7 @@ parameters:
     database_port:     ~
     database_name:     symfonybricks
     database_user:     root
-    database_password: 
+    database_password:
 
     mailer_transport:  smtp
     mailer_host:       localhost
@@ -12,3 +12,5 @@ parameters:
     mailer_password:   ~
 
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    java_path:         /usr/bin/java
