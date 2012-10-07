@@ -127,6 +127,7 @@
             </div>
         </footer>
 
+        {% block javascripts_footer '' %}
         {% javascripts '@javascripts' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
