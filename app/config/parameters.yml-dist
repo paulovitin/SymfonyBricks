@@ -3,8 +3,8 @@ parameters:
     database_host:     localhost
     database_port:     ~
     database_name:     symfonybricks
-    database_user:     [change-me]
-    database_password: [change-me]
+    database_user:     root
+    database_password: 
 
     mailer_transport:  smtp
     mailer_host:       localhost

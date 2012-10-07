@@ -1,9 +1,4 @@
 # Bricks routes
-bricks_user:
-    resource: "@BricksUserBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 bricks_site:
     resource: "@BricksSiteBundle/Controller/"
     type:     annotation
