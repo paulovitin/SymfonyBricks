@@ -3,17 +3,17 @@
 {% block main %}
 
     <div id="contribute-wrapper">
-    
+
         <div class="row">
             <div class="span12">
-            
+
                 <h1>Contribute to SymfonyBricks</h1>
-                
+
                 <p>
                     So you want to be involved, uh? Great! In this section you will find a way to help.
                 </p>
                 <br><br>
-                
+
                 <h3>Read the doc</h3>
                 <p>
                     First of all, to better understand the purpose of <a href="http://symfonybricks.com">SymfonyBricks</a> you can have a look at some docs:
@@ -28,9 +28,9 @@
                         <dd>development roadmap</dd>
                     </dl>
                 </p>
-                
+
                 <br>
-                
+
                 <h3>Contribute on the github repository</h3>
                 <p>
                     The repository on github is <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">inmarelibero/SymfonyBricks</a>.
@@ -38,16 +38,20 @@
                 <p>
                     These are the currently open issues, just to give some suggestions on where to start from:
                 </p>
-                
-                {% include 'BricksSiteBundle:Default:_contribute_githubissues.html.twig' %}
-                
+
+                <ul id="github-issues">loading github issue...</ul>
+
                 <p>
                     Any idea about SymfonyBricks? open an issue <a href="https://github.com/inmarelibero/SymfonyBricks/issues" target="_new">here</a>.
                 </p>
-                
+
             </div>
         </div>
-        
+
     </div>
-    
+
+{% endblock %}
+
+{% block javascripts_footer %}
+<script type="text/javascript">jQuery(function($) { $('#github-issues').githubIssues(); });</script>
 {% endblock %}
