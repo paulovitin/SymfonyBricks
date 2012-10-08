@@ -12,5 +12,6 @@ parameters:
     mailer_password:   ~
 
     secret:            ThisTokenIsNotSoSecretChangeIt
-
+    
+    # java path required for yui compressor
     java_path:         /usr/bin/java
