@@ -1,6 +1,6 @@
 # SymfonyBricks Documentation
 
-The [/doc](/doc) folder contains the documentation about the whole SymfonyBricks project: everything related to SymfonyBricks can be found here. 
+The [doc](doc) folder contains the documentation about the whole SymfonyBricks project: everything related to SymfonyBricks can be found here. 
 
 ## Index
 
@@ -15,7 +15,7 @@ __[symfonybricks.com](http://symfonybricks.com)__ wants to be a website built by
 
 The objective is to create a repository of code snippets and guides related to Symfony that can be submitted by users.
 
-A roadmap is available through the file [ROADMAP.md](/ROADMAP.md)
+A roadmap is available through the file [ROADMAP.md](../ROADMAP.md)
 
 ## Philosophy of symfonybricks.com
 
