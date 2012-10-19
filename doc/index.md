@@ -1,6 +1,6 @@
 # SymfonyBricks Documentation
 
-The [doc](doc) folder contains the documentation about the whole SymfonyBricks project: everything related to SymfonyBricks can be found here. 
+The doc/ folder contains the documentation about the whole SymfonyBricks project: everything related to SymfonyBricks can be found here. 
 
 ## Index
 
