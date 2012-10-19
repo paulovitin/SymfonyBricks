@@ -2,114 +2,123 @@
 
 {% block main %}
 
-    <div class="row">
-        <div class="span12" style="text-align: center;">
-        
-            <br>
+
+    <div id="index-wrapper">
+        <div class="row">
+            <div class="span9" style="text-align: left;">
             
-            <h1 style="font-size: 70px;">SymfonyBricks</h1>
-            
-            <br><br><br>
-            
-            <p style="font-size: 22px;">
-                Built by the community, for the community
-            </p>
-            <br><br>
-            <p style="font-size: 20px;">
-                SymfonyBricks aims to be a repository of code, snippets and recipes
-            </p>
-            
-            <div style="width: 550px; margin: 0 auto; text-align: left; vertical-align: middle;">
+                <h1 style="font-size: 70px;">SymfonyBricks</h1>
+                
+                <br><br><br>
+                
+                <p style="font-size: 22px;">
+                    Built by the community, for the community
+                </p>
+                <br><br>
+                <p style="font-size: 20px;">
+                    SymfonyBricks aims to be a repository of code, snippets and recipes
+                </p>
+                
                 <p>
                     <i class="icon-download" style="vertical-align: middle;"></i> shared by everybody in his life ever solved a problem regarding Symfony
                 </p>
                 <p>
                     <i class="icon-wrench" style="vertical-align: middle;"></i> useful to the same Symfony developers: don't reinvent the wheel!
                 </p>
+                
             </div>
+            <div class="span3 right-col">
             
-            <br><br>
+                <ul>
+                    <li>
+                        <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new" class="btn"><i class="icon-folder-open"></i> github repository</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/inmarelibero/SymfonyBricks/wiki" target="_new" class="btn"><i class="icon-book"></i> github wiki</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('contribute') }}" class="btn btn-primary"><i class="icon-hand-right icon-white"></i> how to contribute</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
         
-            <p>
-                Register to <a href="http://symfonybricks.com">symfonybricks.com</a>
-            </p>
-            <p>
-                <a href="{{ path('fos_user_registration_register') }}" class="btn btn-small"><i class="icon-user"></i> register now</a>
-            <p>
-                <span class="text-small text-italic">
-                    Register feature has just been implemented: right now registration is important to know
-                    <br>
-                    how many interested users in SymfonyBricks there are. Many features will be developed soon,
-                    <br>
-                    as more and more people will contribute!
-                </span>
-            </p>
+        <br><br>
+        
+        <div class="row">
+            <div class="span12">
             
-            <br><hr>
-            
-            <h2>
-                Do you want to know more?
-            </h2>
-            
-            <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new" class="btn btn-primary btn-large"><i class="icon-folder-open icon-white"></i> github repository</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="https://github.com/inmarelibero/SymfonyBricks/wiki" target="_new" class="btn btn-large"><i class="icon-book"></i> github wiki</a>
-            &nbsp;&nbsp;&nbsp;
-            <a href="{{ path('contribute') }}" class="btn btn-large"><i class="icon-hand-right"></i> how to contribute</a>
-            
+                <div style="text-align: center;">
+                    <p>
+                        Register to <a href="http://symfonybricks.com">symfonybricks.com</a>
+                    </p>
+                    <p>
+                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-small"><i class="icon-user"></i> register now</a>
+                    <p>
+                        <span class="text-small text-italic">
+                            Register feature has just been implemented: right now registration is important to know
+                            <br>
+                            how many interested users in SymfonyBricks there are. Many features will be developed soon,
+                            <br>
+                            as more and more people will contribute!
+                        </span>
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <br><br><br>
-    
-    <div class="row" style="text-align: justify;">
-        <div class="span5">
-            <h2>Open source</h2>
-            The code of the web site you are visiting is fully hosted on github, ready to be examined,
-            forked, and improved!
-            <br>
-            <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">Check out the repository now.</a>
-            <br><br>
-            Everyone is invited to collaborate, you can give a hand in many, many ways. We are open source lovers,
-            like all the people contributing to Symfony. And we help each other ;)
+        
+        <hr>
+        
+        <div class="row" style="text-align: justify;">
+            <div class="span5">
+                <h2>Open source</h2>
+                The code of the web site you are visiting is fully hosted on github, ready to be examined,
+                forked, and improved!
+                <br>
+                <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">Check out the repository now.</a>
+                <br><br>
+                Everyone is invited to collaborate, you can give a hand in many, many ways. We are open source lovers,
+                like all the people contributing to Symfony. And we help each other ;)
+            </div>
+            <div class="span5 offset2">
+                <h2>For the community</h2>
+                The purpose is to become an homogeneous repository of code snippets, recipes and guides (and anything we cannot even imagine now)
+                about Symfony and topics related to it.
+                <br><br>
+                Contents will be submitted by you: depending on your possibilities you will post a new recipe, contribute to its translation,
+                improve them, spot errors, or just express a judgement about its utility.
+            </div>
         </div>
-        <div class="span5 offset2">
-            <h2>For the community</h2>
-            The purpose is to become an homogeneous repository of code snippets, recipes and guides (and anything we cannot even imagine now)
-            about Symfony and topics related to it.
-            <br><br>
-            Contents will be submitted by you: depending on your possibilities you will post a new recipe, contribute to its translation,
-            improve them, spot errors, or just express a judgement about its utility.
+        
+        <hr>
+        
+        <div class="row">
+            <div class="span12">
+                <h3>Get involved</h3>
+                The first important thing you can do is to use Twitter to stay tuned with the latest updates and to spread SymfonyBricks.
+            </div>
         </div>
-    </div>
-    
-    <hr>
-    
-    <div class="row">
-        <div class="span12">
-            <h3>Get involved</h3>
-            The first important thing you can do is to use Twitter to stay tuned with the latest updates and to spread SymfonyBricks.
+        <br><br><br>
+        <div class="row">
+            <div class="span6" style="text-align: right;">
+                <p class="text-italic text-small">
+                    Follow SymfonyBricks on Twitter
+                </p>
+                <a href="https://twitter.com/SymfonyBricks" class="twitter-follow-button" data-show-count="false">Follow @SymfonyBricks</a>
+            </div>
+            <div class="span6">
+                <p class="text-italic text-small">
+                    Share the link <a href="http://symfonybricks.com">symfonybricks.com</a>
+                </p>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://symfonybricks.com/" data-via="SymfonyBricks">Tweet</a>
+            </div>
         </div>
-    </div>
-    <br><br><br>
-    <div class="row">
-        <div class="span6" style="text-align: right;">
-            <p class="text-italic text-small">
-                Follow SymfonyBricks on Twitter
-            </p>
-            <a href="https://twitter.com/SymfonyBricks" class="twitter-follow-button" data-show-count="false">Follow @SymfonyBricks</a>
-        </div>
-        <div class="span6">
-            <p class="text-italic text-small">
-                Share the link <a href="http://symfonybricks.com">symfonybricks.com</a>
-            </p>
-            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://symfonybricks.com/" data-via="SymfonyBricks">Tweet</a>
-        </div>
-    </div>
-    <br><br><br>
-    <div class="row">
-        <div class="span12">
-            The next step is to have a look at <a href="{{ path('contribute') }}">the section "Contribute"</a> for more detailed informations.
+        <br><br><br>
+        <div class="row">
+            <div class="span12">
+                The next step is to have a look at <a href="{{ path('contribute') }}">the section "Contribute"</a> for more detailed informations.
+            </div>
         </div>
     </div>
     
