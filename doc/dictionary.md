@@ -2,10 +2,11 @@
 
 To talk about SymfonyBricks in this docs and in github issues, it's useful to define a homogeneous dictionary.
 
-## Index
-- [User](dictionary.md#user)
-- [Brick](dictionary.md#brick)
-- [Tag](dictionary.md#tag)
+**[index](index.md) / Dictionary**
+
+- [User](#user)
+- [Brick](#brick)
+- [Tag](#tag)
 
 ### User
 
