@@ -9,7 +9,7 @@ To talk about SymfonyBricks in this docs and in github issues, it's useful to de
 
 ### User
 
-A **user** is a person who registered on [symfonybricks.com](http://symfonybricks.com); it owns an account and a reserved area.
+A **user** is a person who registered on [symfonybricks.com](http://symfonybricks.com); he owns an account and a reserved area.
 
 He can create **bricks** and manage the ones he owns (a user owns a **brick** he created).
 
