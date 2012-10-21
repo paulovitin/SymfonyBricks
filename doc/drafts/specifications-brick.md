@@ -2,7 +2,7 @@
 
 This is a detailed description about what a **brick** is.
 
-**[index](index.md) / [drafts](..) / Specifications: Brick**
+**[index](../index.md) / [drafts](../drafts) / Specifications: Brick**
 
 - [Main use case](#main-use-case)
 
