@@ -1,6 +1,6 @@
 # SymfonyBricks
 
-This is the public code repository of the entire website [symfonybricks.com](http://symfonybricks.com).
+This is the public code repository of the entire [symfonybricks.com](http://symfonybricks.com) website.
 
 ## Purpose
 
