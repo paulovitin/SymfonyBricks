@@ -2,6 +2,10 @@
 
 This is a detailed description about what a **brick** is.
 
+**[index](index.md) / [drafts](..) / Specifications: Brick**
+
+- [Main use case](#main-use-case)
+
 ### Main use case:
 
 - a **user** creates a **brick**, specifying the language
