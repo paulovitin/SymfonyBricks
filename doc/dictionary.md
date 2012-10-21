@@ -4,9 +4,9 @@ To talk about SymfonyBricks in this docs and in github issues, it's useful to de
 
 **[index](index.md) / Dictionary**
 
-- [User](#user)
-- [Brick](#brick)
-- [Tag](#tag)
+- [User](dictionary.md#user)
+- [Brick](dictionary.md#brick)
+- [Tag](dictionary.md#tag)
 
 ### User
 

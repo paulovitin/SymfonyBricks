@@ -10,7 +10,9 @@ The purpose is to create an open source platform containing a repository of code
 
 ## Documentation
 
-Documentation can be found [in the doc/ folder](doc/index.md): it's the main source of information regarding how SymfonyBrics works, discussions, drafts, etc... You are invited to spend some time on it and to contribute, tweaking doc it is a very very important task.
+Documentation can be found [in the doc/ folder](https://github.com/inmarelibero/SymfonyBricks/tree/master/doc): it's the main source of information regarding how SymfonyBrics works, discussions, drafts, etc... You are invited to spend some time on it and to contribute, tweaking doc it is a very very important task.
+
+[Read the documentation](doc/index.md)
 
 
 ## Philosophy of symfonybricks.com
@@ -44,6 +46,6 @@ __[symfonybricks.com](http://symfonybricks.com)__, as well as containing many co
 
 ## Who is behind symfonybricks.com
 
-The repository mantainer is me, @inmarelbero [(twitter)](https://github.com/inmarelibero). I'm a Symfony lover and had this idea, simply.
+The repository mantainer is me, inmarelbero [(twitter)](https://github.com/inmarelibero). I'm a Symfony lover and had this idea, simply.
 
 This project may have been started for fun, but I think I'm not the only one having fun with Symfony.
