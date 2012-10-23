@@ -14,7 +14,7 @@ Documentation can be found [in the doc/ folder](https://github.com/inmarelibero/
 
 [Read the documentation](doc/index.md)
 
-[Check open RFCs](doc/RFC/)
+[Check open RFCs](https://github.com/inmarelibero/SymfonyBricks/tree/master/doc/RFC)
 
 
 ## Philosophy of symfonybricks.com
@@ -41,7 +41,7 @@ __[symfonybricks.com](http://symfonybricks.com)__, as well as containing many co
 
 ## How you can help
 
-- examine [RFC 1 - Brick](doc/RFC/RFC_1_-_Brick.md)
+- examine [RFC 1 - Brick](https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/RFC/RFC_1_-_Brick.md)
 - comment the issue [is the purpose of symfonybricks.com clear?](https://github.com/inmarelibero/SymfonyBricks/issues/1)
 
 
