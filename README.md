@@ -13,7 +13,8 @@ The purpose is to create an open source platform containing a repository of code
 Documentation can be found [in the doc/ folder](https://github.com/inmarelibero/SymfonyBricks/tree/master/doc): it's the main source of information regarding how SymfonyBrics works, discussions, drafts, etc... You are invited to spend some time on it and to contribute, tweaking doc it is a very very important task.
 
 [Read the documentation](doc/index.md)
-[Check open RFCs](RFC/)
+
+[Check open RFCs](doc/RFC/)
 
 
 ## Philosophy of symfonybricks.com
@@ -40,8 +41,9 @@ __[symfonybricks.com](http://symfonybricks.com)__, as well as containing many co
 
 ## How you can help
 
-- examine [RFC 1 - Brick](RFC/RFC_1_-_Brick.md)
+- examine [RFC 1 - Brick](doc/RFC/RFC_1_-_Brick.md)
 - comment the issue [is the purpose of symfonybricks.com clear?](https://github.com/inmarelibero/SymfonyBricks/issues/1)
+
 
 - follow [inmarelibero (me)](https://twitter.com/inmarelibero) and [SymfonyBricks](https://twitter.com/SymfonyBricks) on Twitter
 - fork this repo to get a local working copy by following the instruction of [this wiki page](https://github.com/inmarelibero/SymfonyBricks/wiki/Get-a-working-local-copy:-instructions)
