@@ -2,6 +2,11 @@
 SECTION: INDEX
 ******************************************************************************************/
 #index-wrapper {
+    
+    hr {
+        border-top: 1px solid #CCC;
+    }
+    
     .right-col {
         ul { margin-bottom: 10px;
             li {
@@ -19,9 +24,17 @@ SECTION: INDEX
                 font-size: 16px;
                 margin-bottom:  0px;
             }
-            li {
-                font-size:  12px;
-                line-height:    14px;
+            ul { margin-left: 16px;
+                li {
+                    font-size:  12px;
+                    line-height:    14px;
+                    margin-bottom:  10px;
+                    list-style-type:    disc;
+                    
+                    a {
+                        font-weight: normal;
+                    }
+                }
             }
         }
     }
