@@ -14,6 +14,8 @@ The doc/ folder contains the documentation about the whole SymfonyBricks project
  - [Technical specifications](manifest.md#technical-specifications)
  - [How you can help](manifest.md#how-you-can-help)
  - [Who is behind symfonybricks.com](manifest.md#who-is-behind-symfonybrickscom)
+- [RFC](RFC/)
+ - [RFC 1 - Brick](RFC/RFC_1_-_Brick.md)
 - [Drafts](drafts/)
  - [specifications-brick](drafts/specifications-brick.md)
  
