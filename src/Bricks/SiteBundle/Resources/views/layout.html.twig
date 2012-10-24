@@ -40,7 +40,7 @@
         </script>
     </head>
 
-    <body lang="{{app.request.locale}}">
+    <body lang="{{app.request.locale}}" class="{% block body_class '' %}">
 
         <div class="wrapper">
             <header>
@@ -66,21 +66,11 @@
                                     </a>
                                 </li>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <li class="username">
-                                        <div class="btn-group">
-                                            <a href="{{ path('fos_user_profile_show') }}" class="btn"><i class="icon-user"></i> {{ app.user.username }}</a>
-                                            <button class="btn dropdown-toggle" data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="{{ path('fos_user_profile_show') }}">Profile</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ path('fos_user_security_logout') }}">Logout</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                    <li>
+                                        <a href="{{ path('user_dashboard') }}"><i class="icon-user"></i> {{ app.user.username }}</a>                                    
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('fos_user_security_logout') }}"><i class="icon-off"></i></a>
                                     </li>
 
                                 {% else %}
@@ -99,6 +89,7 @@
                         </div>
                     </div>
                 </div>
+                {% block user_menu '' %}
             </header>
 
             <section id="main">

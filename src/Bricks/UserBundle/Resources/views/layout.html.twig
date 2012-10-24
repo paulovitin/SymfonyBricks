@@ -1,5 +1,42 @@
 {% extends 'BricksSiteBundle::layout.html.twig' %}
 
+{# set class .user to the <body> tag #}
+{% block body_class %}user{% endblock body_class %}
+
+{# display the user menu #}
+{% block user_menu %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div class="navbar navbar-fixed-top" id="user-navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li>
+                            <a href="{{ path('user_dashboard') }}">
+                                DASHBOARD
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                PROFILE
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ path('fos_user_profile_edit') }}"><i class="icon-user"></i> Edit profile</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('fos_user_change_password') }}"><i class="icon-lock"></i> Change password</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock user_menu %}
+
+{# main content #}
 {% block main %}
-        {% block fos_user_content %}{% endblock fos_user_content %}
+    {% block fos_user_content %}{% endblock fos_user_content %}
 {% endblock main %}

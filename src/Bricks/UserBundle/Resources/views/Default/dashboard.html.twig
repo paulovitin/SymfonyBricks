@@ -1,0 +1,12 @@
+{% extends "BricksUserBundle::layout.html.twig" %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span12">
+            <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ app.user.username }}</p>
+            <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ app.user.email }}</p>
+        </div>
+    </div>
+
+{% endblock %}
