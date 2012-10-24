@@ -70,11 +70,9 @@ fos_user:
         email:
             template:   BricksUserBundle:Resetting:resetting.email.twig
 
-
-
-
-
-
-
-
-
+stof_doctrine_extensions:
+    default_locale: %locale%
+    orm:
+        default:
+            timestampable: true
+            sluggable: true

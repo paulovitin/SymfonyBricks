@@ -23,6 +23,9 @@ class AppKernel extends Kernel
             // FOSUserBundle
             new FOS\UserBundle\FOSUserBundle(),
             
+            // StofDoctrineExtensionsBundle
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\UserBundle\BricksUserBundle(),
