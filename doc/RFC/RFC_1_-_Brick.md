@@ -49,3 +49,7 @@ Using github should be not necessary; the *link* attribute should point to a gen
 To guarantee an high consistency among the syntax/format of the **bricks**, [Markdown format](http://daringfireball.net/projects/markdown/syntax) is chosen. This means that the *content* attribute of a **brick** is always interpreted following the rules of Markdown.
 
 A set of syntax standards must be available for the users, to help him to create a **brick** following standard rules. This rules include the syntax to use when specifying a title, or a subtitle representing a step, or a block of code, etc...
+
+## Discussion
+
+[RFC 1 - Brick](https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/RFC/RFC_1_-_Brick.md) can be discussed in [this issue](https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/RFC/RFC_1_-_Brick.md).
