@@ -51,3 +51,6 @@ As the development goes further, a smart system to collaborate among users is hi
 - comment the **brick**
 - suggest a better implementation
 - suggest repeated or partially repeated **bricks**
+
+## Discussion
+[RFC 1 - Brick](https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/RFC/RFC_1_-_Brick.md) can be discussed in [issue #17](https://github.com/inmarelibero/SymfonyBricks/issues/17).
