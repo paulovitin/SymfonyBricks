@@ -37,6 +37,13 @@ class Brick
     private $description;
 
     /**
+     * @var text $content
+     *
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $content;
+
+    /**
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(length=128, unique=true)
      */
@@ -48,6 +55,14 @@ class Brick
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $published;
+
+    /**
+     * @var object $user
+     *
+     * @ORM\ManyToOne(targetEntity="Bricks\UserBundle\Entity\User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
+     */
+    private $user;
     
     /**
      * @var datetime $updated_at
@@ -68,10 +83,18 @@ class Brick
     /**************************************************************************************************
      *	custom functions
     **************************************************************************************************/
+    /**
+     * return if the object is new by checking the field 'id'
+     */
+    public function isNew()
+    {
+        return !$this->getId();
+    }
     
     /**************************************************************************************************
      *	getters and setters
     **************************************************************************************************/
+
     /**
      * Get id
      *
@@ -126,6 +149,29 @@ class Brick
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return Brick
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string 
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 
     /**
@@ -218,5 +264,28 @@ class Brick
     public function getCreatedAt()
     {
         return $this->created_at;
+    }
+
+    /**
+     * Set user
+     *
+     * @param Bricks\UserBundle\Entity\User $user
+     * @return Brick
+     */
+    public function setUser(\Bricks\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return Bricks\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
