@@ -1,0 +1,26 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span12">
+            <h2>Bricks</h2>
+            
+            <ul class="bricks-list">
+                {% for brick in bricks %}
+                    <li>
+                        <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
+                            {{ brick.title }}
+                        </a>
+                        <p>
+                            <i class="icon-user"></i> {{ brick.user }}
+                            |
+                            <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+        
+{% endblock %}

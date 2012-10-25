@@ -31,7 +31,7 @@ class BrickController extends Controller
         $entities = $em->getRepository('BricksSiteBundle:Brick')->findBy(array('published' => true));
 
         return array(
-            'entities' => $entities,
+            'bricks' => $entities,
         );
     }
     

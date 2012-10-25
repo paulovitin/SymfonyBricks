@@ -2,7 +2,6 @@
 
 {% block main %}
 
-
     <div id="index-wrapper">
         <div class="row">
             <div class="span9" style="text-align: left;">
@@ -31,13 +30,10 @@
             
                 <ul>
                     <li>
-                        <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new" class="btn"><i class="icon-folder-open"></i> github repository</a>
+                        <a href="{{ path('contribute') }}" class="btn"><i class="icon-hand-right"></i> how to contribute</a>
                     </li>
                     <li>
-                        <a href="https://github.com/inmarelibero/SymfonyBricks/wiki" target="_new" class="btn"><i class="icon-book"></i> github wiki</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('contribute') }}" class="btn btn-primary"><i class="icon-hand-right icon-white"></i> how to contribute</a>
+                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success"><i class="icon-user icon-white"></i> Sign up</a>
                     </li>
                 </ul>
                 <div id="relevant-links">
@@ -53,22 +49,26 @@
             </div>
         </div>
         
-        <br><br><br><br>
+        <hr>
         
-        <div class="row">
-            <div class="span12">
-            
-                <div style="text-align: center;">
-                    <p>
-                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-large btn-success"><i class="icon-user icon-white"></i> Register to SymfonyBricks</a>
-                    <p>
-                        <span class="text-small text-italic">
-                            Register feature has just been implemented: right now registration is important to know how many interested users
-                            <br>
-                            in SymfonyBricks there are. Many features will be developed soon, as more and more people will contribute!
-                        </span>
-                    </p>
-                </div>
+        <div class="row" style="text-align: justify;">
+            <div class="span5">
+                <h2>Bricks</h2>
+                
+                <ul class="bricks-list">
+                    {% for brick in bricks %}
+                        <li>
+                            <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
+                                {{ brick.title }}
+                            </a>
+                            <p>
+                                <i class="icon-user"></i> {{ brick.user }}
+                                |
+                                <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
         
