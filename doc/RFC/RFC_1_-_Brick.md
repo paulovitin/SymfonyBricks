@@ -5,47 +5,49 @@ This RFC is about how **users** create/manage **bricks**.
 To comprehend better the keywords used in this document, [ read the dictionary.](https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/dictionary.md)
 
 ## Purpose
-User A must be able to sumbit to SymfonyBricks as many **bricks** as he wants.
 
-It is desiderable to use a versioning system (eg. git) in some way, to let user B see the source code, contribute, review, propose modifications, etc.. of user A.
+A **user** must be able to sumbit to SymfonyBricks a arbitrary number of **bricks**.
 
-## Proposal
+## Structure of a brick
+
+A **brick** has the following attributes:
+
+- **title** (translated)
+- **description**  (translated)
+- **content**  (translated)
+- **tags**: n:m relation with *tag* table
+- **user**: the owner (linked to fos user)
+- **created_at**
+- **updated_at**
+        
+## Use case
 
 When a user submits a **brick**, it happens the follow:
 
-- user specifies a *title* of the **brick** (eg: *"How to integrate Botostrap in Symfony2"*)
-- user adds the *link* to a file hosted on a github repository (normally owned by him) representing the *body* of the **brick** (the actual guide)
-- user specifies the *language* of the **brick**
-- user (optionally) adds some *tags*
+- **user** specifies the *title* (eg: *"How to integrate Botostrap in Symfony2"*), the *subtitle* and the *content* of the **brick**
+- **user** specifies the *language* of the **brick**
+- **user** (optionally) adds some **_tags_**
+- **user** decides to publish the **brick** or to keep it as a draft
 
-Then he can decide to publish or not the **brick**.
+## _Content_ Syntax
 
-In this way SymfonyBricks does not manage directly the process of editing/creation of a **brick**, but delegates it to github. User can then work on his repo being familiar with github, and then its files will be available on SymfonyBricks.
+To guarantee an high consistency among the syntax/format of the **bricks**, [Markdown format](http://daringfireball.net/projects/markdown/syntax) is chosen. This means that the *content* attribute of a **brick** is always interpreted following the rules of [Markdown format](http://daringfireball.net/projects/markdown/syntax).
 
-A use case could be the following:
+The preferred tool to achieve this is [KnpMarkdownBundle](https://github.com/KnpLabs/KnpMarkdownBundle).
 
-- user A creates the github repo **http://github.com/userA/SymfonyBricks-Share** (example name), and pushes the file **http://github.com/userA/SymfonyBricks-Share/blob/master/How-to-integrate-bootstrap-in-Symfony2.en.md**
-- user A creates the **brick** *"How to integrate Botostrap in Symfony2"* and adds the link **http://github.com/userA/SymfonyBricks-Share/blob/master/How-to-integrate-bootstrap-in-Symfony2.en.md** to it (as described above)
-- when user A saves the **bricks**:
-    - a record of the table *brick* is created with the following fields:
-        - **title**: *"How to integrate Botostrap in Symfony2"*
-        - **url**: *"http://github.com/userA/SymfonyBricks-Share/blob/master/How-to-integrate-bootstrap-in-Symfony2.en.md"*
-        - **content**: content of the file *http://github.com/userA/SymfonyBricks-Share/blob/master/How-to-integrate-bootstrap-in-Symfony2.en.md* fetched by curl and copied in the database. Content is copied from github to database but not directly editable; this is done to build a smart search system later.
-        - **commit_checksum**: the checksum of the file *http://github.com/userA/SymfonyBricks-Share/blob/master/How-to-integrate-bootstrap-in-Symfony2.en.md* to later verify if there are updates
-        - **tags**: n:m relation with *tag* table
-       
-       
-### Translations
-
-**Bricks** submitted in different languages are managed through [Translatable Doctrine Extension](https://github.com/l3pp4rd/DoctrineExtensions/blob/master/doc/translatable.md)
-
-### Versioning
-
-Using github should be not necessary; the *link* attribute should point to a generic resource available on internet, containing a file in [Markdown format](http://daringfireball.net/projects/markdown/syntax).
+A set of syntax standards must be available for the **users**, to help him to create a **brick** following standard rules. This rules include the syntax to use when specifying a title, or a subtitle representing a step, or a block of code, etc...
 
 
-### Brick Syntax
+## Translations
 
-To guarantee an high consistency among the syntax/format of the **bricks**, [Markdown format](http://daringfireball.net/projects/markdown/syntax) is chosen. This means that the *content* attribute of a **brick** is always interpreted following the rules of Markdown.
+**Bricks** submitted in different languages are managed through [Translatable Doctrine Extension](https://github.com/l3pp4rd/DoctrineExtensions/blob/master/doc/translatable.md).
 
-A set of syntax standards must be available for the users, to help him to create a **brick** following standard rules. This rules include the syntax to use when specifying a title, or a subtitle representing a step, or a block of code, etc...
+## Additional features
+
+As the development goes further, a smart system to collaborate among users is higly desiderable. A generic user should be able to:
+
+- rate a **brick**
+- comment a line or a block of code/text
+- comment the **brick**
+- suggest a better implementation
+- suggest repeated or partially repeated **bricks**
