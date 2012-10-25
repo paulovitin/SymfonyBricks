@@ -1,0 +1,54 @@
+{% extends "BricksUserBundle::layout.html.twig" %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span12">
+            <h1>Brick edit</h1>
+            
+            <form action="{{ (entity.isNew) ? path('user_brick_create') : path('user_brick_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }} id="user-brick-edit" class="form form-horizontal" novalidate>
+
+                {% if form_errors(form) %}
+                    <div class="form-errors">
+                        {{ form_errors(form) }}
+                    </div>
+                {% endif %}
+            
+                <div class="control-group">
+                    <label class="control-label" for="{{ form.title.vars.id }}">{{ form.title.vars.label }}</label>
+                    <div class="controls">
+                        {{ form_widget(form.title) }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label" for="{{ form.description.vars.id }}">{{ form.description.vars.label }}</label>
+                    <div class="controls">
+                        {{ form_widget(form.description) }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label class="control-label" for="{{ form.content.vars.id }}">{{ form.content.vars.label }}</label>
+                    <div class="controls">
+                        {{ form_widget(form.content) }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <a href="{{ path('user_brick') }}" class="btn">
+                            Back to the list
+                        </a>
+                    </div>
+                </div>
+                
+                {{ form_rest(form) }}
+                
+            </form>
+            
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "BricksUserBundle::layout.html.twig" %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span12">
+        
+            <h1>Bricks</h1>
+            
+            <table class="records_list table table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Published</th>
+                        <th>Last update</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}">{{ entity.title }}</a>
+                        </td>
+                        <td>
+                            {% if (entity.published) %}
+                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn btn-success">Published</a>
+                            {% else %}
+                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn">Not published</a>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if entity.updatedat %}
+                                {{ entity.updatedat|date('Y-m-d H:i:s') }}
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}" class="btn btn-mini">edit</a>
+                            {% render 'BricksUserBundle:Brick:_deleteForm' with {'id': entity.id} %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            
+            <br><br><br>
+            
+            <a href="{{ path('user_brick_new') }}" class="btn">
+                Create a new brick
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
