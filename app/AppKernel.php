@@ -26,6 +26,9 @@ class AppKernel extends Kernel
             // StofDoctrineExtensionsBundle
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             
+            // KnpMarkdownBundle
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\UserBundle\BricksUserBundle(),

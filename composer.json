@@ -21,8 +21,8 @@
         
         "friendsofsymfony/user-bundle": "*",
         "leafo/lessphp": "dev-master",
-        
-        "stof/doctrine-extensions-bundle": "dev-master"
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "knplabs/knp-markdown-bundle": "1.2.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

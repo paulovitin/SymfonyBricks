@@ -1,0 +1,29 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{% block main %}
+
+    <div id="brick-show-wrapper">
+
+        <div class="row">
+            <div class="span12">
+            
+                <h1>{{ brick.title }}</h1>
+                
+                <p class="description">{{ brick.description }}</p>
+                
+                <hr>
+                    <i class="icon-user"></i> {{ brick.user }}
+                    |
+                    <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                <hr>
+                
+                <div class="content">
+                    {{ brick.content|markdown }}
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
+    
+{% endblock %}
