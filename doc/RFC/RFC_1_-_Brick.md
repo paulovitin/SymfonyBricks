@@ -44,13 +44,30 @@ A set of syntax standards must be available for the **users**, to help him to cr
 
 ## Additional features
 
-As the development goes further, a smart system to collaborate among users is higly desiderable. A generic user should be able to:
+As the development goes further, a smart system to collaborate among users is higly desiderable.
 
-- rate a **brick**
+Regarding a brick, a generic user should be able to:
+
+- rate a **brick** (eg: from 0 to 5 stars)
 - comment a line or a block of code/text
 - comment the **brick**
-- suggest a better implementation
+- suggest a better implementation of the presented problem to solve
 - suggest repeated or partially repeated **bricks**
 
-## Discussion
+## Collaboration
+
+Introducing something like "roles" can be useful; regarding a **brick** there could be some different roles:
+
+- **owner**: the user who created the **brick**; he can *edit*, *publish/unpublish* and *delete* a **brick**
+- **collaborator**: a user marked as **collaborator** can *edit* and *publish/unpublish* a **brick**
+
+## User actions
+
+**Add to favorities**
+
+A user should be able to mark a **brick** as *favorite*, in order to easily find it in his reserved area when logged.
+
+
+## Discussion on github about this RFC
+
 [RFC 1 - Brick](https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/RFC/RFC_1_-_Brick.md) can be discussed in [issue #17](https://github.com/inmarelibero/SymfonyBricks/issues/17).
