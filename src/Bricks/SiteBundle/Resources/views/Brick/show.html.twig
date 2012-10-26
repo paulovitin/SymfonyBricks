@@ -15,6 +15,15 @@
                     <i class="icon-user"></i> {{ brick.user }}
                     |
                     <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                    
+                    
+                    <a href="https://twitter.com/share" class="twitter-share-button pull-right"
+                        data-url="{{ app.request.uri }}"
+                        data-text="{{ brick.title }} {{ app.request.uri }}"
+                        data-via="SymfonyBricks"
+                    >
+                        Tweet
+                    </a>
                 <hr>
                 
                 <div class="content">
