@@ -1,5 +1,9 @@
 {% extends 'BricksSiteBundle::layout.html.twig' %}
 
+{# SEO blocks #}
+{% block meta_title_content %}{{ brick.title }} | SymfonyBricks.com{% endblock %}
+{% block meta_description_content %}This guide s hosted on SymfonyBricks.com: an open source project for Symfony lovers.{% endblock %}
+
 {% block main %}
 
     <div id="brick-show-wrapper">
@@ -36,6 +40,3 @@
     </div>
     
 {% endblock %}
-
-{# SEO #}
-{% block meta_title_content %}{{ brick.title }} | SymfonyBricks.com{% endblock %}
