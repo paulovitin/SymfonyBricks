@@ -49,7 +49,7 @@ class BrickController extends Controller
     /**
      * Show a brick
      *
-     * @Route("/{id}/{slug}", name="brick_show")
+     * @Route("/{id}/{slug}", name="brick_show", requirements={"id"="\d+"})
      * @Template()
      */
     public function showAction($id)
