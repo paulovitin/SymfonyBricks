@@ -8,8 +8,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Bricks\SiteBundle\Entity\Brick
  *
- * @ORM\Table()
+ * @ORM\Table("brick")
  * @ORM\Entity(repositoryClass="Bricks\SiteBundle\Entity\BrickRepository")
+ * 
+ * @Gedmo\Loggable(logEntryClass="Bricks\SiteBundle\Entity\BrickLogEntry")
  */
 class Brick
 {
@@ -25,6 +27,7 @@ class Brick
     /**
      * @var text $title
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="text")
      */
     private $title;
@@ -32,6 +35,7 @@ class Brick
     /**
      * @var text $description
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
@@ -39,6 +43,7 @@ class Brick
     /**
      * @var text $content
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="text", nullable=true)
      */
     private $content;
@@ -52,6 +57,7 @@ class Brick
     /**
      * @var boolean $published
      *
+     * @Gedmo\Versioned
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $published;
