@@ -6,14 +6,14 @@
         {# SEO #}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>SymfonyBricks.com - Built by the community for the community</title>
-        <meta name="description" content="SymfonyBricks aims to be a repository of code, snippets and recipes useful to Symfony developers" />
-        <meta name="keywords" content="symfony, symfony2, symfony bricks, snippets, codes, recipes, cookbook, guides" />
-        <meta name="robots" content="index, follow" />
-        <meta name="googlebot" content="index, follow" />
-        <meta name="author" content="symfonybricks.com" />
-        <meta name="language" content="en"/>
-
+        <title>{% spaceless %}{% block meta_title_content %}SymfonyBricks.com | Built by the community for the community{% endblock %}{% endspaceless %}</title>
+        <meta name="description" content="{% spaceless %}{% block meta_description_content %}SymfonyBricks aims to be a repository of code, snippets and recipes useful to Symfony developers{% endblock %}{% endspaceless %}" />
+        <meta name="keywords" content="{% spaceless %}{% block meta_keywords_content %}symfony, symfony2, symfony bricks, snippets, codes, recipes, cookbook, guides{% endblock %}{% endspaceless %}" />
+        <meta name="robots" content="{% spaceless %}{% block meta_robots_content %}index, follow{% endblock %}{% endspaceless %}" />
+        <meta name="googlebot" content="{% spaceless %}{% block meta_googlebot_content %}index, follow{% endblock %}{% endspaceless %}" />
+        <meta name="author" content="{% spaceless %}{% block meta_author_content %}symfonybricks.com{% endblock %}{% endspaceless %}" />
+        <meta name="language" content="{% spaceless %}{% block meta_language_content %}en{% endblock %}{% endspaceless %}" />
+        
         {% stylesheets '@stylesheets' %}
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
