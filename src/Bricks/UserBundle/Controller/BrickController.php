@@ -150,6 +150,24 @@ class BrickController extends Controller
             'form'   => $editForm->createView(),
         );
     }
+    
+    /**
+     * Return the markdown formattation of an input text
+     * 
+     * \@TODO: refactor this function to some general utility class
+     * 
+     * @Route("/_render-markdown", name="_user_brick_renderMarkdown")
+     * @Template()
+     * @method("POST")
+     * 
+     * @param unknown_type $content
+     */
+    public function _renderMarkdownAction()
+    {
+        $content = $this->getRequest()->get('content');
+        
+        return array('content' => $content);
+    }
 
     /**
      * Deletes a Brick entity.

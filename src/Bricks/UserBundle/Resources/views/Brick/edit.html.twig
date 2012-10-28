@@ -31,7 +31,21 @@
                 <div class="control-group">
                     <label class="control-label" for="{{ form.content.vars.id }}">{{ form.content.vars.label }}</label>
                     <div class="controls">
-                        {{ form_widget(form.content) }}
+                        <ul class="nav nav-tabs" id="content-tab">
+                            <li class="active">
+                                <a href="#content-code" data-toggle="tab">Code</a>
+                            </li>
+                            <li>
+                                <a href="#content-preview" data-toggle="tab">Preview</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="content-code">
+                                {{ form_widget(form.content) }}
+                            </div>
+                            <div class="tab-pane" id="content-preview">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -51,4 +65,40 @@
         </div>
     </div>
 
+{% endblock %}
+
+{% block javascripts_footer %}
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('a[data-toggle="tab"]').on('shown', function (e) {
+                
+                // tab element pressed
+                var tabCaller = $(e.target);
+
+                // tab pane related
+                var paneTarget = $(tabCaller.attr('href'));
+
+                // if preview is requested
+                if (tabCaller.attr('href') == '#content-preview') {
+
+                    /**
+                     * perform ajax call to preview content
+                     */
+                	$.ajax({
+                	    url: "{{ path('_user_brick_renderMarkdown') }}",
+                	    data: {
+            	            'content': $('#content-code textarea').val()
+        	            },
+        	            type: 'POST',
+        	            beforeSend: function(e) {
+        	            	$('#content-preview').html('loading preview...');
+                        },
+        	            complete: function(e) {
+        	            	$('#content-preview').html(e.responseText);
+                        }
+            		})
+                }
+            })
+        });
+    </script>
 {% endblock %}
