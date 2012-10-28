@@ -57,5 +57,12 @@
 {% endblock %}
 
 {% block javascripts_footer %}
-<script type="text/javascript">jQuery(function($) { $('#github-issues').githubIssues(); });</script>
+    <script type="text/javascript">
+        /**
+         * load github issues
+         */
+        jQuery(function($) {
+            $('#github-issues').githubIssues();
+        });
+    </script>
 {% endblock %}
