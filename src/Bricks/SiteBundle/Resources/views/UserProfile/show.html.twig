@@ -1,0 +1,39 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{% block main %}
+
+    <div id="brick-show-wrapper">
+
+        <div class="row">
+            <div class="span12">
+            
+                <h1>{{ user.username }}</h1>
+                
+                <hr>
+                
+                <h3>Published bricks</h3>
+                
+                <ul class="bricks-list">
+                    {% for brick in publishedBricks %}
+                        <li>
+                            <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
+                                {{ brick.title }}
+                            </a>
+                            <p>
+                                <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
+                                |
+                                <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            
+            </div>
+        </div>
+        
+    </div>
+    
+{% endblock %}
+
+{# SEO #}
+{% block meta_title_content %}{{ user.username }} profile | SymfonyBricks.com{% endblock %}

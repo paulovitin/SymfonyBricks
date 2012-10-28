@@ -12,7 +12,7 @@
                 <p class="description">{{ brick.description }}</p>
                 
                 <hr>
-                    <i class="icon-user"></i> {{ brick.user }}
+                    <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
                     |
                     <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
                     

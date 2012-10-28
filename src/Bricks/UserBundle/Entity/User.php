@@ -33,6 +33,12 @@ class User extends BaseUser
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\Brick", mappedBy="user", cascade={"persist"})
+     * @ORM\OrderBy({"created_at" = "ASC"})
+     */
+    private $bricks;
 
     /**************************************************************************************************
      *	custom functions
@@ -100,5 +106,38 @@ class User extends BaseUser
     public function getUpdatedAt()
     {
         return $this->updated_at;
+    }
+
+    /**
+     * Add bricks
+     *
+     * @param Bricks\SiteBundle\Entity\Brick $bricks
+     * @return User
+     */
+    public function addBrick(\Bricks\SiteBundle\Entity\Brick $bricks)
+    {
+        $this->bricks[] = $bricks;
+    
+        return $this;
+    }
+
+    /**
+     * Remove bricks
+     *
+     * @param Bricks\SiteBundle\Entity\Brick $bricks
+     */
+    public function removeBrick(\Bricks\SiteBundle\Entity\Brick $bricks)
+    {
+        $this->bricks->removeElement($bricks);
+    }
+
+    /**
+     * Get bricks
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getBricks()
+    {
+        return $this->bricks;
     }
 }
