@@ -73,4 +73,24 @@ class BrickController extends Controller
             'brick' => $entity
         );
     }
+
+    /**
+     * Search bricks
+     *
+     * @Route("/search", name="brick_search")
+     * @Template()
+     */
+    public function searchAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $q = $this->getRequest()->get('q');
+        
+        $entities = $em->getRepository('BricksSiteBundle:Brick')->search($q);
+        
+        return array(
+            'q'        => $q,
+            'entities' => $entities
+        );
+    }
 }

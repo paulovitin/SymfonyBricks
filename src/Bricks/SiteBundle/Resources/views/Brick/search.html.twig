@@ -1,0 +1,39 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{% block main %}
+
+
+    <div id="brick-search-wrapper">
+
+        <div class="row">
+            <div class="span12">
+            
+                <h1>Results for "{{ q }}"</h1>
+                
+                <hr>
+                
+                {% if entities|length > 0 %}
+                    <ul class="bricks-list">
+                        {% for brick in entities %}
+                            <li>
+                                <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
+                                    {{ brick.title }}
+                                </a>
+                                <p>
+                                    <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
+                                    |
+                                    <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                                </p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    No bricks found
+                {% endif %}
+            
+            </div>
+        </div>
+        
+    </div>
+    
+{% endblock %}
