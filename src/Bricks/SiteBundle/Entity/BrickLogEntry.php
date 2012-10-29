@@ -8,7 +8,7 @@ use Gedmo\Loggable\Entity\LogEntry;
 /**
  * Bricks\SiteBundle\Entity\BrickLogEntry
  *
- * @ORM\Table("brick_log_entry")
+ * @ORM\Table(name="brick_log_entry")
  * @ORM\Entity()
  */
 class BrickLogEntry extends LogEntry

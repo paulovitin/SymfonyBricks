@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Bricks\SiteBundle\Entity\Brick
  *
- * @ORM\Table("brick")
+ * @ORM\Table(name="brick")
  * @ORM\Entity(repositoryClass="Bricks\SiteBundle\Entity\BrickRepository")
  * 
  * @Gedmo\Loggable(logEntryClass="Bricks\SiteBundle\Entity\BrickLogEntry")
