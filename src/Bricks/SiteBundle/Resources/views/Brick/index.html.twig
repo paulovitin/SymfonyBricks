@@ -15,7 +15,7 @@
                         <p>
                             <i class="icon-user"></i> {{ brick.user }}
                             |
-                            <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
                         </p>
                     </li>
                 {% endfor %}

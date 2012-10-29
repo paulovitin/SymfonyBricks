@@ -1,0 +1,21 @@
+####################################################################################################################
+# Configuration file for translations and locales                                                                  #
+####################################################################################################################
+
+parameters:
+    
+    # array of available interface translations
+    interface_translation_locales:
+        -
+            code: en
+        -
+            code: it
+        
+    # parameter to be used in routes.yml
+    # add |[locale] if a new interface locale is available
+    route_locale_requirements: '^it|en$'
+    
+twig:
+    globals:
+        # parameter accessible from twig templates
+        interface_translation_locales: "%interface_translation_locales%"

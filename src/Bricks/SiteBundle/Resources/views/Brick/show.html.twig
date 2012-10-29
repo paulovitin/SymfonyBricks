@@ -18,7 +18,7 @@
                 <hr>
                     <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
                     |
-                    <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
+                    <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
                     
                     
                     <a href="https://twitter.com/share" class="twitter-share-button pull-right"

@@ -1,32 +1,71 @@
+# homepage not localized: load the homepage with default language
+index_not_localized:
+    pattern:   /
+    defaults:  { _controller: BricksSiteBundle:Default:index, _locale: %locale% }
+
 # Bricks routes
 bricks_site:
     resource: "@BricksSiteBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}/
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
+    
 bricks_user:
     resource: "@BricksUserBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /{_locale}/
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
+
+# additional unlocalized login action
+login:
+    pattern:   /login
+    defaults:  { _controller: FOSUserBundle:Security:login, _locale: %locale% }
+
+# required unlocalized logout action
+logout:
+    pattern:   /logout
+    defaults:  { _controller: FOSUserBundle:Security:logout, _locale: %locale% }
+        
 
 # FOSUserBundle routes
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix:   /{_locale}/
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+    prefix: /{_locale}/profile
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
+    prefix:   /{_locale}/register
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
+    prefix: /{_locale}/resetting
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+    prefix: /{_locale}/profile
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
 
 
 # Internal routing configuration to handle ESI

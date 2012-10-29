@@ -1,0 +1,18 @@
+####################################################################################################################
+# Translations                                                                                                     #
+#                                                                                                                  #
+# general translations                                                                                             #
+####################################################################################################################
+
+# main navbar
+main_navbar:
+    contribute: contribuisci
+    github_repository: repository github
+    register: registrati
+    sign_in: entra
+
+# entries related to a Brick
+brick:
+    last_update: ultimo aggiornamento
+    search:
+        title: Risultati della ricerca "%q%"

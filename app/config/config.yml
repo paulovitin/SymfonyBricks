@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: assetic.yml    }
+    - { resource: locales.yml   }
     - { resource: security.yml   }
 
 parameters:

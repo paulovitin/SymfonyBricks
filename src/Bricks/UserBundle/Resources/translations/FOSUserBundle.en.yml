@@ -1,0 +1,16 @@
+# Security
+"Bad credentials": Invalid username or password
+
+security:
+    login:
+        title: Sign in
+        username: "Username:"
+        password: "Password:"
+        remember_me: Remember me
+        submit: Sign in
+    forgot_password: forgot password?
+
+# Registration
+registration:
+    title: Register on SymfonyBricks
+    submit: Confirm subscription

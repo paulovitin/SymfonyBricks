@@ -12,7 +12,11 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-            logout:       true
+                login_path:     fos_user_security_login 
+                check_path:     fos_user_security_check
+            logout:
+                path:        logout
+                target:      /
             anonymous:    true
             remember_me:
                 key:      "%secret%"
@@ -21,11 +25,12 @@ security:
                 domain:   ~ # Defaults to the current domain from $_SERVER
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^(/(%route_locale_requirements%)/login)|(/login)$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%route_locale_requirements%)/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%route_locale_requirements%)/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(%route_locale_requirements%)/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         
-        - { path: ^/user/, role: IS_AUTHENTICATED_FULLY }
+        - { path: ^/(%route_locale_requirements%)/user/, role: IS_AUTHENTICATED_FULLY }
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

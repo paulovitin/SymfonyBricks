@@ -12,7 +12,7 @@
         <meta name="robots" content="{% spaceless %}{% block meta_robots_content %}index, follow{% endblock %}{% endspaceless %}" />
         <meta name="googlebot" content="{% spaceless %}{% block meta_googlebot_content %}index, follow{% endblock %}{% endspaceless %}" />
         <meta name="author" content="{% spaceless %}{% block meta_author_content %}symfonybricks.com{% endblock %}{% endspaceless %}" />
-        <meta name="language" content="{% spaceless %}{% block meta_language_content %}en{% endblock %}{% endspaceless %}" />
+        <meta name="language" content="{% spaceless %}{% block meta_language_content %}{{ app.request.locale }}{% endblock %}{% endspaceless %}" />
         
         {% stylesheets '@stylesheets' %}
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
@@ -61,16 +61,21 @@
                                         </div>
                                     </form>
                                 </li>
+                                <li id="nav-locales">
+                                    {% for locale in interface_translation_locales %}
+                                        <a href="{{ path('homepage', {'_locale': locale.code}) }}">{{ locale.code }}</a>
+                                    {% endfor %}
+                                </li>
                             </ul>
                             <ul class="nav pull-right">
                                 <li>
                                     <a href="{{ path('contribute') }}">
-                                        contribute
+                                        {{ 'main_navbar.contribute'|trans }}
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
-                                        github repository
+                                        {{ 'main_navbar.github_repository'|trans }}
                                     </a>
                                 </li>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -78,18 +83,18 @@
                                         <a href="{{ path('user_dashboard') }}"><i class="icon-user"></i> {{ app.user.username }}</a>                                    
                                     </li>
                                     <li>
-                                        <a href="{{ path('fos_user_security_logout') }}"><i class="icon-off"></i></a>
+                                        <a href="{{ path('logout') }}"><i class="icon-off"></i></a>
                                     </li>
 
                                 {% else %}
                                     <li>
                                         <a href="{{ path('fos_user_registration_register') }}">
-                                            register
+                                            {{ 'main_navbar.register'|trans }}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ path('fos_user_security_login') }}">
-                                            sign in
+                                            {{ 'main_navbar.sign_in'|trans }}
                                         </a>
                                     </li>
                                 {% endif %}
@@ -118,7 +123,11 @@
                         </ul>
                     </div>
                     <div class="span4" style="text-align: center">
-                        online since Mon 1 Oct 2012 23:15:23 CEST
+                        {% if 'it' == app.request.locale %}
+                            online da: Lun 1 Ott 2012, 23:15:23 CEST
+                        {% else %}
+                            online since: Mon 1 Oct 2012, 23:15:23 CEST
+                        {% endif %}
                     </div>
                     <div class="span4" style="text-align: right">
                         <a href="https://twitter.com/SymfonyBricks" class="twitter-follow-button" data-show-count="false">Follow @SymfonyBricks</a>

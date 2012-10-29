@@ -7,12 +7,22 @@
         <div class="row">
             <div class="span12">
             
-                <h1>Content not available</h1>
+                <h1>
+                    {% if 'it' == app.request.locale %}
+                        Contenuto non disponibile
+                    {% else %}
+                        Content not available
+                    {% endif %}
+                </h1>
                 
                 <br><br>
                 
                 <p>
-                    The content you are trying to access exists, but it is currently not published.
+                    {% if 'it' == app.request.locale %}
+                        Il contenuto al quale stai cercando di accedere esiste, ma è attualmente non pubblicato.
+                    {% else %}
+                        The content you are trying to access exists, but it is currently not published.
+                    {% endif %}
                 </p>
                 
             </div>

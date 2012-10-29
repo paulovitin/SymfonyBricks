@@ -1,0 +1,11 @@
+####################################################################################################################
+# Translations                                                                                                     #
+#                                                                                                                  #
+# route name: homepage                                                                                             #
+####################################################################################################################
+
+how_to_contribute: contribute
+sign_up: Sign up
+relevant_links: Relevant links
+
+homepage.contribute.next_step: 'The next step is to have a look at <a href="%href%">the section "Contribute"</a> for more detailed informations.'
