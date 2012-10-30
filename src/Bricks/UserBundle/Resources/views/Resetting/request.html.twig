@@ -7,16 +7,17 @@
 {% block main %}
 
     <div class="row">
-        <div class="span6 offset3">
-        
-            <h1>Request password reset</h1>
-            
-            <br><br>
-            
+        <div class="span9 offset3">
+            <h1>{{ 'resetting.title'|trans({}, 'FOSUserBundle') }}</h1>
+        </div>
+    </div>
+    
+    <br><br>
+    
+    <div class="row">
+        <div class="span6 offset3">    
             <p>
-                Insert your email address in the box below.
-                <br>
-                You will recive an email with the instructions to reset your password.
+                {{ 'resetting.subtitle'|trans({}, 'FOSUserBundle')|raw }}
             </p>
             
             <br><br>
@@ -26,14 +27,13 @@
                     {% if invalid_username is defined %}
                         <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
                     {% endif %}
-                    <label for="username">Username or email address</label>
+                    <label for="username">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle')|raw }}</label>
                     <input type="text" id="username" name="username" required="required" />
                 </div>
                 <div>
-                    <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" class="btn"/>
+                    <input type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary" />
                 </div>
             </form>
-            
         </div>
     </div>
     

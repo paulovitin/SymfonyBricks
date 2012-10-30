@@ -5,22 +5,18 @@
     <div class="row">
         <div class="span12">
         
-            <h1>Thank you for your registration!</h1>
+            <h1>{{ 'registration.checkEmail.page_title'|trans({}, 'FOSUserBundle') }}</h1>
             
             <br><br>
             
             <p>
-               An email has been sent to your email address.
-               <br><br>
-               It contains an activation link you must click to activate your account.
-               <br><br><br>
-               You will then be able to sign in <a href="{{ path('fos_user_security_login') }}">here.</a> 
+                {{ 'registration.checkEmail.message'|trans({'%login_url%': url('fos_user_security_login')}, 'FOSUserBundle')|raw }}
             </p>
             
             <br><br>
             
             <h3>
-                Congrats, you just made the first step to be part of this community!
+                {{ 'registration.checkEmail.congrats'|trans({}, 'FOSUserBundle') }}
             </h3>
             
         </div>

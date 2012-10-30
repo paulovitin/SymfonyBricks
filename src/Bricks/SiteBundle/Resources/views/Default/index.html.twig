@@ -49,15 +49,15 @@
                 <ul>
                     <li>
                         <a href="{{ path('contribute') }}" class="btn">
-                            <i class="icon-hand-right"></i> {{ 'how_to_contribute'|trans({}, 'homepage') }}
+                            <i class="icon-hand-right"></i> {{ 'how_to_contribute'|trans({}, 'route_homepage') }}
                         </a>
                     </li>
                     <li>
-                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success"><i class="icon-user icon-white"></i> {{ 'sign_up'|trans({}, 'homepage') }}</a>
+                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success"><i class="icon-user icon-white"></i> {{ 'sign_up'|trans({}, 'route_homepage') }}</a>
                     </li>
                 </ul>
                 <div id="relevant-links">
-                    <h2>{{ 'relevant_links'|trans({}, 'homepage') }}</h2>
+                    <h2>{{ 'relevant_links'|trans({}, 'route_homepage') }}</h2>
                     <ul>
                         <li><a href="https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/RFC/RFC_1_-_Brick.md" target="_blank">RFC 1 - Brick</a></li>
                         <li><a href="https://github.com/inmarelibero/SymfonyBricks/issues/1" target="_blank">Tweaking documentation: is the purpose of symfonybricks.com clear?</a></li>
@@ -182,7 +182,7 @@
         <br><br><br>
         <div class="row">
             <div class="span12">
-                {{ 'homepage.contribute.next_step'|trans({'%href%': path('contribute')}, 'homepage')|raw }}
+                {{ 'contribute_next_step'|trans({'%href%': path('contribute')}, 'route_homepage')|raw }}
             </div>
         </div>
     </div>

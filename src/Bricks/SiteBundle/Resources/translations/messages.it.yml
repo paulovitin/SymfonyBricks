@@ -5,14 +5,28 @@
 ####################################################################################################################
 
 # main navbar
+# entries to translate the main navigation bar
 main_navbar:
     contribute: contribuisci
     github_repository: repository github
     register: registrati
     sign_in: entra
 
-# entries related to a Brick
+# entries regarding stuff related to a Brick
 brick:
+    title: titolo
+    description: descrizione
+    content: contenuto
+    published: pubblicato
+    not_published: non pubblicato
     last_update: ultimo aggiornamento
+    
+    # brick search
     search:
-        title: Risultati della ricerca "%q%"
+        page_title: Risultati della ricerca "%q%"
+
+# general translations (alphabetical order)
+back_to_the_list: torna alla lista
+delete: rimuovi
+edit: modifica
+save: salva

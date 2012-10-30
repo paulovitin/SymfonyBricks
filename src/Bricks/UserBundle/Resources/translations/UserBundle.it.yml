@@ -1,0 +1,26 @@
+####################################################################################################################
+# User interfaces translation                                                                                      #
+#                                                                                                                  #
+# entries to translate the templates stored in UserBundle                                                          #
+####################################################################################################################
+
+# user navbar
+# entries to translate the user navigation bar
+user_navbar:
+    dashboard: DASHBOARD
+    bricks: BRICKS
+    profile: PROFILO
+    edit_profile: Modifica profilo
+    change_password: Cambia password
+    create_brick: CREA BRICK
+
+# Bricks
+# bricks related interfaces
+brick:
+    title: titolo
+    create_new_brick: Crea un nuovo brick
+    edit_brick: Modifica brick
+    code: codice
+    preview: anteprima
+    confirm_deletion: "Questa operazione non può essere annullata. Continuare?"
+    

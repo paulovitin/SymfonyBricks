@@ -5,6 +5,7 @@
 ####################################################################################################################
 
 # main navbar
+# entries to translate the main navigation bar
 main_navbar:
     contribute: contribute
     github_repository: github repository
@@ -13,6 +14,19 @@ main_navbar:
 
 # entries related to a Brick
 brick:
+    title: title
+    description: description
+    content: content
+    published: published
+    not_published: not published
     last_update: last update
+    
+    # brick search
     search:
-        title: Results for "%q%"
+        page_title: Results for "%q%"
+        
+# general translations (alphabetical order)
+back_to_the_list: Back to the list
+delete: delete
+edit: edit
+save: save

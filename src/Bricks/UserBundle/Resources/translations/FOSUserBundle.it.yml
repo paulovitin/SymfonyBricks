@@ -1,16 +1,60 @@
 # Security
-"Bad credentials": Invalid username or password
+"Bad credentials": Username o password non validi
 
 security:
     login:
-        title: Login
+        page_title: Login
         username: "Username:"
         password: "Password:"
         remember_me: Mantienimi loggato
         submit: Entra
     forgot_password: hai dimenticato la password?
-        
+
+# Profile
+profile:
+    page_title: Modifica profilo
+
+# Password change
+change_password:
+    title: Cambia password
+    submit: Invia
+
 # Registration
 registration:
     title: Registrati su SymfonyBricks
     submit: Conferma iscrizione
+    email:
+        subject: "SymfonyBricks: Registrazione"
+        message: |
+            Ciao %username%, grazie per esserti registrato su SymfonyBricks.
+            
+            Per attivare il tuo account apri questo link: %confirmationUrl%
+            
+            Saluti,
+            SymfonyBricks Team.
+        message_html: |
+            Ciao %username%, grazie per esserti registrato su SymfonyBricks.
+            <br><br>
+            Per attivare il tuo account apri <a href="%confirmationUrl%">questo link.</a>
+            <br><br><br>
+            SymfonyBricks Team.
+    checkEmail:
+        page_title: Grazie per esserti registrato!
+        message: |
+            Ti è stata inviata un'email contenente un link di sicurezza che dovrai aprire per attivare il tuo account.
+        congrats: Congratulazioni, hai appena compiuto il primo passo per fare parte di questa comunità!
+    confirmed:
+        page_title: Registrazione confermata
+        message: Congratulazioni <b>%username%</b>, il tuo account è ora attivo.
+          
+# Password resetting
+resetting:
+    title: Richiedi reset della password
+    subtitle: |
+        Inserisci il tuo indirizzo email nel box sottostante.
+        <br><br>
+        Riceverai un'email con le istruzioni per resettare la tua password.
+    request:
+        username: "Inserisci il tuo username o il tuo indirizzo email:"
+        submit: Resetta password
+            

@@ -3,9 +3,7 @@
 #                                                                                                                  #
 # route name: homepage                                                                                             #
 ####################################################################################################################
-
 how_to_contribute: contribuisci
 sign_up: Iscriviti
 relevant_links: Link in primo piano
-
-homepage.contribute.next_step: 'Il prossimo passo è visitare <a href="%href%">la sezione "Contribuisci"</a> per avere più informazioni.'
+contribute_next_step: 'Il prossimo passo è visitare <a href="%href%">la sezione "Contribuisci"</a> per avere più informazioni.'

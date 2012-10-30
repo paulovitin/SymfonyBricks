@@ -1,0 +1,25 @@
+####################################################################################################################
+# User interfaces translation                                                                                      #
+#                                                                                                                  #
+# entries to translate the templates stored in UserBundle                                                          #
+####################################################################################################################
+
+# user navbar
+# entries to translate the user navigation bar
+user_navbar:
+    dashboard: DASHBOARD
+    bricks: BRICKS
+    profile: PROFILE
+    edit_profile: Edit profile
+    change_password: Change password
+    create_brick: CREATE NEW BRICK
+
+# Bricks
+# bricks related interfaces
+brick:
+    title: title
+    create_new_brick: Create a new brick
+    edit_brick: Edit brick
+    code: code
+    preview: preview
+    confirm_deletion: "This operation cannot be undone. Confirm the deletion?"

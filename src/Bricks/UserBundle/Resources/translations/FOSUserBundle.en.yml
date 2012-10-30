@@ -3,14 +3,57 @@
 
 security:
     login:
-        title: Sign in
+        page_title: Sign in
         username: "Username:"
         password: "Password:"
         remember_me: Remember me
         submit: Sign in
     forgot_password: forgot password?
 
+# Profile
+profile:
+    page_title: Edit profile
+
+# Password change
+change_password:
+    title: Change password
+    submit: Submit
+
 # Registration
 registration:
     title: Register on SymfonyBricks
     submit: Confirm subscription
+    email:
+        subject: "SymfonyBricks: Registration"
+        message: |
+            Hello %username%, thank you for registrating on SymfonyBricks.
+            
+            To activate your account visit this link: %confirmationUrl%
+            
+            Regards,
+            the SymfonyBricks Team.
+        message_html: |
+            Hello %username%, thank you for registrating on SymfonyBricks.
+            <br><br>
+            To activate your account visit <a href="%confirmationUrl%">this link.</a>
+            <br><br><br>
+            The SymfonyBricks Team.
+    checkEmail:
+        page_title: Thank you for your registration!
+        message: |
+            An email, containing a security link you must click to activate your account, has been sent to your email address.
+        congrats: Congrats, you just made the first step to be part of this community!
+    confirmed:
+        page_title: Registration confirmed
+        message: Congrats <b>%username%</b>, your account is active.
+          
+# Password resetting
+resetting:
+    title: Request password reset
+    subtitle: |
+        Insert your email address in the box below.
+        <br><br>
+        You will recive an email with the instructions to reset your password.
+    request:
+        username: "Insert your username or email address:"
+        submit: Reset password

@@ -10,9 +10,9 @@
             <table class="records_list table table-striped">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Published</th>
-                        <th>Actions</th>
+                        <th>{{ 'brick.title'|trans|capitalize }}</th>
+                        <th>{{ 'brick.published'|trans|capitalize }}</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,17 +21,17 @@
                         <td>
                             <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}">{{ entity.title }}</a>
                             <br>
-                            <i class="icon-calendar"></i> Last update: {{ entity.updatedat|date('Y-m-d H:i:s') }}
+                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ entity.updatedat|date('Y-m-d H:i:s') }}
                         </td>
                         <td>
                             {% if (entity.published) %}
-                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn btn-success"><i class="icon-ok icon-white"></i> Published</a>
+                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn btn-success"><i class="icon-ok icon-white"></i> {{ 'brick.published'|trans|capitalize }}</a>
                             {% else %}
-                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn"><i class="icon-remove"></i> Not published</a>
+                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn"><i class="icon-remove"></i> {{ 'brick.not_published'|trans|capitalize }}</a>
                             {% endif %}
                         </td>
                         <td>
-                            <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}" class="btn btn-mini"><i class="icon-edit"></i> edit</a>
+                            <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}" class="btn btn-mini"><i class="icon-edit"></i> {{ 'edit'|trans }}</a>
                             {% render 'BricksUserBundle:Brick:_deleteForm' with {'id': entity.id} %}
                         </td>
                     </tr>
@@ -40,7 +40,7 @@
             </table>
             
             <a href="{{ path('user_brick_new') }}" class="btn btn-primary">
-                Create a new brick
+                {{ 'brick.create_new_brick'|trans({}, 'UserBundle') }}
             </a>
         </div>
     </div>

@@ -12,15 +12,10 @@ class BrickType extends AbstractType
     {
         $builder
             ->add('title', 'textarea', array(
-                'label' => 'Title',
                 'error_bubbling' => true
             ))
-            ->add('description', 'textarea', array(
-                'label' => 'Description'
-            ))
-            ->add('content', 'textarea', array(
-                'label' => 'Content'
-            ))
+            ->add('description', 'textarea')
+            ->add('content', 'textarea')
         ;
     }
 
