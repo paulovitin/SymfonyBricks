@@ -6,10 +6,12 @@ parameters:
     
     # array of available interface translations
     interface_translation_locales:
-        -
+        en:
             code: en
-        -
+            flag: gb.png
+        it:
             code: it
+            flag: it.png
         
     # parameter to be used in routes.yml
     # add |[locale] if a new interface locale is available

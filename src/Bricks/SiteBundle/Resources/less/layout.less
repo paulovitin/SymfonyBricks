@@ -118,11 +118,22 @@ MAIN NAVBAR
         }
         
         li#nav-locales {
+            margin-top: 2px;
             padding-left: 20px;
-            a {
-                display: inline-block;
-                padding-left: 3px;
-                padding-right: 3px;
+            .btn-group { z-index:   0;
+                & > .btn { padding-bottom: 6px; }
+                .dropdown-menu {
+                    min-width: 0px;
+                    z-index:    -1;
+                    margin-top: -12px;
+                    padding:    10px 0px 4px 0px;
+                    
+                    a {
+                        display: inline-block;
+                        padding-left: 16px;
+                        padding-right: 16px;
+                    }
+                }
             }
         }
     }
