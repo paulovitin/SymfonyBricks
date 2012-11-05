@@ -27,7 +27,13 @@
                         {% endfor %}
                     </ul>
                 {% else %}
-                    No bricks found
+                    {% if 'it' == app.request.locale %}
+                        Nessun risultato trovato
+                    {% elseif 'es' == app.request.locale %}
+                        No se encontraron resultados
+                    {% else %}
+                        No bricks found
+                    {% endif %}
                 {% endif %}
             
             </div>
