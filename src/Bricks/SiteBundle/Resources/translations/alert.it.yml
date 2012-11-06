@@ -1,0 +1,18 @@
+####################################################################################################################
+# Translations                                                                                                     #
+#                                                                                                                  #
+# alert messages translations                                                                                      #
+####################################################################################################################
+
+alert:
+    brick:
+        create:
+            success: Brick creato con successo
+            error: Si sono verificati degli errori durante il salvataggio
+        update:
+            success: Modifiche salvate con successo
+            error: Si sono verificati degli errori durante il salvataggio
+        delete:
+            success: Brick deleted successfully
+            error: Si sono verificati degli errori durante la cancellazione
+            

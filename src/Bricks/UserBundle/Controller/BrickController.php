@@ -76,9 +76,13 @@ class BrickController extends Controller
             
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->setFlash('success', 'alert.brick.create.success');
 
             return $this->redirect($this->generateUrl('user_brick_edit', array('id' => $entity->getId())));
         }
+        
+        $this->get('session')->setFlash('error', 'alert.brick.create.error');
 
         return array(
             'entity' => $entity,
@@ -119,7 +123,7 @@ class BrickController extends Controller
      *
      * @Route("/{id}/update", name="user_brick_update")
      * @Method("POST")
-     * @Template("BricksSiteBundle:Brick:edit.html.twig")
+     * @Template("BricksUserBundle:Brick:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -141,9 +145,13 @@ class BrickController extends Controller
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
-
+            
+            $this->get('session')->setFlash('success', 'alert.brick.update.success');
+            
             return $this->redirect($this->generateUrl('user_brick_edit', array('id' => $id)));
         }
+        
+        $this->get('session')->setFlash('error', 'alert.brick.update.error');
 
         return array(
             'entity'      => $entity,
@@ -193,6 +201,10 @@ class BrickController extends Controller
             
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->setFlash('success', 'alert.brick.delete.success');
+        } else {
+            $this->get('session')->setFlash('error', 'alert.brick.delete.error');
         }
 
         return $this->redirect($this->generateUrl('user_brick'));

@@ -1,0 +1,18 @@
+####################################################################################################################
+# Translations                                                                                                     #
+#                                                                                                                  #
+# alert messages translations                                                                                      #
+####################################################################################################################
+
+alert:
+    brick:
+        create:
+            success: Brick creado con éxito
+            error: Se han producido errores
+        update:
+            success: Modificaciones guardadas con éxito
+            error: Se han producido errores
+        delete:
+            success: Brick eliminado con éxito
+            error: Se han producido errores
+            

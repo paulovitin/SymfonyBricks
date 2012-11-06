@@ -1,0 +1,18 @@
+####################################################################################################################
+# Translations                                                                                                     #
+#                                                                                                                  #
+# alert messages translations                                                                                      #
+####################################################################################################################
+
+alert:
+    brick:
+        create:
+            success: Brick created successfully
+            error: Errors occurred while saving
+        update:
+            success: Changes were saved successfully
+            error: Errors occurred while saving
+        delete:
+            success: Brick deleted successfully
+            error: Errors occurred while deleting
+            
