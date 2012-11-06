@@ -122,7 +122,38 @@
             </header>
 
             <section id="main">
+            
                 <div class="container">
+                    {% if app.session.hasFlash('success') or app.session.hasFlash('error') or app.session.hasFlash('information') %}
+                        <div class="row">
+                            <div class="span12">
+                            
+                                {% set alertClass = '' %}
+                                {% if app.session.hasFlash('success') %}
+                                    {% set alertClass = 'alert-success' %}
+                                {% elseif app.session.hasFlash('error') %}
+                                    {% set alertClass = 'alert-error' %}
+                                {% elseif app.session.hasFlash('information') %}
+                                    {% set alertClass = 'alert-information' %}
+                                {% endif %}
+                                
+                                <div class="alert {{ alertClass }}">
+                                    <a class="close" data-dismiss="alert">×</a>
+                                    
+                                    {% if app.session.hasFlash('success') %}
+                                        {{ app.session.getFlash('success')|trans({}, 'alert') }}
+                                    {% elseif app.session.hasFlash('error') %}
+                                        {{ app.session.getFlash('error')|trans({}, 'alert') }}
+                                    {% elseif app.session.hasFlash('information') %}
+                                        {{ app.session.getFlash('information')|trans({}, 'alert') }}
+                                    {% endif %}
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                    {% endif %}
+            
                     {% block main %}{% endblock %}
                 </div>
             </section>
