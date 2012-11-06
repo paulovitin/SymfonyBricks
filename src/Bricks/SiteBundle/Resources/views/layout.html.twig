@@ -61,32 +61,6 @@
                                         </div>
                                     </form>
                                 </li>
-                                <li id="nav-locales">
-                                    <div class="btn-group">
-                                        <button class="btn btn-mini">
-                                            {% if interface_translation_locales[app.request.locale] is not null %}
-                                                <img src="{{ asset('img/flags/'~interface_translation_locales[app.request.locale]['flag']) }}">
-                                            {% else %}
-                                                {{ app.request.locale }}
-                                            {% endif %}
-                                        </button>
-                                        <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        {% for locale in interface_translation_locales %}
-                                            <li>
-                                                <a href="{{ path('homepage', {'_locale': locale.code}) }}">
-                                                    <img src="{{ asset('img/flags/'~locale.flag) }}">
-                                                </a>
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                    </div>
-                                        {#
-                                        #}
-                                    </select>
-                                </li>
                             </ul>
                             <ul class="nav pull-right">
                                 <li>
@@ -119,6 +93,27 @@
                                         </a>
                                     </li>
                                 {% endif %}
+                                <li id="nav-locales">
+                                    <div class="btn-group">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                            {% if interface_translation_locales[app.request.locale] is not null %}
+                                                <img src="{{ asset('img/flags/'~interface_translation_locales[app.request.locale]['flag']) }}">
+                                            {% else %}
+                                                {{ app.request.locale }}
+                                            {% endif %}
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            {% for locale in interface_translation_locales %}
+                                                <li>
+                                                    <a href="{{ path('homepage', {'_locale': locale.code}) }}">
+                                                        <img src="{{ asset('img/flags/'~locale.flag) }}">
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
