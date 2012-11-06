@@ -30,7 +30,10 @@ class BrickController extends Controller
         
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('BricksSiteBundle:Brick')->findBy(array('user' => $user->getId()));
+        $entities = $em->getRepository('BricksSiteBundle:Brick')->findBy(
+            array('user' => $user->getId()),
+            array('updated_at' => 'DESC')
+        );
 
         return array(
             'entities' => $entities,
