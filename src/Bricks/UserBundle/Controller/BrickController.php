@@ -273,6 +273,12 @@ class BrickController extends Controller
         $em->persist($entity);
         $em->flush();
         
+        if ($entity->getPublished()) {
+            $this->get('session')->setFlash('success', 'alert.brick.togglePublished.published');
+        } else {
+            $this->get('session')->setFlash('information', 'alert.brick.togglePublished.unpublished');
+        }
+        
         return $this->redirect($this->generateUrl('user_brick'));
     }
 }

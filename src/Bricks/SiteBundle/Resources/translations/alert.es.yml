@@ -15,4 +15,7 @@ alert:
         delete:
             success: Brick eliminado con éxito
             error: Se han producido errores
+        togglePublished:
+            published: Brick publicado con éxito 
+            unpublished: El brick está ahora NO publicado
             

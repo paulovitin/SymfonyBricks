@@ -15,4 +15,7 @@ alert:
         delete:
             success: Brick deleted successfully
             error: Errors occurred while deleting
+        togglePublished:
+            published: Brick has been published successfully
+            unpublished: Brick is now NOT published
             
