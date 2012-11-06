@@ -1,0 +1,25 @@
+####################################################################################################################
+# User interfaces translation                                                                                      #
+#                                                                                                                  #
+# entries to translate the templates stored in UserBundle                                                          #
+####################################################################################################################
+
+# user navbar
+# entries to translate the user navigation bar
+user_navbar:
+    dashboard: DASHBOARD
+    bricks: BRICKS
+    profile: PERFIL
+    edit_profile: Modificar perfil
+    change_password: Cambiar contraseña
+    create_brick: CREAR BRICK
+
+# Bricks
+# bricks related interfaces
+brick:
+    title: titulo
+    create_new_brick: Crear un nuovo brick
+    edit_brick: Modificar brick
+    code: codigo
+    preview: previsualización
+    confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"

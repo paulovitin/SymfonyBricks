@@ -13,6 +13,8 @@
                 <p style="font-size: 22px;">
                     {% if 'it' == app.request.locale %}
                         Costruito dalla comunità, per la comunità.
+                    {% elseif 'es' == app.request.locale %}
+                        Construido por la comunidad, para la comunidad
                     {% else %}
                         Built by the community, for the community
                     {% endif %}
@@ -21,6 +23,8 @@
                 <p style="font-size: 20px;">
                     {% if 'it' == app.request.locale %}
                         SymfonyBricks punta ad essere un repository di guide, frammenti di codice, ricette ed altro ancora.
+                    {% elseif 'es' == app.request.locale %}
+                        SymfonyBricks pretende ser un repositorio de guías, fragmentos de código, recetas y mucho más.
                     {% else %}
                         SymfonyBricks aims to be a repository of guides, snippets of code, recipes and even more.
                     {% endif %}
@@ -30,6 +34,8 @@
                     <i class="icon-download" style="vertical-align: middle;"></i>
                     {% if 'it' == app.request.locale %}
                         contenuti condivisi da chiunque almeno una volta abbia risolto un problema relativo a Symfony
+                    {% elseif 'es' == app.request.locale %}
+                        contenidos compartidos por todos los que al menos una vez hayan resuelto un problema relacionado con Symfony
                     {% else %}
                         knowledge is shared by everybody in his life ever solved a problem regarding Symfony
                     {% endif %}
@@ -38,6 +44,8 @@
                     <i class="icon-wrench" style="vertical-align: middle;"></i>
                     {% if 'it' == app.request.locale %}
                         utile agli stessi sviluppatori Symfony: non reinventiamo la ruota ogni volta!
+                    {% elseif 'es' == app.request.locale %}
+                        útil para los mismos desarrolladores Symfony: no reinventemos la rueda cada vez!
                     {% else %}
                         useful to the same Symfony developers: don't reinvent the wheel!
                     {% endif %}
@@ -96,9 +104,19 @@
         
         <div class="row" style="text-align: justify;">
             <div class="span5">
-                <h2>Open source</h2>
+                <h2>
+                    {% if 'it' == app.request.locale %}
+                        Open source
+                    {% elseif 'es' == app.request.locale %}
+                        Código abierto
+                    {% else %}
+                        Open source
+                    {% endif %}
+                </h2>
                 {% if 'it' == app.request.locale %}
                     Il codice sorgente del sito web che stai visitando è interamente disponibile su github: pronto per essere esaminato e migliorato.
+                {% elseif 'es' == app.request.locale %}
+                    El código fuente de la página web que estás visitando es totalmente disponible en github: listo para ser examinado y mejorado.
                 {% else %}
                     The source code of the web site you are visiting is fully available on github: ready to be examined, forked, and improved.
                 {% endif %}
@@ -106,6 +124,8 @@
                 <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
                     {% if 'it' == app.request.locale %}
                         Accedi al repository github.
+                    {% elseif 'es' == app.request.locale %}
+                        Visita el repositorio github.
                     {% else %}
                         Check out the github repository.
                     {% endif %}
@@ -113,6 +133,8 @@
                 <br><br>
                 {% if 'it' == app.request.locale %}
                     Chiunque è invitato a collaborare: puoi dare una mano in molto modi. Siamo fan dell'open source, come tutte le persone che contribuiscono a Symfony. E ci aiutiamo ;)
+                {% elseif 'es' == app.request.locale %}
+                    Todo el mundo está invitado a colaborar: puedes ayudar de muchas maneras. Somos fans del código abierto, como todas las personas que contribuyen a Symfony. Y nos ayudamos ;)
                 {% else %}
                     Everyone is invited to collaborate: you can give a hand in many, many ways. We are open source lovers, like all the people contributing to Symfony. And we help each other ;)
                 {% endif %}
@@ -121,18 +143,24 @@
                 <h2>
                     {% if 'it' == app.request.locale %}
                         Per la comunità
+                    {% elseif 'es' == app.request.locale %}
+                        Para la comunidad
                     {% else %}
                         For the community
                     {% endif %}
                 </h2>
                     {% if 'it' == app.request.locale %}
                         L'obiettivo è diventare un repository omogeneo di frammenti di codice, ricette e guide (e altro che non riusciamo nemmeno ad immaginare ora) riguardanti Symfony e argomenti correlati.
+                    {% elseif 'es' == app.request.locale %}
+                        El objetivo es convertirse en un repositorio homogéneo de fragmentos de código, recetas y guías (y más cosas que no podemos ni siquiera imaginar ahora) sobre Symfony y temas relacionados.
                     {% else %}
                         The purpose is to become an homogeneous repository of code snippets, recipes and guides (and other we cannot even imagine now) about Symfony and topics related to it.
                     {% endif %}
                 <br><br>
                     {% if 'it' == app.request.locale %}
                         I contenuti di questo sito sono inviati da te: in base alle tue possibilità potrai condividere una nuova guida, contribuire alla sua traduzione, migliorarla, correggere errori, o semplicemente esprimere un giudizio sulla sua utilità.
+                    {% elseif 'es' == app.request.locale %}
+                       Los contenidos de esta plataforma estàn creados por ti: de acuerdo con tu capacidad, podrás compartir una nueva guía, contribuyr a su traducción, mejorarla, corregir errores, o simplemente expresar una opinión sobre su utilidad. 
                     {% else %}
                         Contents will be submitted by you: depending on your possibilities you will post a new recipe, contribute to its translation, improve them, correct errors, or just express a judgement about its utility.
                     {% endif %}
@@ -144,12 +172,16 @@
                 <h3>
                     {% if 'it' == app.request.locale %}
                         Partecipa
+                    {% elseif 'es' == app.request.locale %}
+                        Participa
                     {% else %}
                         Get involved
                     {% endif %}
                 </h3>
                 {% if 'it' == app.request.locale %}
                     La prima cosa che puoi fare è mantenerti aggiornato attraverso Twitter e spargere la voce su SymfonyBricks.
+                {% elseif 'es' == app.request.locale %}
+                    Lo primero que puedes hacer es mantenerte al día a través de Twitter y difundir la palabra acerca de SymfonyBricks.
                 {% else %}
                     The first important thing you can do is to use Twitter to stay tuned with the latest updates and to spread the word about SymfonyBricks.
                 {% endif %}
@@ -161,6 +193,8 @@
                 <p class="text-italic text-small">
                     {% if 'it' == app.request.locale %}
                         Segui SymfonyBricks su Twitter
+                    {% elseif 'es' == app.request.locale %}
+                        Sigue SymfonyBricks en Twitter
                     {% else %}
                         Follow SymfonyBricks on Twitter
                     {% endif %}
@@ -171,6 +205,8 @@
                 <p class="text-italic text-small">
                     {% if 'it' == app.request.locale %}
                         Condividi il link
+                    {% elseif 'es' == app.request.locale %}
+                        Comparte el enlace
                     {% else %}
                         Share the link
                     {% endif %}

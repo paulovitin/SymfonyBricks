@@ -1,0 +1,32 @@
+####################################################################################################################
+# Translations                                                                                                     #
+#                                                                                                                  #
+# general translations                                                                                             #
+####################################################################################################################
+
+# main navbar
+# entries to translate the main navigation bar
+main_navbar:
+    contribute: contribuir
+    github_repository: repositorio github
+    register: registrarse
+    sign_in: entrar
+
+# entries regarding stuff related to a Brick
+brick:
+    title: título
+    description: descripción
+    content: contenido
+    published: publicado
+    not_published: no publicado
+    last_update: última actualización
+    
+    # brick search
+    search:
+        page_title: Resultados de la búsqueda "%q%"
+
+# general translations (alphabetical order)
+back_to_the_list: Volver a la lista
+delete: eliminar
+edit: modificar
+save: guardar
