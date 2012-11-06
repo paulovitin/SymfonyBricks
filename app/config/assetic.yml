@@ -27,5 +27,6 @@ assetic:
                 - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-transition.js
                 - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-dropdown.js
                 - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-tab.js
+                - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-alert.js
                 - @BricksSiteBundle/Resources/js/*/*.js
             filters: ?yui_js
