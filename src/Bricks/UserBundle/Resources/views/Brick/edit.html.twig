@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="span12">
-            <h1>{{ (entity.isNew) ? 'brick.user_interface.create_new_brick'|trans({}, 'UserBundle'): 'brick.edit_brick'|trans({}, 'UserBundle') }}</h1>
+            <h1>{{ (entity.isNew) ? 'brick.create_new_brick'|trans({}, 'UserBundle'): 'brick.edit_brick'|trans({}, 'UserBundle') }}</h1>
             
             <br>
             
@@ -18,7 +18,7 @@
             
                 <div class="control-group">
                     <label class="control-label" for="{{ form.title.vars.id }}">
-                        {{ 'brick.title'|trans|capitalize }}
+                        {{ 'brick.title'|trans({}, 'UserBundle')|capitalize }}
                     </label>
                     <div class="controls">
                         {{ form_widget(form.title) }}
@@ -27,7 +27,7 @@
                 
                 <div class="control-group">
                     <label class="control-label" for="{{ form.description.vars.id }}">
-                        {{ 'brick.description'|trans|capitalize }}
+                        {{ 'brick.description'|trans({}, 'UserBundle')|capitalize }}
                     </label>
                     <div class="controls">
                         {{ form_widget(form.description) }}
@@ -36,7 +36,7 @@
                 
                 <div class="control-group">
                     <label class="control-label" for="{{ form.content.vars.id }}">
-                        {{ 'brick.content'|trans|capitalize }}
+                        {{ 'brick.content'|trans({}, 'UserBundle')|capitalize }}
                     </label>
                     <div class="controls">
                         <ul class="nav nav-tabs" id="content-tab">

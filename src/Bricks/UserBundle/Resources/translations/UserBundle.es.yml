@@ -17,9 +17,11 @@ user_navbar:
 # Bricks
 # bricks related interfaces
 brick:
-    title: titulo
     create_new_brick: Crear un nuovo brick
     edit_brick: Modificar brick
+    title: titulo
+    description: descriptión
+    content: contenido
     code: codigo
     preview: previsualización
     confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"
