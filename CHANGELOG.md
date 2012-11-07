@@ -28,6 +28,7 @@
 - italian interface translation completed
     - [78f4656ef810841c98e6a1fabf7688fc6e46753e](https://github.com/inmarelibero/SymfonyBricks/commit/78f4656ef810841c98e6a1fabf7688fc6e46753e)
     - [017a1d91abc5bfd5992d38ff2a1e30ac8c8884d8](https://github.com/inmarelibero/SymfonyBricks/commit/017a1d91abc5bfd5992d38ff2a1e30ac8c8884d8)
+    
 ###2012-10-28###
 
 - doctrine2 Loggable behavior for Bricks implemented
