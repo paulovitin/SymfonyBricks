@@ -40,7 +40,7 @@
         </script>
     </head>
 
-    <body lang="{{app.request.locale}}" class="{% block body_class '' %}">
+    <body lang="{{app.request.locale}}" class="route-{{ app.request.get('_route') }} {% block body_class '' %}">
 
         <div class="wrapper">
             <header>
