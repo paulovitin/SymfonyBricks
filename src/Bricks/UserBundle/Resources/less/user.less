@@ -1,17 +1,22 @@
 /******************************************************************************************
-SECTION: USER
+USER.LESS
 
-every page regarding user reserved area
+general rules for user reserved area
 
-class .user is appended to the tag <body>
+class .user is appended to the tag <body> when UserBundle\Resources\view\layout.html.twig
+is loaded
 ******************************************************************************************/
+
 body.user {
-    /* navbars */
+    
+    /* main navbar */
     #main-navbar {
         .navbar-inner {
             border:  0px;
         }
     }
+    
+    /* user navbar */
     #user-navbar {
         top:    40px;
         .navbar-inner {

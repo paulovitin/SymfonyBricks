@@ -2,7 +2,7 @@
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ BricksSiteBundle ]
+    bundles:        [ BricksSiteBundle, BricksUserBundle ]
     java:           %java_path%
     filters:
         cssrewrite: ~
@@ -16,6 +16,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/Resources/bootstrap/less/bootstrap.less
                 - @BricksSiteBundle/Resources/less/*.less
+                - @BricksUserBundle/Resources/less/*.less
             filters: lessphp
         stylesheets:
             inputs:
