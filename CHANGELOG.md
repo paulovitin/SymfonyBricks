@@ -1,5 +1,10 @@
 # Changelog
 
+###2012-11-07###
+
+- user.less refactored
+    - [9bc936424a9a3e47d828ca04cd6a51e6c8f906c0](https://github.com/inmarelibero/SymfonyBricks/commit/9bc936424a9a3e47d828ca04cd6a51e6c8f906c0)
+
 ###2012-11-06###
 
 - spanish interface translation completed
