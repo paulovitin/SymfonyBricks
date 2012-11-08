@@ -4,12 +4,23 @@
 
     <div class="row">
         <div class="span12">
-            <h1>{{ (entity.isNew) ? 'brick.create_new_brick'|trans({}, 'UserBundle'): 'brick.edit_brick'|trans({}, 'UserBundle') }}</h1>
-            
-            <br>
-            
             <form action="{{ (entity.isNew) ? path('user_brick_create') : path('user_brick_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }} id="user-brick-edit" class="form form-horizontal" novalidate>
 
+                <p>
+                    <div class="pull-right">
+                    <button type="submit" class="btn btn-success">
+                        <i class="icon-ok icon-white"></i> {{ 'save'|trans|capitalize }}
+                    </button>
+                    <a href="{{ path('user_brick') }}" class="btn">
+                        <i class="icon-arrow-left"></i> {{ 'back_to_the_list'|trans|capitalize }}
+                    </a>
+                    </div>
+                    
+                    <h1>{{ (entity.isNew) ? 'brick.create_new_brick'|trans({}, 'UserBundle'): 'brick.edit_brick'|trans({}, 'UserBundle') }}</h1>
+                </p>
+                
+                <br>
+                
                 {% if form_errors(form) %}
                     <div class="form-errors">
                         {{ form_errors(form) }}
@@ -60,10 +71,10 @@
                 <div class="control-group">
                     <div class="controls">
                         <button type="submit" class="btn btn-success">
-                            {{ 'save'|trans|capitalize }}
+                            <i class="icon-ok icon-white"></i> {{ 'save'|trans|capitalize }}
                         </button>
                         <a href="{{ path('user_brick') }}" class="btn">
-                            {{ 'back_to_the_list'|trans|capitalize }}
+                            <i class="icon-arrow-left"></i> {{ 'back_to_the_list'|trans|capitalize }}
                         </a>
                     </div>
                 </div>
