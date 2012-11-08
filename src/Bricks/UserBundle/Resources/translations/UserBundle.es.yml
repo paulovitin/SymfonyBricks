@@ -22,6 +22,5 @@ brick:
     title: titulo
     description: descriptión
     content: contenido
-    code: codigo
     preview: previsualización
     confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"

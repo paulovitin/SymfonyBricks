@@ -6,37 +6,33 @@
 
 {% block main %}
 
-    <div id="brick-show-wrapper">
-
-        <div class="row">
-            <div class="span12">
-            
-                <h1>{{ brick.title }}</h1>
-                
-                <p class="description">{{ brick.description }}</p>
-                
-                <hr>
-                    <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
-                    |
-                    <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
-                    
-                    
-                    <a href="https://twitter.com/share" class="twitter-share-button pull-right"
-                        data-url="{{ app.request.uri }}"
-                        data-text="{{ brick.title }}"
-                        data-via="SymfonyBricks"
-                    >
-                        Tweet
-                    </a>
-                <hr>
-                
-                <div class="content">
-                    {{ brick.content|markdown }}
-                </div>
-            
-            </div>
-        </div>
+    <div class="row">
+        <div class="span12">
         
+            <h1>{{ brick.title }}</h1>
+            
+            <p class="description">{{ brick.description }}</p>
+            
+            <hr>
+                <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
+                |
+                <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
+                
+                
+                <a href="https://twitter.com/share" class="twitter-share-button pull-right"
+                    data-url="{{ app.request.uri }}"
+                    data-text="{{ brick.title }}"
+                    data-via="SymfonyBricks"
+                >
+                    Tweet
+                </a>
+            <hr>
+            
+            <div class="content">
+                {{ brick.content|markdown }}
+            </div>
+        
+        </div>
     </div>
-    
+        
 {% endblock %}

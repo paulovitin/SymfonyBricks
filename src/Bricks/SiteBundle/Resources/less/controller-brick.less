@@ -1,24 +1,25 @@
 /******************************************************************************************
-SECTION: BRICK
+CONTROLLER-BRICK.LESS
 
-all the pages related with bricks: show, etc..
+rules for all the templates loaded through Bricks\SiteBundle\BrickController
 ******************************************************************************************/
-/* show a brick */
-#brick-show-wrapper {
+
+/**
+    show a brick
+    
+    route: brick_show
+*/
+body.route-brick_show {
     .description {
         margin-bottom:  40px;
         font-size: 14px;
     }
     
     .content {
-        h1 {
-            font-size:  20px;
-        }
+        h1 { font-size:  20px; }
         
         ul { margin: 0 0 10px 25px;
-            li {
-                list-style-type: disc;
-            }
+            li { list-style-type: disc; }
         }
     }
 }

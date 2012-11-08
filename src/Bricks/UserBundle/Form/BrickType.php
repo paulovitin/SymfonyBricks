@@ -11,7 +11,7 @@ class BrickType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'textarea', array(
+            ->add('title', 'text', array(
                 'error_bubbling' => true
             ))
             ->add('description', 'textarea')

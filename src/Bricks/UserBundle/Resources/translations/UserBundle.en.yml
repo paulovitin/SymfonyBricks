@@ -22,6 +22,5 @@ brick:
     title: title
     description: description
     content: content
-    code: code
     preview: preview
     confirm_deletion: "This operation cannot be undone. Confirm the deletion?"

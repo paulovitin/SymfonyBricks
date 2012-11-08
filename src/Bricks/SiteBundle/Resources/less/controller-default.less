@@ -1,7 +1,15 @@
 /******************************************************************************************
-SECTION: INDEX
+CONTROLLER-DEFAULT.LESS
+
+rules for all the templates loaded through Bricks\SiteBundle\DefaultController
 ******************************************************************************************/
-#index-wrapper {
+
+/**
+    homepage
+    
+    route: route-index_not_localized , homepage
+*/
+body.route-index_not_localized , body.route-homepage {
     .right-col {
         ul { margin-bottom: 10px;
             li {
@@ -40,6 +48,24 @@ SECTION: INDEX
             p {
                 font-size:  12px;
             }
+        }
+    }
+}
+
+/**
+    page "contribute"
+    
+    route: contribute
+*/
+body.route-contribute {
+    ul#github-issues { margin-left: 20px;
+        
+        li {
+            margin-bottom: 20px;
+            padding-left:   10px;
+            border-left:4px solid #CCC;
+            
+            .info { font-size: 12px; }
         }
     }
 }
