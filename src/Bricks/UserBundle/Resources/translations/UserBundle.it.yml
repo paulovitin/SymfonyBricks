@@ -22,7 +22,6 @@ brick:
     title: titolo
     description: descrizione
     content: contenuto
-    code: codice
     preview: anteprima
     confirm_deletion: "Questa operazione non può essere annullata. Continuare?"
     

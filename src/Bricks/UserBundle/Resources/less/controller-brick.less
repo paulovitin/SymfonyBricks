@@ -1,0 +1,52 @@
+/******************************************************************************************
+CONTROLLER-BRICK.LESS
+
+rules for all the templates loaded through Bricks\UserBundle\BrickController
+******************************************************************************************/
+
+/**
+    create and edit a brick
+    
+    route: user_brick_new, user_brick_edit
+*/
+body.route-user_brick_new, body.route-user_brick_edit {
+    #user-brick-edit {
+        
+        /*
+            BUG: if input[type="text"] width is put at 100%, "box-sizing: content-box;" defined in layout.less does not
+            work in firefox (maybe in other browsers too)
+            
+            so for the moment is put at 98%
+        */
+        input[type="text"] { width: 98%; }
+        
+        textarea { width: 100%; }
+        
+        label {
+            float: none;
+            width:  100%;
+            text-align: left;
+            font-weight:    bold;
+        }
+        .controls {
+            margin-left:    0px;
+        }
+    
+        #bricks_userbundle_bricktype_description {
+            height: 100px;
+        }
+        
+        #content-tab {
+            margin-bottom:   0px;
+        }
+        #bricks_userbundle_bricktype_content {
+            height: 600px;
+            border-top: 0px;
+        }
+        #content-preview {
+            padding:    4px 6px;
+            border: 1px solid #CCC;
+            border-top: 0px;
+        }
+    }
+}
