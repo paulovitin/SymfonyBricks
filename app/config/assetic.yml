@@ -22,7 +22,9 @@ assetic:
             inputs:
                 - @lesses
                 - %kernel.root_dir%/../web/assets/FontAwesome/css/font-awesome.css
-            filters: ?yui_css
+            filters:
+                - cssrewrite
+                - ?yui_css
         javascripts:
             inputs:
                 - %kernel.root_dir%/../web/assets/jquery/jquery-1.8.2.js
@@ -31,4 +33,6 @@ assetic:
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-tab.js
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-alert.js
                 - @BricksSiteBundle/Resources/js/*/*.js
-            filters: ?yui_css
+            filters:
+                - cssrewrite
+                - ?yui_css
