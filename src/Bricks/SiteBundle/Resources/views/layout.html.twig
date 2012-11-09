@@ -14,7 +14,7 @@
         <meta name="author" content="{% spaceless %}{% block meta_author_content %}symfonybricks.com{% endblock %}{% endspaceless %}" />
         <meta name="language" content="{% spaceless %}{% block meta_language_content %}{{ app.request.locale }}{% endblock %}{% endspaceless %}" />
         
-        {% stylesheets '@stylesheets' filter='cssrewrite' %}
+        {% stylesheets '@stylesheets' %}
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
 
@@ -70,7 +70,7 @@
                                 </li>
                                 <li>
                                     <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
-                                        {{ 'main_navbar.github_repository'|trans }}
+                                        <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
                                     </a>
                                 </li>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
@@ -78,7 +78,7 @@
                                         <a href="{{ path('user_dashboard') }}"><i class="icon-user"></i> {{ app.user.username }}</a>                                    
                                     </li>
                                     <li>
-                                        <a href="{{ path('logout') }}"><i class="icon-off"></i></a>
+                                        <a href="{{ path('logout') }}"><i class="icon-signout"></i></a>
                                     </li>
 
                                 {% else %}
