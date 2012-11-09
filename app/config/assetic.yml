@@ -21,6 +21,7 @@ assetic:
         stylesheets:
             inputs:
                 - @lesses
+                - %kernel.root_dir%/Resources/FontAwesome/css/font-awesome.css
             filters: ?yui_css
         javascripts:
             inputs:
@@ -30,4 +31,4 @@ assetic:
                 - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-tab.js
                 - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-alert.js
                 - @BricksSiteBundle/Resources/js/*/*.js
-            filters: ?yui_js
+            filters: ?yui_css

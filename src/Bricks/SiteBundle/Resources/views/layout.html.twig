@@ -14,7 +14,7 @@
         <meta name="author" content="{% spaceless %}{% block meta_author_content %}symfonybricks.com{% endblock %}{% endspaceless %}" />
         <meta name="language" content="{% spaceless %}{% block meta_language_content %}{{ app.request.locale }}{% endblock %}{% endspaceless %}" />
         
-        {% stylesheets '@stylesheets' %}
+        {% stylesheets '@stylesheets' filter='cssrewrite' %}
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
 
