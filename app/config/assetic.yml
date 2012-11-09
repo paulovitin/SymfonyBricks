@@ -14,21 +14,21 @@ assetic:
     assets:
         lesses:
             inputs:
-                - %kernel.root_dir%/Resources/bootstrap/less/bootstrap.less
+                - %kernel.root_dir%/../web/assets/bootstrap/less/bootstrap.less
                 - @BricksSiteBundle/Resources/less/*.less
                 - @BricksUserBundle/Resources/less/*.less
             filters: lessphp
         stylesheets:
             inputs:
                 - @lesses
-                - %kernel.root_dir%/Resources/FontAwesome/css/font-awesome.css
+                - %kernel.root_dir%/../web/assets/FontAwesome/css/font-awesome.css
             filters: ?yui_css
         javascripts:
             inputs:
-                - %kernel.root_dir%/Resources/js/jquery-1.8.2.js
-                - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-transition.js
-                - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-dropdown.js
-                - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-tab.js
-                - %kernel.root_dir%/Resources/bootstrap/js/bootstrap-alert.js
+                - %kernel.root_dir%/../web/assets/jquery/jquery-1.8.2.js
+                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-transition.js
+                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-dropdown.js
+                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-tab.js
+                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-alert.js
                 - @BricksSiteBundle/Resources/js/*/*.js
             filters: ?yui_css
