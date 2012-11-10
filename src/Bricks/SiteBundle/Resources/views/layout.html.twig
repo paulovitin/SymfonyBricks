@@ -65,7 +65,7 @@
                             <ul class="nav pull-right">
                                 <li>
                                     <a href="{{ path('contribute') }}">
-                                        {{ 'main_navbar.contribute'|trans }}
+                                        <i class="icon-random"></i> {{ 'main_navbar.contribute'|trans }}
                                     </a>
                                 </li>
                                 <li>
@@ -84,12 +84,12 @@
                                 {% else %}
                                     <li>
                                         <a href="{{ path('fos_user_registration_register') }}">
-                                            {{ 'main_navbar.register'|trans }}
+                                            <i class="icon-user"></i> {{ 'main_navbar.register'|trans }}
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ path('fos_user_security_login') }}">
-                                            {{ 'main_navbar.sign_in'|trans }}
+                                            <i class="icon-signin"></i> {{ 'main_navbar.sign_in'|trans }}
                                         </a>
                                     </li>
                                 {% endif %}

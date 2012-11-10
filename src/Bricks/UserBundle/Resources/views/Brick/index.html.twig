@@ -18,9 +18,9 @@
                         </td>
                         <td>
                             {% if (entity.published) %}
-                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn btn-success"><i class="icon-ok icon-white"></i> {{ 'brick.published'|trans|capitalize }}</a>
+                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn btn-success"><i class="icon-ok-sign"></i> {{ 'brick.published'|trans|capitalize }}</a>
                             {% else %}
-                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn"><i class="icon-remove"></i> {{ 'brick.not_published'|trans|capitalize }}</a>
+                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn"><i class="icon-remove-sign"></i> {{ 'brick.not_published'|trans|capitalize }}</a>
                             {% endif %}
                         </td>
                         <td>
@@ -33,7 +33,7 @@
             </table>
             
             <a href="{{ path('user_brick_new') }}" class="btn btn-primary">
-                {{ 'brick.create_new_brick'|trans({}, 'UserBundle') }}
+                <i class="icon-check"></i> {{ 'brick.create_new_brick'|trans({}, 'UserBundle') }}
             </a>
         </div>
     </div>
