@@ -32,6 +32,7 @@ assetic:
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-dropdown.js
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-tab.js
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-alert.js
+                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-modal.js
                 - @BricksSiteBundle/Resources/js/*/*.js
             filters:
                 - cssrewrite
