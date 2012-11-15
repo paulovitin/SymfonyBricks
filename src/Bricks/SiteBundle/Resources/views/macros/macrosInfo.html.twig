@@ -1,0 +1,34 @@
+{#
+    bootstrapInfoModal
+    
+    displays an icon through which open a modal dialog box, to display some informations
+    
+    parameters:
+        - title: the title of the modal box (preceed by default by the label "Help:"). the id of the tag is based on this field,
+                 so it should be unique
+        - body: html or plain text to display in the main section of the modal box
+#}
+{% macro bootstrapInfoModal(title, body) %}
+
+    {% set modalId = "modal-"~title|lower|replace({' ': '-'}) %}
+
+    <a href="#{{ modalId }}" class="info-modal-caller" role="button" data-toggle="modal">
+        <i class="icon-question-sign"></i>
+    </a>
+
+    <div id="{{ modalId }}" class="modal hide fade info-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>
+                Help: {{ title|raw }}
+            </h3>
+        </div>
+        <div class="modal-body">
+            {{ body|raw }}
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+        </div>
+    </div>
+
+{% endmacro %}

@@ -24,3 +24,33 @@ brick:
     content: contenido
     preview: previsualización
     confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"
+    
+    help:
+        title:
+            title: Título del Brick
+            body: |
+                Este es el título del Brick (pieza de código/guía/receta) que estás creando.
+                <br><br>
+                Un buen <b>Título</b> debería:
+                <br>
+                <ul>
+                    <li>
+                        <b>incluir todas las palabras clave</b>: tratar de incluir en el título todas las palabras clave relacionadas con el tema que estás tratando
+                    </li>
+                    <li>
+                        <b>ser comprensible</b>: el título debería ser lo más breve y simple posible, este campo se mostrará en todo symfonybricks.com, y también en las páginas de los resultados de los motores de búsqueda
+                    </li>
+                </ul>
+                <br><br>
+                <i>Ejemplo</i>: si el Brick que estás creando trata el tema <i>"embedding the Bootstrap css rules for forms in a Symfony2 project, using smart macros. And I'd like them to be flexible and adaptable"</i>, ciertamente utilizar esto como un título no es una buena opción.
+                <br><br>
+                Dado que las palabras clave son: "bootstrap, embed, form, macro, twig, integrate/integration", títulos mejores podrían ser:
+                <br>
+                <ul>
+                    <li>
+                        <i>"Integrate Bootstrap base css Form styles in twig templates"</i>
+                    </li>
+                    <li>
+                        <i>"Use of macros to integrate Bootstrap base css Form styles in twig templates"</i>
+                    </li>
+                </ul>

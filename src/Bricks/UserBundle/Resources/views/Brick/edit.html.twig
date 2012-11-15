@@ -1,5 +1,7 @@
 {% extends "BricksUserBundle::layout.html.twig" %}
 
+{% import "BricksSiteBundle::macros/macrosInfo.html.twig" as macrosInfo %}
+
 {% block main %}
 
     <div class="row">
@@ -29,6 +31,10 @@
             
                 <div class="control-group">
                     <label class="control-label" for="{{ form.title.vars.id }}">
+                        {# info modal #}
+                        {{ macrosInfo.bootstrapInfoModal('brick.help.title.title'|trans({}, 'UserBundle'), 'brick.help.title.body'|trans({}, 'UserBundle')) }}
+                        
+                        {# label #}
                         {{ 'brick.title'|trans({}, 'UserBundle')|capitalize }}
                     </label>
                     <div class="controls">
