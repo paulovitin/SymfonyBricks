@@ -4,6 +4,9 @@
 # route name: homepage                                                                                             #
 ####################################################################################################################
 how_to_contribute: contribute
-sign_up: Sign up
+sign_up: |
+    SIGN UP
+    <br>
+    <span class="text-small">Register to SymfonyBricks</span>
 relevant_links: Relevant links
 contribute_next_step: 'The next step is to have a look at <a href="%href%">the section "Contribute"</a> for more detailed informations.'

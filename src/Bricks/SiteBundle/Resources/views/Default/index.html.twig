@@ -60,7 +60,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-success"><i class="icon-user"></i> {{ 'sign_up'|trans({}, 'route_homepage') }}</a>
+                    <a href="{{ path('fos_user_registration_register') }}" id="btn-signup" class="btn btn-success">
+                        <i class="icon-user"></i> {{ 'sign_up'|trans({}, 'route_homepage')|raw }}
+                    </a>
                 </li>
             </ul>
             <div id="relevant-links">
