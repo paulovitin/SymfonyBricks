@@ -54,3 +54,22 @@ brick:
                         <i>"Use of macros to integrate Bootstrap base css Form styles in twig templates"</i>
                     </li>
                 </ul>
+                
+        description:
+            title: Brick description
+            body: |
+                You can provide a brief additional description, about the subject you are going to treat: this field lets you explain better what is the problem you are facing, and what is the proposed solution.
+                <br><br>
+                As well as the Title, also this field contains sensible informations for the search engines.
+                <br><br>
+                As a guideline, you can consider to explain these points:
+                <br>
+                <ul>
+                    <li>
+                        <b>what is the problem you are facing, or the functionality you want to add</b>
+                    </li>
+                    <li>
+                        <b>how did you solve the problem and the solution you adopted; eg: what bundles have been installad, external libraries installed and configured, etc...</b>
+                    </li>
+                </ul>
+                

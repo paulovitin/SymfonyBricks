@@ -44,6 +44,10 @@
                 
                 <div class="control-group">
                     <label class="control-label" for="{{ form.description.vars.id }}">
+                        {# info modal #}
+                        {{ macrosInfo.bootstrapInfoModal('brick.help.description.title'|trans({}, 'UserBundle'), 'brick.help.description.body'|trans({}, 'UserBundle')) }}
+                        
+                        {# label #}
                         {{ 'brick.description'|trans({}, 'UserBundle')|capitalize }}
                     </label>
                     <div class="controls">

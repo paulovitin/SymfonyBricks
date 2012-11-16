@@ -54,3 +54,22 @@ brick:
                         <i>"Use of macros to integrate Bootstrap base css Form styles in twig templates"</i>
                     </li>
                 </ul>
+                                
+        description:
+            title: Descrizione del Brick
+            body: |
+                Puoi fornire una breve descrizione aggiuntiva, relativa al tema che stai trattando: questo campo ti permette di spiegare meglio qual'è il problema che stai affrontando, e qual'è la soluzione proposta.
+                <br><br>
+                Come il titolo, anche questo campo contiene informazioni importanti per i motori di ricerca.
+                <br><br>
+                Come linea guida, puoi illustrare i seguenti punti:
+                <br>
+                <ul>
+                    <li>
+                        <b>qual'è il problema che stai affrontando, o la funzionalità che vuoi implementare</b>
+                    </li>
+                    <li>
+                        <b>come hai risolto il problema e la soluzione che hai adottato; es. quali bundle hai installato, le librerie esterne che hai installato e configurato, etc...</b>
+                    </li>
+                </ul>
+                
