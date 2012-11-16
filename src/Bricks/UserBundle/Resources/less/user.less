@@ -7,6 +7,9 @@ class .user is appended to the tag <body> when UserBundle\Resources\view\layout.
 is loaded
 ******************************************************************************************/
 
+/* import bootstrap mixins */
+@import "../../../../../web/assets/bootstrap/less/mixins.less";
+
 body.user {
     
     /* main navbar */
@@ -19,15 +22,36 @@ body.user {
     /* user navbar */
     #user-navbar {
         top:    40px;
+        
         .navbar-inner {
             border:  0px;
-            background: white;
+            padding-top:    10px;
+            padding-bottom: 10px;
+            #gradient .vertical(#F2F2F2, #D1D1D1);
             
             ul.nav {
-                li {
-                    &:hover {
-                        background: #F1F1F1;
+                & > li {
+                    margin:    5px;
+                    
+                    &:first-child { margin-left: 0px; }
+                    &:last-child { margin-right: 0px; }
+                    
+                    & > a {
+                        .border-radius(3px);
+                        #gradient .vertical(#F8F8F8, #DEDEDE);
+                        border:     1px solid #CACACA;
+                        
+                        padding:    3px 10px;
+                        font-weight:    normal;
+                        font-size:  14px;
+                        
+                        &:hover {
+                            #gradient .vertical(#FBCE4F, #F8B245);
+                            border-color:     #CC962F;
+                            color:  #FFF;
+                        }
                     }
+                
                 }
             }
         }
