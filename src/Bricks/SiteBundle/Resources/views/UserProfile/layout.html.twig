@@ -1,0 +1,49 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{# add a class to the <body> tag #}
+{% block body_class %}route-userprofile{% endblock %}
+
+{% block main %}
+
+    <div class="user-profile-wrapper">
+        <div class="row">
+            <div class="span12">
+                <h1>
+                    <i class="icon-user"></i> {{ user.username }}
+                </h1>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="span3">
+                <ul id="nav-userprofile" class="nav nav-list">
+                    <li class="nav-header">
+                        {{ 'nav-userprofile.user_profile'|trans({}, 'controller-userprofile') }}
+                    </li>
+                    <li class="">
+                        <a href="{{ path('userprofile_show', {username: user.username}) }}">
+                            Home
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('userprofile_bricks_publihed', {username: user.username}) }}">
+                            {{ 'nav-userprofile.published_bricks'|trans({}, 'controller-userprofile') }}
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ path('userprofile_activity', {username: user.username}) }}">
+                            {{ 'nav-userprofile.activity'|trans({}, 'controller-userprofile') }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="span9 content">
+                {% block user_profile_content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{# SEO #}
+{% block meta_title_content %}{{ user.username }} profile | SymfonyBricks.com{% endblock %}
