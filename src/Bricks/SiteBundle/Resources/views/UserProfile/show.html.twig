@@ -1,39 +1,13 @@
-{% extends 'BricksSiteBundle::layout.html.twig' %}
+{% extends 'BricksSiteBundle:UserProfile:layout.html.twig' %}
 
-{% block main %}
+{% block user_profile_content %}
 
-    <div id="userprofile-show-wrapper">
-
-        <div class="row">
-            <div class="span12">
-            
-                <h1>{{ user.username }}</h1>
-                
-                <hr>
-                
-                <h3>Published bricks</h3>
-                
-                <ul class="bricks-list">
-                    {% for brick in publishedBricks %}
-                        <li>
-                            <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
-                                {{ brick.title }}
-                            </a>
-                            <p>
-                                <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
-                                |
-                                <i class="icon-calendar"></i> last update: {{ brick.updatedAt|date('d/m/Y') }}
-                            </p>
-                        </li>
-                    {% endfor %}
-                </ul>
-            
-            </div>
-        </div>
-        
-    </div>
+    {% if 'it' == app.request.locale %}
+        Profilo pubblico di {{ user.username|capitalize }}
+    {% elseif 'es' == app.request.locale %}
+        Perfil público de {{ user.username|capitalize }}
+    {% else %}
+        {{ user.username|capitalize }} public profile
+    {% endif %}
     
 {% endblock %}
-
-{# SEO #}
-{% block meta_title_content %}{{ user.username }} profile | SymfonyBricks.com{% endblock %}
