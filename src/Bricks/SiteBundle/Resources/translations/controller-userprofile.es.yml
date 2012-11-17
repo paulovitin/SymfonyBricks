@@ -1,0 +1,8 @@
+####################################################################################################################
+# Translations                                                                                                     #
+#                                                                                                                  #
+# translation related to Bricks\SiteBundles\Controller\UserProfileController                                       #
+####################################################################################################################
+nav-userprofile:
+    user_profile: Perfil usuario
+    published_bricks: Bricks Publicados
