@@ -50,7 +50,7 @@
                             <ul class="nav">
                                 <li>
                                     <a href="{{ path('homepage') }}" id="brand">
-                                        SymfonyBricks.com
+                                        SymfonyBricks
                                     </a>
                                 </li>
                                 <li id="nav-search-bricks">
@@ -63,6 +63,29 @@
                                 </li>
                             </ul>
                             <ul class="nav pull-right">
+                                <li id="nav-locales">
+                                    <div class="btn-group">
+                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                            {% if interface_translation_locales[app.request.locale] is not null %}
+                                                <img src="{{ asset('img/flags/'~interface_translation_locales[app.request.locale]['flag']) }}">
+                                            {% else %}
+                                                {{ app.request.locale }}
+                                            {% endif %}
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            {% for locale in interface_translation_locales %}
+                                                <li>
+                                                    <a href="{{ path('homepage', {'_locale': locale.code}) }}">
+                                                        <img src="{{ asset('img/flags/'~locale.flag) }}">
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="links-list" class="nav pull-right">
                                 <li>
                                     <a href="{{ path('contribute') }}">
                                         <i class="icon-random"></i> {{ 'main_navbar.contribute'|trans }}
@@ -93,27 +116,6 @@
                                         </a>
                                     </li>
                                 {% endif %}
-                                <li id="nav-locales">
-                                    <div class="btn-group">
-                                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                                            {% if interface_translation_locales[app.request.locale] is not null %}
-                                                <img src="{{ asset('img/flags/'~interface_translation_locales[app.request.locale]['flag']) }}">
-                                            {% else %}
-                                                {{ app.request.locale }}
-                                            {% endif %}
-                                            <span class="caret"></span>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            {% for locale in interface_translation_locales %}
-                                                <li>
-                                                    <a href="{{ path('homepage', {'_locale': locale.code}) }}">
-                                                        <img src="{{ asset('img/flags/'~locale.flag) }}">
-                                                    </a>
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>

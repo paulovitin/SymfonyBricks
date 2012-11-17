@@ -1,3 +1,6 @@
+/* import bootstrap mixins */
+@import "../../../../../web/assets/bootstrap/less/mixins.less";
+
 /******************************************************************************************
 HTML LAYOUT
 ******************************************************************************************/
@@ -29,6 +32,8 @@ body {
                 border-top:         0px;
                 border-left:        0px;
                 border-right:       0px;
+                
+                #gradient .vertical(#FAFAFA, #EAEAEA);
                 
                 .container { width:  940px; }
             }
@@ -140,6 +145,28 @@ MAIN NAVBAR
 ******************************************************************************************/
 #main-navbar {
     ul {
+        &#links-list {
+            margin-top: 6px;
+            #gradient .vertical(#F1F1F1, #E0E0E0);
+            border:     1px solid #DDD;
+            .border-radius(3px);
+            
+            li {
+                a {
+                    padding:    3px 10px;
+                    font-weight:    normal;
+                    color:  #313131;
+                    
+                    &:hover {
+                        #gradient .vertical(#FBCE4F, #F8B245);
+                        border-color:     #CC962F;
+                        color:  #636363;
+                    }
+                    
+                }
+            }
+        }
+        
         li {
             a {
                 padding-left:   8px;
