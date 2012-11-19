@@ -1,0 +1,43 @@
+<div id="modal-login" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modal-login-label" aria-hidden="true">
+    <form action="{{ path("fos_user_security_check") }}" method="post" class="security-form">
+    
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="modal-login-label">
+                {{ 'main_navbar.sign_in'|trans|capitalize }}
+            </h3>
+        </div>
+        <div class="modal-body">
+    
+            
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        
+            <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+            <input type="text" id="username" name="_username" required="required" />
+        
+            <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+            <input type="password" id="password" name="_password" required="required" />
+            
+            <br>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+            <br><br>
+            
+            <input type="hidden" name="_target_path" value="{{ app.request.uri }}" />
+            
+            <a href="{{ path('fos_user_resetting_request') }}">{{ 'security.forgot_password'|trans({}, 'FOSUserBundle') }}</a>
+    
+        </div>
+        <div class="modal-footer">
+            <button type="submit" id="_submit" name="_submit" class="btn btn-primary" >
+                {{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}
+            </button>
+            
+            |
+            <a href="{{ path('fos_user_registration_register') }}" id="btn-signup">
+                {{ 'registration.action'|trans({}, 'FOSUserBundle') }}
+            </a>
+        </div>
+        
+    </form>
+</div>

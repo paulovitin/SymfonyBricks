@@ -10,26 +10,34 @@
     
     {% set elementId = "toggle-user-stars-brick-"~brick.id %}
     
-    {% set userIsStarringBrick = app.user.isStarringBrick(brick) %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {% set userIsStarringBrick = app.user.isStarringBrick(brick) %}
+        
+        <a  href="javascript:void(0)"
+            id="{{ elementId }}"
+            class="toggle-user-stars-brick {{ (userIsStarringBrick) ? 'active':'' }}"
+            
+            data-brick-id="{{ brick.id }}"
+            
+            data-state="{{ (userIsStarringBrick) ? 'starring':'notstarring' }}"
+            data-starring-text="{{ 'brick.starring_text'|trans }}"
+            data-notstarring-text="{{ 'brick.not_starring_text'|trans }}"
+        >
+            <i class="icon-star"></i>
+            <span id="text">
+                {% if userIsStarringBrick %}
+                    {{ 'brick.starring_text'|trans }}
+                {% else %}
+                    {{ 'brick.not_starring_text'|trans }}
+                {% endif %}
+            </span>
+        </a>
+    {% else %}
     
-    <a  href="javascript:void(0)"
-        id="{{ elementId }}"
-        class="toggle-user-stars-brick {{ (userIsStarringBrick) ? 'active':'' }}"
-        
-        data-brick-id="{{ brick.id }}"
-        
-        data-state="{{ (userIsStarringBrick) ? 'starring':'notstarring' }}"
-        data-starring-text="{{ 'brick.starring_text'|trans }}"
-        data-notstarring-text="{{ 'brick.not_starring_text'|trans }}"
-    >
-        <i class="icon-star"></i>
-        <span id="text">
-            {% if userIsStarringBrick %}
-                {{ 'brick.starring_text'|trans }}
-            {% else %}
-                {{ 'brick.not_starring_text'|trans }}
-            {% endif %}
-        </span>
-    </a>
+        <a href="#modal-login" class="toggle-user-stars-brick" data-toggle="modal">
+            <i class="icon-star"></i> {{ 'brick.not_starring_text'|trans }}
+        </a>
+    
+    {% endif %}
     
 {% endmacro %}

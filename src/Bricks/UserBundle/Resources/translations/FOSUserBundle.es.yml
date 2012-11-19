@@ -21,6 +21,7 @@ change_password:
 
 # Registration
 registration:
+    action: Regístrate
     title: Inscripción a SymfonyBricks
     submit: Confirmar inscripción
     email:
