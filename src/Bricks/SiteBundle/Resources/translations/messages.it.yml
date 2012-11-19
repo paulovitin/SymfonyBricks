@@ -20,6 +20,8 @@ brick:
     published: pubblicato
     not_published: non pubblicato
     last_update: ultimo aggiornamento
+    starring_text: Starred
+    not_starring_text: Star
     
     # brick search
     search:

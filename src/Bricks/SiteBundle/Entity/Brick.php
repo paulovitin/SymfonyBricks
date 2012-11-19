@@ -86,6 +86,11 @@ class Brick
      */
     private $created_at;
     
+    /**
+     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\UserStarsBrick", mappedBy="user", cascade={"persist"})
+     */
+    private $userStarsBricks;
+    
     /**************************************************************************************************
      *	custom functions
     **************************************************************************************************/
@@ -293,5 +298,45 @@ class Brick
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->userStarsBricks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add userStarsBricks
+     *
+     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     * @return Brick
+     */
+    public function addUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
+    {
+        $this->userStarsBricks[] = $userStarsBricks;
+    
+        return $this;
+    }
+
+    /**
+     * Remove userStarsBricks
+     *
+     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     */
+    public function removeUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
+    {
+        $this->userStarsBricks->removeElement($userStarsBricks);
+    }
+
+    /**
+     * Get userStarsBricks
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getUserStarsBricks()
+    {
+        return $this->userStarsBricks;
     }
 }

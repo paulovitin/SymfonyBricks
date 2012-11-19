@@ -8,11 +8,12 @@
 # entries to translate the user navigation bar
 user_navbar:
     dashboard: DASHBOARD
-    bricks: BRICKS
+    bricks: My Bricks
     profile: PROFILE
     edit_profile: Edit profile
     change_password: Change password
     create_brick: CREATE NEW BRICK
+    bricks_starred: Starred Bricks
 
 # Bricks
 # bricks related interfaces

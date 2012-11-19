@@ -5,6 +5,8 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
+use Bricks\SiteBundle\Entity\Brick;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
@@ -39,6 +41,11 @@ class User extends BaseUser
      * @ORM\OrderBy({"created_at" = "ASC"})
      */
     private $bricks;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\UserStarsBrick", mappedBy="user", cascade={"persist"})
+     */
+    private $userStarsBricks;
 
     /**************************************************************************************************
      *	custom functions
@@ -47,6 +54,41 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+    }
+    
+    /**
+     * return if a user marked a $brick as "starred".
+     * 
+     * marking a brick as "starred" is like putting it in the "favorites"
+     * 
+     * @param Brick $brick
+     * @return boolean
+     */
+    public function isStarringBrick(Brick $brick)
+    {
+        foreach ($this->getUserStarsBricks() as $usb) {
+            if ($usb->getBrick() && $usb->getBrick()->getId() === $brick->getId()) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    /**
+     * return the starred bricks for a user
+     * 
+     * @return multitype:NULL
+     */
+    public function getStarredBricks()
+    {
+        $entities = array();
+        
+        foreach ($this->getUserStarsBricks() as $usb) {
+            $entities[] = $usb->getBrick();
+        }
+        
+        return $entities;
     }
     
     /**************************************************************************************************
@@ -139,5 +181,38 @@ class User extends BaseUser
     public function getBricks()
     {
         return $this->bricks;
+    }
+
+    /**
+     * Add userStarsBricks
+     *
+     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     * @return User
+     */
+    public function addUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
+    {
+        $this->userStarsBricks[] = $userStarsBricks;
+    
+        return $this;
+    }
+
+    /**
+     * Remove userStarsBricks
+     *
+     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     */
+    public function removeUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
+    {
+        $this->userStarsBricks->removeElement($userStarsBricks);
+    }
+
+    /**
+     * Get userStarsBricks
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getUserStarsBricks()
+    {
+        return $this->userStarsBricks;
     }
 }

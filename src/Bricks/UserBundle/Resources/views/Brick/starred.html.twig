@@ -1,0 +1,32 @@
+{% extends "BricksUserBundle::layout.html.twig" %}
+
+{% import "BricksSiteBundle::macros/macrosBrick.html.twig" as macrosBrick %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span12">
+        
+            <h1><i class="icon-star"></i> Bricks</h1>
+            
+            <table class="records_list table table-striped">
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}">{{ entity.title }}</a>
+                                <br>
+                                <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': entity.user.username}) }}">{{ entity.user }}</a>
+                                |
+                                <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ entity.updatedAt|date('d/m/Y') }}
+                                |
+                                {{ macrosBrick.toggleUserStarsBrick(entity) }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
