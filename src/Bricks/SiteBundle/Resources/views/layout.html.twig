@@ -14,6 +14,9 @@
         <meta name="author" content="{% spaceless %}{% block meta_author_content %}symfonybricks.com{% endblock %}{% endspaceless %}" />
         <meta name="language" content="{% spaceless %}{% block meta_language_content %}{{ app.request.locale }}{% endblock %}{% endspaceless %}" />
         
+        {# canonical url #}
+        <link rel="canonical" href="{{ app.request.uri }}"/>
+        
         {% stylesheets '@stylesheets' %}
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
