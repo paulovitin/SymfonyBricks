@@ -1,0 +1,35 @@
+{#
+    "Star" toggle call to action
+    
+    display an icon/text/something to "star" or "unstar" a brick
+    
+    parameters:
+        - title: 
+#}
+{% macro toggleUserStarsBrick(brick) %}
+    
+    {% set elementId = "toggle-user-stars-brick-"~brick.id %}
+    
+    {% set userIsStarringBrick = app.user.isStarringBrick(brick) %}
+    
+    <a  href="javascript:void(0)"
+        id="{{ elementId }}"
+        class="toggle-user-stars-brick {{ (userIsStarringBrick) ? 'active':'' }}"
+        
+        data-brick-id="{{ brick.id }}"
+        
+        data-state="{{ (userIsStarringBrick) ? 'starring':'notstarring' }}"
+        data-starring-text="{{ 'brick.starring_text'|trans }}"
+        data-notstarring-text="{{ 'brick.not_starring_text'|trans }}"
+    >
+        <i class="icon-star"></i>
+        <span id="text">
+            {% if userIsStarringBrick %}
+                {{ 'brick.starring_text'|trans }}
+            {% else %}
+                {{ 'brick.not_starring_text'|trans }}
+            {% endif %}
+        </span>
+    </a>
+    
+{% endmacro %}

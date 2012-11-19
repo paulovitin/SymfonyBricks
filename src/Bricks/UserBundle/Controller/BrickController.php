@@ -39,6 +39,25 @@ class BrickController extends Controller
             'entities' => $entities,
         );
     }
+    
+    /**
+     * Lists all starred Brick entities.
+     *
+     * @Route("/starred", name="user_brick_starred")
+     * @Template()
+     */
+    public function starredAction()
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $user->getStarredBricks();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
 
     /**
      * Displays a form to create a new Brick entity.

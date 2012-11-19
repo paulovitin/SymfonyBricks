@@ -23,3 +23,22 @@ body.route-brick_show {
         }
     }
 }
+
+/**
+    toggle-user-stars-brick element
+    
+    rules for the toggleUserStarsBrick element to toggle "Starred" state for a brick
+*/
+.toggle-user-stars-brick {
+    color:  #A2A2A2;
+    font-weight:  normal;
+    
+    &:hover { text-decoration: none;
+        i { color: #DBCD24; }
+    }
+    
+    &.active {
+        color:  inherit;
+        i { color: #DBCD24; }
+    }
+}

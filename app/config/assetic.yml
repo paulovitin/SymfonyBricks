@@ -33,6 +33,9 @@ assetic:
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-tab.js
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-alert.js
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-modal.js
+                - bundles/fosjsrouting/js/router.js
+                - %kernel.root_dir%/../web/js/fos_js_routes.js
+                - @BricksSiteBundle/Resources/js/*.js
                 - @BricksSiteBundle/Resources/js/*/*.js
             filters:
                 - cssrewrite

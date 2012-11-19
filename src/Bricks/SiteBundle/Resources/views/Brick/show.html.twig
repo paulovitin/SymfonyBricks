@@ -1,5 +1,7 @@
 {% extends 'BricksSiteBundle::layout.html.twig' %}
 
+{% import "BricksSiteBundle::macros/macrosBrick.html.twig" as macrosBrick %}
+
 {# SEO blocks #}
 {% block meta_title_content %}{{ brick.title }} | SymfonyBricks.com{% endblock %}
 {% block meta_description_content %}{{ brick.description }}{% endblock %}
@@ -17,7 +19,8 @@
                 <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
                 |
                 <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
-                
+                |
+                {{ macrosBrick.toggleUserStarsBrick(brick) }}
                 
                 <a href="https://twitter.com/share" class="twitter-share-button pull-right"
                     data-url="{{ app.request.uri }}"

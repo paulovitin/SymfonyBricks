@@ -28,6 +28,9 @@ class AppKernel extends Kernel
             
             // KnpMarkdownBundle
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+                
+            // FOSJsRoutingBundle
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
