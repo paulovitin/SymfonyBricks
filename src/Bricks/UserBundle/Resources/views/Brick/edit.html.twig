@@ -28,34 +28,38 @@
                         {{ form_errors(form) }}
                     </div>
                 {% endif %}
-            
+                
                 <div class="control-group">
-                    <label class="control-label" for="{{ form.title.vars.id }}">
-                        {# info modal #}
+                    {# info modal #}
+                    <div class="control-label pull-right" for="{{ form.description.vars.id }}">
                         {{ macrosInfo.bootstrapInfoModal('brick.help.title.title'|trans({}, 'UserBundle'), 'brick.help.title.body'|trans({}, 'UserBundle')) }}
-                        
-                        {# label #}
+                    </div>
+                    
+                    {# label #}
+                    <div class="control-label" for="{{ form.title.vars.id }}">
                         {{ 'brick.title'|trans({}, 'UserBundle')|capitalize }}
-                    </label>
+                    </div>
                     <div class="controls">
                         {{ form_widget(form.title) }}
                     </div>
                 </div>
                 
                 <div class="control-group">
-                    <label class="control-label" for="{{ form.description.vars.id }}">
-                        {# info modal #}
+                    {# info modal #}
+                    <div class="control-label pull-right" for="{{ form.description.vars.id }}">
                         {{ macrosInfo.bootstrapInfoModal('brick.help.description.title'|trans({}, 'UserBundle'), 'brick.help.description.body'|trans({}, 'UserBundle')) }}
-                        
-                        {# label #}
+                    </div>
+                    
+                    {# label #}
+                    <div class="control-label" for="{{ form.description.vars.id }}">
                         {{ 'brick.description'|trans({}, 'UserBundle')|capitalize }}
-                    </label>
+                    </div>
                     <div class="controls">
                         {{ form_widget(form.description) }}
                     </div>
                 </div>
                 
-                <div class="control-group">
+                <div id="control-group-content" class="control-group">
                     <div class="controls">
                         <ul class="nav nav-tabs" id="content-tab">
                             <li class="active">
