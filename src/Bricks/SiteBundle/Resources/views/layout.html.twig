@@ -15,7 +15,7 @@
         <meta name="language" content="{% spaceless %}{% block meta_language_content %}{{ app.request.locale }}{% endblock %}{% endspaceless %}" />
         
         {# canonical url #}
-        <link rel="canonical" href="{{ app.request.uri }}"/>
+        <link rel="canonical" href="{% spaceless %}{% block canonical_url %}{{ app.request.uri }}{% endblock canonical_url %}{% endspaceless %}"/>
         
         {% stylesheets '@stylesheets' %}
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
