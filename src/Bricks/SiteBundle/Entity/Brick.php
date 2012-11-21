@@ -66,7 +66,7 @@ class Brick
      * @var text $canonicalUrl
      *
      * @Gedmo\Versioned
-     * @ORM\Column(type="text", name="canonical_url")
+     * @ORM\Column(type="text", name="canonical_url", nullable=true)
      */
     private $canonicalUrl;
 
