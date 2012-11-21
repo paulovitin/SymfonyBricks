@@ -22,13 +22,14 @@ brick:
     edit_brick: Edit brick
     title: title
     description: description
+    canonical_url: Canonical Url
     content: content
     preview: preview
     confirm_deletion: "This operation cannot be undone. Confirm the deletion?"
     
     help:
         title:
-            title: Brick title
+            title: "Brick: title"
             body: |
                 This is the title of the brick (piece of code/guide/recipe) you are creating.
                 <br><br>
@@ -57,7 +58,7 @@ brick:
                 </ul>
                 
         description:
-            title: Brick description
+            title: "Brick: Description"
             body: |
                 You can provide a brief additional description, about the subject you are going to treat: this field lets you explain better what is the problem you are facing, and what is the proposed solution.
                 <br><br>
@@ -74,3 +75,13 @@ brick:
                     </li>
                 </ul>
                 
+        canonical_url:
+            title: "Brick: Canonical url"
+            body: |
+                You can specify a canonical url for a brick. Using Google's definition, <b>A canonical page is the preferred version of a set of pages with highly similar content.</b>
+                <br><br>
+                This field is useful for example when you publish a guide on your blog, and then publish the same conent on SymfonyBricks too. The <b>Canonical url</b> lets Google not to punish your blog post in search results because of the repetition of the content in SymfonyBricks.
+                <br><br>
+                Put in this field the url of the original article/blog post/webpage, so google will give priority to it instead of the content published on SymfonyBricks.
+                <br><br><br>
+                More infos are available on <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=139394" target="_new">this Google help page.</a>

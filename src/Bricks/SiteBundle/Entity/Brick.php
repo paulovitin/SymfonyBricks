@@ -63,6 +63,14 @@ class Brick
     private $published;
 
     /**
+     * @var text $canonicalUrl
+     *
+     * @Gedmo\Versioned
+     * @ORM\Column(type="text", name="canonical_url")
+     */
+    private $canonicalUrl;
+
+    /**
      * @var object $user
      *
      * @ORM\ManyToOne(targetEntity="Bricks\UserBundle\Entity\User")
@@ -338,5 +346,28 @@ class Brick
     public function getUserStarsBricks()
     {
         return $this->userStarsBricks;
+    }
+
+    /**
+     * Set canonicalUrl
+     *
+     * @param string $canonicalUrl
+     * @return Brick
+     */
+    public function setCanonicalUrl($canonicalUrl)
+    {
+        $this->canonicalUrl = $canonicalUrl;
+    
+        return $this;
+    }
+
+    /**
+     * Get canonicalUrl
+     *
+     * @return string 
+     */
+    public function getCanonicalUrl()
+    {
+        return $this->canonicalUrl;
     }
 }

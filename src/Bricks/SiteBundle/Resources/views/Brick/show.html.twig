@@ -6,6 +6,16 @@
 {% block meta_title_content %}{{ brick.title }} | SymfonyBricks.com{% endblock %}
 {% block meta_description_content %}{{ brick.description }}{% endblock %}
 
+{# canonical url #}
+{% block canonical_url %}
+    {% if brick.canonicalUrl|trim != '' %}
+        {{ brick.canonicalUrl|trim }}
+    {% else %}
+        {{ app.request.uri }}
+    {% endif %}
+{% endblock canonical_url %}
+
+
 {% block main %}
 
     <div class="row">
