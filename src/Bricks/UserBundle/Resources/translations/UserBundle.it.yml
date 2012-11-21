@@ -28,7 +28,7 @@ brick:
     
     help:
         title:
-            title: Titolo del Brick
+            title: "Brick: Titolo"
             body: |
                 Questo è il titolo del Brick (porzione di codice/guida/ricetta) che stai creando.
                 <br><br>
@@ -57,7 +57,7 @@ brick:
                 </ul>
                                 
         description:
-            title: Descrizione del Brick
+            title: "Brick: Descrizione"
             body: |
                 Puoi fornire una breve descrizione aggiuntiva, relativa al tema che stai trattando: questo campo ti permette di spiegare meglio qual'è il problema che stai affrontando, e qual'è la soluzione proposta.
                 <br><br>

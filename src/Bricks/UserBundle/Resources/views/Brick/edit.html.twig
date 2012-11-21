@@ -59,6 +59,21 @@
                     </div>
                 </div>
                 
+                <div class="control-group">
+                    {# info modal #}
+                    <div class="control-label pull-right" for="{{ form.canonical_url.vars.id }}">
+                        {{ macrosInfo.bootstrapInfoModal('brick.help.canonical_url.title'|trans({}, 'UserBundle'), 'brick.help.canonical_url.body'|trans({}, 'UserBundle')) }}
+                    </div>
+                    
+                    {# label #}
+                    <div class="control-label" for="{{ form.canonical_url.vars.id }}">
+                        {{ 'brick.canonical_url'|trans({}, 'UserBundle')|capitalize }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.canonical_url) }}
+                    </div>
+                </div>
+                
                 <div id="control-group-content" class="control-group">
                     <div class="controls">
                         <ul class="nav nav-tabs" id="content-tab">

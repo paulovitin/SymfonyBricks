@@ -15,6 +15,7 @@ class BrickType extends AbstractType
                 'error_bubbling' => true
             ))
             ->add('description', 'textarea')
+            ->add('canonical_url', 'text')
             ->add('content', 'textarea')
         ;
     }
