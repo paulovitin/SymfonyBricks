@@ -4,6 +4,9 @@ CONTROLLER-BRICK.LESS
 rules for all the templates loaded through Bricks\UserBundle\BrickController
 ******************************************************************************************/
 
+/* import bootstrap mixins */
+@import "../../../../../web/assets/bootstrap/less/mixins.less";
+
 /**
     create and edit a brick
     
@@ -16,37 +19,123 @@ body.route-user_brick_new, body.route-user_brick_edit {
             BUG: if input[type="text"] width is put at 100%, "box-sizing: content-box;" defined in layout.less does not
             work in firefox (maybe in other browsers too)
             
-            so for the moment is put at 98%
+            so for the moment is put at 98.5%
         */
-        input[type="text"] { width: 98%; }
+        input[type="text"] {
+            width: 98.5%;
+            .border-radius(0px);
+        }
         
-        textarea { width: 100%; }
+        textarea {
+            width: 100%;
+            .border-radius(0px);
+        }
         
+        /*
         label {
             float: none;
             width:  100%;
             text-align: left;
             font-weight:    bold;
         }
+        */
+        .control-label {
+            float: none;
+            width:  auto;
+            display: inline-block;
+            padding:    3px 20px;
+            
+            
+            border: 1px solid #CCC;
+            border-bottom:  0px;
+            .border-radius(3px 3px 0px 0px);
+            #gradient .vertical(#F8F8F8, #DEDEDE);
+            
+            text-align: left;
+            font-weight:    normal;
+            font-size:  12px;
+            
+            &.pull-right {
+                float: right;
+                padding:    3px 10px;
+            }
+        }
         .controls {
             margin-left:    0px;
         }
-    
+        
         #bricks_userbundle_bricktype_description {
-            height: 100px;
+            height: 160px;
         }
         
-        #content-tab {
-            margin-bottom:   0px;
-        }
-        #bricks_userbundle_bricktype_content {
-            height: 600px;
-            border-top: 0px;
-        }
-        #content-preview {
-            padding:    4px 6px;
-            border: 1px solid #CCC;
-            border-top: 0px;
+        #control-group-content {
+            .controls {
+                ul#content-tab {
+                    margin-bottom:   0px;
+                    li {
+                        margin-right:   10px;
+                        margin-bottom:   0px;
+                        a {
+                            padding:    3px 20px;
+                            
+                            border: 1px solid #CCC;
+                            border-bottom:  0px;
+                            .border-radius(3px 3px 0px 0px);
+                            
+                            color:  #888;
+                            font-weight:    normal;
+                            font-size:  12px;
+                            /*
+                            border: 1px solid #CCC;
+                            border-bottom:  0px;
+                            .border-radius(3px 3px 0px 0px);
+                            #gradient .vertical(#F8F8F8, #DEDEDE);
+                            
+                            text-align: left;
+                            font-weight:    normal;
+                            font-size:  12px;
+                            
+                            color:  #888;
+                            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+                            border-bottom:  0px none;
+                            */
+                        }
+                        
+                        &.active {
+                            a {
+                                /*
+                                color:  #333;
+                                background: white;
+                                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                                border-color:   #B4B4B4;
+                                */
+                                
+                                #gradient .vertical(#F8F8F8, #DEDEDE);
+                                
+                                color:  #333;
+                                text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+                                border-bottom:  0px none;
+                            }
+                        }
+                    }
+                }
+                
+                .tab-content {
+                    .tab-pane {
+                        margin-top: -3px;
+                    }
+                    
+                    textarea#bricks_userbundle_bricktype_content {
+                        height: 600px;
+                        border-top: 0px;
+                    }
+                    #content-preview {
+                        padding:    4px 6px;
+                        border: 1px solid #CCC;
+                        border-top: 0px;
+                    }
+                }
+            }
         }
     }
 }
