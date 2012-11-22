@@ -6,6 +6,23 @@
         <div class="span12">
             <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ app.user.username }}</p>
             <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ app.user.email }}</p>
+            
+            <ul id="large-icons">
+                <li>
+                    <a href="{{ path('user_brick_starred') }}">
+                        <i class="icon-star"></i>
+                        <br><br>
+                        {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|upper }}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('user_brick') }}">
+                        <i class="icon-book"></i>
+                        <br><br>
+                        {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|upper }}
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
