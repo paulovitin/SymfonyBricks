@@ -4,8 +4,9 @@
 
     <div class="row">
         <div class="span12">
-            <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ app.user.username }}</p>
-            <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ app.user.email }}</p>
+            <a href="{{ path('user_dashboard') }}">
+                <i class="icon-home"></i> {{ app.user.username }}
+            </a>
             
             <ul id="large-icons">
                 <li>
