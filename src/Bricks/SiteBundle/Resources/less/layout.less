@@ -154,17 +154,36 @@ MAIN NAVBAR
             .border-radius(3px);
             
             li {
+                &:hover {
+                    #gradient .vertical(#FBCE4F, #F8B245);
+                    border-color:     #CC962F;
+                    color:  #636363;
+                    .btn-group {
+                        .caret {
+                            border-top-color:   #333;
+                            border-bottom-color:   #333;
+                        }
+                    }
+                }
+                
                 a {
                     padding:    3px 10px;
                     font-weight:    normal;
                     color:  #313131;
                     
-                    &:hover {
-                        #gradient .vertical(#FBCE4F, #F8B245);
-                        border-color:     #CC962F;
-                        color:  #636363;
-                    }
+                }
+                
+                .btn-group {
+                    margin-top: 0px;
                     
+                    > a { padding-right: 2px; }
+                    
+                    .dropdown-toggle {
+                        padding-left:   6px;
+                        .border-radius(0px);
+                        background: transparent;
+                        border: 0px none;
+                    }
                 }
             }
         }
