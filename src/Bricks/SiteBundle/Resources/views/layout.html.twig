@@ -101,12 +101,35 @@
                                 </li>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                     <li>
-                                        <a href="{{ path('user_dashboard') }}"><i class="icon-user"></i> {{ app.user.username }}</a>                                    
+                                        <div class="btn-group">
+                                            <a href="{{ path('user_dashboard') }}" class=""><i class="icon-user"></i> {{ app.user.username }}</a>
+                                            <button class="dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{{ path('user_dashboard') }}"><i class="icon-home"></i> {{ 'user_navbar.dashboard'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a href="{{ path('user_brick_starred') }}"><i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('user_brick') }}"><i class="icon-book"></i> {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a href="{{ path('fos_user_profile_edit') }}"><i class="icon-user"></i> {{ 'user_navbar.edit_profile'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('fos_user_change_password') }}"><i class="icon-lock"></i> {{ 'user_navbar.change_password'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="{{ path('logout') }}"><i class="icon-signout"></i></a>
                                     </li>
-
                                 {% else %}
                                     <li>
                                         <a href="{{ path('fos_user_registration_register') }}">
