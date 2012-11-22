@@ -1,5 +1,50 @@
 # Changelog
 
+###2012-11-22###
+
+- added canonical_url field to a Brick
+    - [8bd3b4f02adcfbcc5af29b8c3212916a2e81edf0](https://github.com/inmarelibero/SymfonyBricks/commit/8bd3b4f02adcfbcc5af29b8c3212916a2e81edf0)
+    
+###2012-11-21###
+
+- added canonical_url field to a Brick
+    - [c3fbb3442374068e1f07ff367263fbb2338cf0d5](https://github.com/inmarelibero/SymfonyBricks/commit/c3fbb3442374068e1f07ff367263fbb2338cf0d5)
+- heavily tweaked brick edit/create form
+    - [b6a2477f67dbfd8ef368e6cd36213d818d41147a](https://github.com/inmarelibero/SymfonyBricks/commit/b6a2477f67dbfd8ef368e6cd36213d818d41147a)
+    
+    
+###2012-11-19###
+
+- added modal login box
+    - [0b0f4964b7e0d7d2377e48f37e35f2d15cdf7093](https://github.com/inmarelibero/SymfonyBricks/commit/0b0f4964b7e0d7d2377e48f37e35f2d15cdf7093)
+- add canonical tag
+    - [b03b902daa595605b3d37e0ad72fc5c7649c769d](https://github.com/inmarelibero/SymfonyBricks/commit/b03b902daa595605b3d37e0ad72fc5c7649c769d)
+- added "Star" functionality
+    - [26b6fb3a89e0e7662aa94bf6e7ebf0139974e0e9](https://github.com/inmarelibero/SymfonyBricks/commit/26b6fb3a89e0e7662aa94bf6e7ebf0139974e0e9)
+    
+###2012-11-17###
+
+- refactored public user profile
+    - [3fd63988ae7b6deba22f6b6348f60e11bce76fb3](https://github.com/inmarelibero/SymfonyBricks/commit/3fd63988ae7b6deba22f6b6348f60e11bce76fb3)
+    
+###2012-11-15###
+
+- added info modal box to bricks edit interface
+    - [70043a35ffcb91b9fe7b81925d0476266e37d946](https://github.com/inmarelibero/SymfonyBricks/commit/70043a35ffcb91b9fe7b81925d0476266e37d946)
+    
+###2012-11-09###
+
+- assets refactored into web/assets instead of app/resources because of problems with relative paths and assetic
+    - [dc4c497e9784786940d31e74c98ae19155523a81](https://github.com/inmarelibero/SymfonyBricks/commit/dc4c497e9784786940d31e74c98ae19155523a81)
+- added FontAwesome
+    - [64d6b9dbf7158ec81e343dc65fb6be6e397784ee](https://github.com/inmarelibero/SymfonyBricks/commit/64d6b9dbf7158ec81e343dc65fb6be6e397784ee)
+    
+###2012-11-08###
+
+- added a class reflecting the route name to the <body>
+    - [824cbdbcfdef8da73afb2cfb2673b04324c77969](https://github.com/inmarelibero/SymfonyBricks/commit/824cbdbcfdef8da73afb2cfb2673b04324c77969)
+    - [e0bb08861d370f400bd8a77bbabcc036b15e084f](https://github.com/inmarelibero/SymfonyBricks/commit/e0bb08861d370f400bd8a77bbabcc036b15e084f)
+    
 ###2012-11-07###
 
 - user.less refactored
