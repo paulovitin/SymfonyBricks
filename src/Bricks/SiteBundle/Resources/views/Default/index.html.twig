@@ -5,22 +5,25 @@
 {% block main %}
 
     <div class="row">
-        <div class="span9" style="text-align: left;">
-        
-            <h1 style="font-size: 70px;">SymfonyBricks</h1>
-            
-            <br><br><br>
-            
-            <p style="font-size: 22px;">
-                {% if 'it' == app.request.locale %}
-                    Costruito dalla comunità, per la comunità.
-                {% elseif 'es' == app.request.locale %}
-                    Construido por la comunidad, para la comunidad
-                {% else %}
-                    Built by the community, for the community
-                {% endif %}
-            </p>
-            <br><br>
+        <div class="span8" style="text-align: left;">
+            <img src="{{ asset('img/homepage-logo-cropped.png') }}" alt="SymfonyBricks" {#style="height: 80px;"#} />
+        </div>
+        <div class="span4 right-col">
+            <ul>
+                <li>
+                    <a href="{{ path('fos_user_registration_register') }}" id="btn-signup" class="btn btn-success">
+                        <i class="icon-user"></i> {{ 'sign_up'|trans({}, 'route_homepage')|raw }}
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="{{ path('contribute') }}" class="btn btn-primary">
+                        <i class="icon-random"></i> {{ 'how_to_contribute'|trans({}, 'route_homepage') }}
+                    </a>
+                </li>
+            </ul>
+            <br>
             <p style="font-size: 20px;">
                 {% if 'it' == app.request.locale %}
                     SymfonyBricks punta ad essere un repository di guide, frammenti di codice, ricette ed altro ancora.
@@ -30,7 +33,25 @@
                     SymfonyBricks aims to be a repository of guides, snippets of code, recipes and even more.
                 {% endif %}
             </p>
+        </div>
+    </div>
+    
+    <br><br>
+    
+    <div class="row">
+        <div class="span4">
+            <p style="font-size: 22px;">
+                {% if 'it' == app.request.locale %}
+                    Costruito dalla comunità,<br>per la comunità.
+                {% elseif 'es' == app.request.locale %}
+                    Construido por la comunidad,<br>para la comunidad
+                {% else %}
+                    Built by the community,<br>for the community
+                {% endif %}
+            </p>
             <br>
+        </div>
+        <div class="span8">
             <p>
                 <i class="icon-download" style="vertical-align: middle;"></i>
                 {% if 'it' == app.request.locale %}
@@ -51,32 +72,6 @@
                     useful to the same Symfony developers: don't reinvent the wheel!
                 {% endif %}
             </p>
-            
-        </div>
-        <div class="span3 right-col">
-        
-            <ul>
-                <li>
-                    <a href="{{ path('contribute') }}" class="btn">
-                        <i class="icon-random"></i> {{ 'how_to_contribute'|trans({}, 'route_homepage') }}
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ path('fos_user_registration_register') }}" id="btn-signup" class="btn btn-success">
-                        <i class="icon-user"></i> {{ 'sign_up'|trans({}, 'route_homepage')|raw }}
-                    </a>
-                </li>
-            </ul>
-            <div id="relevant-links">
-                <h2>{{ 'relevant_links'|trans({}, 'route_homepage') }}</h2>
-                <ul>
-                    <li><a href="https://github.com/inmarelibero/SymfonyBricks/blob/master/doc/RFC/RFC_1_-_Brick.md" target="_blank">RFC 1 - Brick</a></li>
-                    <li><a href="https://github.com/inmarelibero/SymfonyBricks/issues/1" target="_blank">Tweaking documentation: is the purpose of symfonybricks.com clear?</a></li>
-                    <li><a href="https://github.com/inmarelibero/SymfonyBricks/issues/2" target="_blank">What would you like to find on symfonybricks.com?</a></li>
-                </ul>
-            </div>
-            
-            
         </div>
     </div>
     
