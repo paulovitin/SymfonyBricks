@@ -220,6 +220,11 @@
         {% javascripts '@javascripts' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
+        
+        {# FOSJsRoutingBundle generated routes by controller #}
+        <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        
+        
         {% block javascripts_footer '' %}
     </body>
 
