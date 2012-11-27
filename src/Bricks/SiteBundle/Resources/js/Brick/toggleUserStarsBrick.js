@@ -12,9 +12,6 @@
     	
 		$(this).click(function() {
 			
-			// add the baseUrl for the 'dev' environment
-			//Routing.setBaseUrl('/app_dev.php');
-			
 			// url to toggle the "star" state
 			var url = Routing.generate('user_brick_toggle_star', {'brick_id': src.data('brick-id')});
 			
