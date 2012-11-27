@@ -29,7 +29,10 @@ login:
 logout:
     pattern:   /logout
     defaults:  { _controller: FOSUserBundle:Security:logout, _locale: %locale% }
-        
+
+# FOSJsRoutingBundle routes
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"        
 
 # FOSUserBundle routes
 fos_user_security:
