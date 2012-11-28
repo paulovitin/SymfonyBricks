@@ -1,4 +1,9 @@
-<form action="{{ path('user_brick_delete', {'id': id}) }}" method="post" {{ form_enctype(form) }} onSubmit="return confirm('{{ 'brick.confirm_deletion'|trans({}, 'UserBundle') }}');">
+{% set formId = 'form_user_brick_delete_'~id %}
+
+{# delete form #}
+<form id="{{ formId }}" style="display: none;" action="{{ path('user_brick_delete', {'id': id}) }}" method="post" {{ form_enctype(form) }} onSubmit="return confirm('{{ 'brick.confirm_deletion'|trans({}, 'UserBundle') }}');">
     {{ form_widget(form) }}
-    <button type="submit" class="btn btn-mini"><i class="icon-trash"></i> {{ 'delete'|trans }}</button>
 </form>
+
+{# <a> tag with javascript submit() function #}
+<a href="javascript:void(0);" onClick="$('#{{ formId }}').submit();"><i class="icon-trash"></i></a>

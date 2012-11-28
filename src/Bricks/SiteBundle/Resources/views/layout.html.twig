@@ -17,9 +17,12 @@
         {# canonical url #}
         <link rel="canonical" href="{% spaceless %}{% block canonical_url %}{{ app.request.uri }}{% endblock canonical_url %}{% endspaceless %}"/>
         
-        {% stylesheets '@stylesheets' %}
-            <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
-        {% endstylesheets %}
+        {% javascripts '@javascripts' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        
+        {# FOSJsRoutingBundle generated routes by controller #}
+        <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
         {% block javascripts_header %}
             {# twitter #}
@@ -41,6 +44,10 @@
           })();
 
         </script>
+        
+        {% stylesheets '@stylesheets' %}
+            <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
+        {% endstylesheets %}
     </head>
 
     <body lang="{{app.request.locale}}" class="route-{{ app.request.get('_route') }} {% block body_class '' %}">
@@ -217,14 +224,6 @@
         
         {% render 'BricksUserBundle:Security:_modalLogin' %}
 
-        {% javascripts '@javascripts' %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        
-        {# FOSJsRoutingBundle generated routes by controller #}
-        <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-        
-        
         {% block javascripts_footer '' %}
     </body>
 

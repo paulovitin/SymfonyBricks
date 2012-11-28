@@ -5,36 +5,56 @@
     <div class="row">
         <div class="span12">
         
+            <a href="{{ path('user_brick_new') }}" class="btn btn-primary pull-right">
+                <i class="icon-check"></i> {{ 'brick.create_new_brick'|trans({}, 'UserBundle') }}
+            </a>
+            
             <h1>Bricks</h1>
             
-            <table class="records_list table table-striped">
-                <tbody>
-                {% for entity in entities %}
+            <table id="bricks-table" class="records_list table table-striped">
+                <thead>
                     <tr>
                         <td>
-                            <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}">{{ entity.title }}</a>
-                            <br>
-                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ entity.updatedat|date('Y-m-d H:i:s') }}
+                            <i class="icon-book"></i> {{ 'brick.title'|trans|capitalize }}
                         </td>
                         <td>
-                            {% if (entity.published) %}
-                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn btn-success"><i class="icon-ok-sign"></i> {{ 'brick.published'|trans|capitalize }}</a>
-                            {% else %}
-                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}" class="btn"><i class="icon-remove-sign"></i> {{ 'brick.not_published'|trans|capitalize }}</a>
-                            {% endif %}
+                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans|capitalize }}
                         </td>
                         <td>
-                            <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}" class="btn btn-mini"><i class="icon-edit"></i> {{ 'edit'|trans }}</a>
-                            {% render 'BricksUserBundle:Brick:_deleteForm' with {'id': entity.id} %}
+                            <i class="icon-bullhorn"></i> {{ 'brick.published'|trans|capitalize }}
+                        </td>
+                        <td>
+                            <i class="icon-reorder"></i> {{ 'brick.actions'|trans({}, 'UserBundle')|capitalize }}
                         </td>
                     </tr>
-                {% endfor %}
+                </thead>
+                <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}">{{ entity.title }}</a>
+                            </td>
+                            <td id="last_update">
+                                {{ entity.updatedat|date('H:i:s | d M Y') }}
+                            </td>
+                            <td id="published">
+                                <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}">
+                                    {% if (entity.published) %}
+                                        <i class="icon-published icon-ok"></i>
+                                    {% else %}
+                                        <i class="icon-not-published icon-remove"></i>
+                                    {% endif %}
+                                </a>
+                            </td>
+                            <td id="actions">
+                                <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}" ><i class="icon-edit"></i></a>
+                                {% render 'BricksUserBundle:Brick:_deleteForm' with {'id': entity.id} %}
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             
-            <a href="{{ path('user_brick_new') }}" class="btn btn-primary">
-                <i class="icon-check"></i> {{ 'brick.create_new_brick'|trans({}, 'UserBundle') }}
-            </a>
         </div>
     </div>
 

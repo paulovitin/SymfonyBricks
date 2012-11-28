@@ -25,6 +25,7 @@ brick:
     content: contenido
     preview: previsualización
     confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"
+    actions: acciones
     
     help:
         title:
