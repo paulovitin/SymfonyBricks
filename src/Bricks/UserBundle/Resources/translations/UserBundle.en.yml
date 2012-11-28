@@ -26,6 +26,7 @@ brick:
     content: content
     preview: preview
     confirm_deletion: "This operation cannot be undone. Confirm the deletion?"
+    actions: actions
     
     help:
         title:

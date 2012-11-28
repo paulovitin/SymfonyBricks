@@ -8,6 +8,42 @@ rules for all the templates loaded through Bricks\UserBundle\BrickController
 @import "../../../../../web/assets/bootstrap/less/mixins.less";
 
 /**
+    bricks index (user reserved area)
+    
+    route: user_brick
+*/
+body.route-user_brick {
+    table#bricks-table {
+        border: 1px solid #CCC;
+    
+        thead {
+            #gradient .vertical(#F8F8F8, #DEDEDE);
+            font-weight:    bold;
+        }
+        tbody {
+            td#last_update {
+                font-size:  12px;
+            }
+            td#published { text-align: center;
+                a {
+                    i.icon-published { color: #51A351; }
+                    i.icon-not-published {
+                        color: #CCC;
+                        &:hover { color: #E94132; }
+                    }
+                }
+            }
+            td#actions { text-align: center;
+                a {
+                    color: #333;
+                    margin-right:   4px;
+                }
+            }
+        }
+    }
+}
+
+/**
     create and edit a brick
     
     route: user_brick_new, user_brick_edit
