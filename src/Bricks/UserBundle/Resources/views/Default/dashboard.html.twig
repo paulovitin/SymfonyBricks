@@ -4,9 +4,8 @@
 
     <div class="row">
         <div class="span12">
-            <a href="{{ path('user_dashboard') }}">
-                <i class="icon-home"></i> {{ app.user.username }}
-            </a>
+        
+            <h1><i class="icon-home"></i> {{ 'user_navbar.dashboard'|trans({}, 'UserBundle')|capitalize }}</h1>
             
             <ul id="large-icons">
                 <li>
