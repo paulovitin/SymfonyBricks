@@ -25,21 +25,30 @@
             
             <p class="description">{{ brick.description }}</p>
             
-            <hr>
+            <div id="info">
+                <div id="social-share">
+                    <div>
+                        <a  href="https://twitter.com/share"
+                            class="twitter-share-button pull-right"
+                            
+                            data-url="{{ app.request.uri }}"
+                            data-text="{{ brick.title }}"
+                            data-via="SymfonyBricks"
+                        >
+                            Tweet
+                        </a>
+                    </div>
+                    <div>
+                        <g:plusone width="70"></g:plusone>
+                    </div>
+                </div>
                 <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
                 |
                 <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
                 |
                 {{ macrosBrick.toggleUserStarsBrick(brick) }}
                 
-                <a href="https://twitter.com/share" class="twitter-share-button pull-right"
-                    data-url="{{ app.request.uri }}"
-                    data-text="{{ brick.title }}"
-                    data-via="SymfonyBricks"
-                >
-                    Tweet
-                </a>
-            <hr>
+            </div>
             
             <div class="content">
                 {{ brick.content|markdown }}
