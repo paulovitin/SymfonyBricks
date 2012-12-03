@@ -32,7 +32,7 @@ class BrickController extends Controller
 
         $entities = $em->getRepository('BricksSiteBundle:Brick')->findBy(
             array('user' => $user->getId()),
-            array('updated_at' => 'DESC')
+            array('title' => 'ASC')
         );
 
         return array(
