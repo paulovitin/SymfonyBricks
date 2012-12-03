@@ -10,7 +10,7 @@
 #}
 {% macro bootstrapInfoModal(title, body) %}
 
-    {% set modalId = "modal-"~title|lower|replace({' ': '-'}) %}
+    {% set modalId = "modal-"~title|lower|replace({' ': '-', ':': '-'}) %}
 
     <a href="#{{ modalId }}" class="info-modal-caller" role="button" data-toggle="modal">
         <i class="icon-question-sign"></i>

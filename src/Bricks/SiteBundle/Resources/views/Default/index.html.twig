@@ -93,6 +93,8 @@
                             <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
                             |
                             {{ macrosBrick.toggleUserStarsBrick(brick) }}
+                            |
+                            <i class="icon-tag"></i> {{ brick_formatted_tags(brick) }}
                         </p>
                     </li>
                 {% endfor %}
