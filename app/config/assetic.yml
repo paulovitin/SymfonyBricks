@@ -34,6 +34,7 @@ assetic:
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-alert.js
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-modal.js
                 - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-tooltip.js
+                - %kernel.root_dir%/../web/assets/bootstrap-tags/lib/bootstrap-tags.js
                 - bundles/fosjsrouting/js/router.js
                 - @BricksSiteBundle/Resources/js/*.js
                 - @BricksSiteBundle/Resources/js/*/*.js

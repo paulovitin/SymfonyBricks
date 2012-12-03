@@ -1,0 +1,8 @@
+services:
+
+    # Brick Twig extenxion
+    bricks.twig.brick_extension:
+        class: Bricks\SiteBundle\Extension\BrickExtension
+        tags:
+           - { name: twig.extension }
+           
