@@ -31,6 +31,9 @@ class AppKernel extends Kernel
                 
             // FOSJsRoutingBundle
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+                
+            // KnpDisqusBundle
+            new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
             
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
