@@ -1,0 +1,15 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{# SEO blocks #}
+{% block meta_title_content %}Contribute | SymfonyBricks.com{% endblock %}
+{% block meta_description_content %}SymfonyBricks is an open source project: discover how you can contribute.{% endblock %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="span12">
+            {{ changelog_content|markdown }}
+        </div>
+    </div>
+    
+{% endblock %}
