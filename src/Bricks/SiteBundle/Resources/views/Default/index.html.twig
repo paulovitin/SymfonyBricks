@@ -87,10 +87,10 @@
                         <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
                             {{ brick.title }}
                         </a>
-                        <p>
+                        <p class="brick-info">
                             <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
                             |
-                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
+                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d M Y') }}
                             |
                             {{ macrosBrick.toggleUserStarsBrick(brick) }}
                             |
