@@ -53,7 +53,10 @@
             <div class="content">
                 {{ brick.content|markdown }}
             </div>
-        
+            
+            <hr>
+            
+            {{ knp_disqus_render('symfonybricks', {'identifier': '/brick-'~brick.id, 'limit': 10}) }}
         </div>
     </div>
         
