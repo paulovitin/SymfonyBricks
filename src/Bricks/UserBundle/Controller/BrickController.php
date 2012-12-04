@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Bricks\SiteBundle\Entity\Brick;
-use Bricks\UserBundle\Form\BrickType;
+use Bricks\UserBundle\Form\Type\BrickType;
 
 /**
  * Brick controller.
@@ -67,8 +67,10 @@ class BrickController extends Controller
      */
     public function newAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        
         $entity = new Brick();
-        $form   = $this->createForm(new BrickType(), $entity);
+        $form   = $this->createForm(new BrickType($em), $entity);
 
         return array(
             'entity' => $entity,
@@ -85,13 +87,18 @@ class BrickController extends Controller
      */
     public function createAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+        
         $entity  = new Brick();
-        $form = $this->createForm(new BrickType(), $entity);
-        $form->bind($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            
+        $form = $this->createForm(new BrickType($em), $entity);
+        
+        
+        $form = $this->createForm(new BrickType($em), $entity);
+        $formHandler = $this->container->get('brick.form.handler');
+        
+        $process = $formHandler->process($entity);
+        
+        if ($process) {
             // set the user
             $user = $this->container->get('security.context')->getToken()->getUser();
             $entity->setUser($user);
@@ -100,7 +107,7 @@ class BrickController extends Controller
             $em->flush();
             
             $this->get('session')->setFlash('success', 'alert.brick.create.success');
-
+        
             return $this->redirect($this->generateUrl('user_brick_edit', array('id' => $entity->getId())));
         }
         
@@ -131,8 +138,7 @@ class BrickController extends Controller
         // check user permissions on this brick
         $this->checkUserCanEditBrick($entity);
         
-        $editForm = $this->createForm(new BrickType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new BrickType($em), $entity);
 
         return array(
             'entity'      => $entity,
@@ -160,14 +166,11 @@ class BrickController extends Controller
         // check user permissions on this brick
         $this->checkUserCanEditBrick($entity);
 
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new BrickType(), $entity);
-        $editForm->bind($request);
-
-        if ($editForm->isValid()) {
-            $em->persist($entity);
-            $em->flush();
-            
+        $editForm = $this->createForm(new BrickType($em), $entity);
+        $formHandler = $this->container->get('brick.form.handler');
+        
+        $process = $formHandler->process($entity);
+        if ($process) {
             $this->get('session')->setFlash('success', 'alert.brick.update.success');
             
             return $this->redirect($this->generateUrl('user_brick_edit', array('id' => $id)));
@@ -176,8 +179,8 @@ class BrickController extends Controller
         $this->get('session')->setFlash('error', 'alert.brick.update.error');
 
         return array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
+            'entity'  => $entity,
+            'form'    => $editForm->createView(),
         );
     }
     

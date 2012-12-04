@@ -31,7 +31,7 @@
                 
                 <div class="control-group">
                     {# info modal #}
-                    <div class="control-label pull-right" for="{{ form.description.vars.id }}">
+                    <div class="control-label pull-right" for="{{ form.title.vars.id }}">
                         {{ macrosInfo.bootstrapInfoModal('brick.help.title.title'|trans({}, 'UserBundle'), 'brick.help.title.body'|trans({}, 'UserBundle')) }}
                     </div>
                     
@@ -41,6 +41,30 @@
                     </div>
                     <div class="controls">
                         {{ form_widget(form.title) }}
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    {# info modal #}
+                    <div class="control-label pull-right" for="{{ form.brickHasTags.vars.id }}">
+                        {{ macrosInfo.bootstrapInfoModal('brick.help.tags.title'|trans({}, 'UserBundle'), 'brick.help.tags.body'|trans({}, 'UserBundle')) }}
+                    </div>
+                    
+                    {# label #}
+                    <div class="control-label" for="{{ form.brickHasTags.vars.id }}">
+                        {{ 'brick.tags'|trans({}, 'UserBundle')|capitalize }}
+                    </div>
+                    <div class="controls">
+                    
+                        <div id="tags-labels" class="tag-list">
+                            <div class="tags"></div>
+                            <p id="tags-labels-help-text">
+                                {{ 'brick.brickHasTags.help_text'|trans({}, 'UserBundle') }}
+                            </p>
+                        </div>
+                        
+                        
+                        {{ form_widget(form.brickHasTags) }}
                     </div>
                 </div>
                 
@@ -118,8 +142,15 @@
 {% endblock %}
 
 {% block javascripts_footer %}
+
     <script type="text/javascript">
         jQuery(function($) {
+        	/****************************************************************************************
+             * tabbed panes for Brick content/preview
+             ***************************************************************************************/
+            /**
+             * preview the content of the brick by calling the markup parser via ajax
+             */
             $('a[data-toggle="tab"]').on('shown', function (e) {
                 
                 // tab element pressed
@@ -149,6 +180,68 @@
             		})
                 }
             })
+
+            /****************************************************************************************
+             * Tag management
+             ***************************************************************************************/
+            var tagsElement = $('#tags-labels');
+            
+            /**
+             * updates the form.brickHasTags form field when user adds/removes tags
+             * through the bootstrap plugin
+             *
+             * hack: everything is wrapped in a timeout function,
+             * waiting for https://github.com/maxwells/bootstrap-tags/issues/2
+             */
+            updateBrickHasTagsInput = function() {
+
+                setTimeout(function() {
+            	    /**
+                     * wrap everything in a timeout function
+                     */
+                    // form.brickHasTags form field
+                    var brickHasTagsInput = $("#{{ form.brickHasTags.vars.id }}");
+    
+                    /**
+                     * get all tags values
+                     *
+                     * waiting for https://github.com/maxwells/bootstrap-tags/issues/3
+                     */
+                    var tags = tagsElement.tags().getTags();
+                    
+                    // set tags values to brick form input
+                    $("#{{ form.brickHasTags.vars.id }}").val(tags.join("|"));
+                }, 400);
+            };
+
+
+            // tags values for bootstrap plugin
+            {% if (entity.brickHasTags|length > 0) %}
+                tagData = "{{ form.brickHasTags.vars.value }}".split('|');
+            {% else %}
+                tagData = [];
+            {% endif %}
+
+            /**
+             * initialize tags box with bootstrap-tags jquery plugin
+             * https://github.com/maxwells/bootstrap-tags
+             */
+            tagsElement.tags( {
+                tagData: tagData,
+                tagClass: "btn btn-mini",
+                
+                pressedReturn: function(e) {
+                    e.preventDefault();
+                },
+                whenAddingTag: function (tag) {
+                	updateBrickHasTagsInput();
+                },
+                tagRemoved: function () {
+                	updateBrickHasTagsInput();
+                }
+            });
+
         });
     </script>
+    
 {% endblock %}

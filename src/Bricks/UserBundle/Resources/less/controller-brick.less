@@ -48,7 +48,7 @@ body.route-user_brick {
     
     route: user_brick_new, user_brick_edit
 */
-body.route-user_brick_new, body.route-user_brick_edit {
+body.route-user_brick_new, body.route-user_brick_create, body.route-user_brick_edit, body.route-user_brick_update {
     #user-brick-edit {
         
         /*
@@ -102,6 +102,49 @@ body.route-user_brick_new, body.route-user_brick_edit {
         
         #bricks_userbundle_bricktype_description {
             height: 160px;
+        }
+        
+        .tag-list {
+            width: 100%;
+            margin-bottom:  20px;
+            position: relative;
+            height: inherit !important;
+            
+            border:     1px solid #CCC;
+            padding:    10px;
+            
+            .tag-data {
+                display:none;
+            }
+            .tags-input {
+                width:  200px;
+                margin: 0;
+                padding:   0px !important;
+                font-size:  12px !important;
+            }
+            .tags {
+                padding:    0;
+                overflow:   hidden;
+            }
+            .tag {
+                float:          left;
+                padding:        3px 5px;
+                margin:         1px;
+                margin-bottom:  5px;
+                border:         1px solid #CCC;
+                text-shadow:    none;
+                
+                &, a {
+                    color: #333;
+                    font-weight: normal;
+                }
+            }
+            #tags-labels-help-text {
+                margin: 0px;
+                margin-top: 10px;
+                font-size:  13px;
+                font-style: italic;
+            }
         }
         
         #control-group-content {

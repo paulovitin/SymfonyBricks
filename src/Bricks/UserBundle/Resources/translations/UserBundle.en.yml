@@ -27,10 +27,13 @@ brick:
     preview: preview
     confirm_deletion: "This operation cannot be undone. Confirm the deletion?"
     actions: actions
+    tags: tags
+    brickHasTags:
+        help_text: To add a tag, write it in the box below and press "Enter"
     
     help:
         title:
-            title: "Brick: title"
+            title: "Brick: Title"
             body: |
                 This is the title of the brick (piece of code/guide/recipe) you are creating.
                 <br><br>
@@ -86,3 +89,20 @@ brick:
                 Put in this field the url of the original article/blog post/webpage, so google will give priority to it instead of the content published on SymfonyBricks.
                 <br><br><br>
                 More infos are available on <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=139394" target="_new">this Google help page.</a>
+                
+        tags:
+            title: "Brick: Tags"
+            body: |
+                Tags are labels of text you can attach to a brick; a tag can be composed by one or more words.
+                <br><br>
+                A good tag should observe the following rules:
+                <br>
+                <ul>
+                    <li>
+                        <b>be short:</b> most of the times a tag is a single word, like <b>configuration</b>, <b>doctrine</b>, <b>databse</b>.
+                    </li>
+                    <li>
+                        <b>singular:</b> if possible, try to use a <i>singular nouns</i>; for example use <b>databse</b> instead of <b>databases</b>.
+                    </li>
+                </ul>
+                

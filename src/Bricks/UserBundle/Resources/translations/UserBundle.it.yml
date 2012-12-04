@@ -26,6 +26,9 @@ brick:
     preview: anteprima
     confirm_deletion: "Questa operazione non può essere annullata. Continuare?"
     actions: azioni
+    tags: tags
+    brickHasTags:
+        help_text: Per aggiungere un Tag, scrivilo nel riquadro qua sotto e premi "Invio"
     
     help:
         title:
@@ -72,6 +75,21 @@ brick:
                     </li>
                     <li>
                         <b>come hai risolto il problema e la soluzione che hai adottato; es. quali bundle hai installato, le librerie esterne che hai installato e configurato, etc...</b>
+                    </li>
+                </ul>
+        tags:
+            title: "Brick: Tags"
+            body: |
+                I Tag sono delle etichette di testo che è possibile aggiungere an un brick; un tag è composto da una o più parole.
+                <br><br>
+                Un buon tag dovrebbe osservare le seguenti regole:
+                <br>
+                <ul>
+                    <li>
+                        <b>essere corto:</b> la maggior parte delle volte un tag è una singola parola, come <b>configuration</b>, <b>doctrine</b>, <b>databse</b>.
+                    </li>
+                    <li>
+                        <b>singolare:</b> se possibile, usare un <i>nome singolare</i>; ad esempio utilizzare <b>databse</b> invece di <b>databases</b>.
                     </li>
                 </ul>
                 

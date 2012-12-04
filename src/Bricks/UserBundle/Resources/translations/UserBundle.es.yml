@@ -21,11 +21,14 @@ brick:
     create_new_brick: Crear un nuovo brick
     edit_brick: Modificar brick
     title: titulo
-    description: descriptión
+    description: descripción
     content: contenido
     preview: previsualización
     confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"
     actions: acciones
+    tags: tags
+    brickHasTags:
+        help_text: Para añadir un Tag, escribelo en el espacio de abajo y pulsa "Intro"
     
     help:
         title:
@@ -72,6 +75,21 @@ brick:
                     </li>
                     <li>
                         <b>cómo has resuelto el problema y la solución que has adoptado; por ejemplo los bundles que has instalado, las librerias externas instaladas y configuradas, etc ...</b>
+                    </li>
+                </ul>
+        tags:
+            title: "Brick: Tags"
+            body: |
+                Los Tags son etiquetas de texto que puedes añadir a un brick; un tag se compone de una o más palabras.
+                <br><br>
+                Un buen tag debería observar las siguientes reglas:
+                <br>
+                <ul>
+                    <li>
+                        <b>ser corto:</b> la mayoría de las veces una etiqueta es una sola palabra, como <b>configuration</b>, <b>doctrine</b>, <b>databse</b>.
+                    </li>
+                    <li>
+                        <b>singular:</b> si es posible, usar un <i>nombre singular</i>; por ejemplo utilizar <b>databse</b> en lugar de <b>databases</b>.
                     </li>
                 </ul>
                 

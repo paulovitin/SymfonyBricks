@@ -95,6 +95,11 @@ class Brick
     private $created_at;
     
     /**
+     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\BrickHasTag", mappedBy="brick", cascade={"persist"})
+     */
+    public $brickHasTags;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\UserStarsBrick", mappedBy="user", cascade={"persist"})
      */
     private $userStarsBricks;
@@ -113,7 +118,15 @@ class Brick
     /**************************************************************************************************
      *	getters and setters
     **************************************************************************************************/
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->brickHasTags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->userStarsBricks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -240,6 +253,29 @@ class Brick
     }
 
     /**
+     * Set canonicalUrl
+     *
+     * @param string $canonicalUrl
+     * @return Brick
+     */
+    public function setCanonicalUrl($canonicalUrl)
+    {
+        $this->canonicalUrl = $canonicalUrl;
+    
+        return $this;
+    }
+
+    /**
+     * Get canonicalUrl
+     *
+     * @return string 
+     */
+    public function getCanonicalUrl()
+    {
+        return $this->canonicalUrl;
+    }
+
+    /**
      * Set updated_at
      *
      * @param \DateTime $updatedAt
@@ -288,7 +324,7 @@ class Brick
     /**
      * Set user
      *
-     * @param Bricks\UserBundle\Entity\User $user
+     * @param \Bricks\UserBundle\Entity\User $user
      * @return Brick
      */
     public function setUser(\Bricks\UserBundle\Entity\User $user = null)
@@ -301,24 +337,50 @@ class Brick
     /**
      * Get user
      *
-     * @return Bricks\UserBundle\Entity\User 
+     * @return \Bricks\UserBundle\Entity\User 
      */
     public function getUser()
     {
         return $this->user;
     }
+
     /**
-     * Constructor
+     * Add brickHasTags
+     *
+     * @param \Bricks\SiteBundle\Entity\BrickHasTag $brickHasTags
+     * @return Brick
      */
-    public function __construct()
+    public function addBrickHasTag(\Bricks\SiteBundle\Entity\BrickHasTag $brickHasTags)
     {
-        $this->userStarsBricks = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+        $this->brickHasTags[] = $brickHasTags;
     
+        return $this;
+    }
+
+    /**
+     * Remove brickHasTags
+     *
+     * @param \Bricks\SiteBundle\Entity\BrickHasTag $brickHasTags
+     */
+    public function removeBrickHasTag(\Bricks\SiteBundle\Entity\BrickHasTag $brickHasTags)
+    {
+        $this->brickHasTags->removeElement($brickHasTags);
+    }
+
+    /**
+     * Get brickHasTags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBrickHasTags()
+    {
+        return $this->brickHasTags;
+    }
+
     /**
      * Add userStarsBricks
      *
-     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     * @param \Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
      * @return Brick
      */
     public function addUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
@@ -331,7 +393,7 @@ class Brick
     /**
      * Remove userStarsBricks
      *
-     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     * @param \Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
      */
     public function removeUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
     {
@@ -341,33 +403,10 @@ class Brick
     /**
      * Get userStarsBricks
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getUserStarsBricks()
     {
         return $this->userStarsBricks;
-    }
-
-    /**
-     * Set canonicalUrl
-     *
-     * @param string $canonicalUrl
-     * @return Brick
-     */
-    public function setCanonicalUrl($canonicalUrl)
-    {
-        $this->canonicalUrl = $canonicalUrl;
-    
-        return $this;
-    }
-
-    /**
-     * Get canonicalUrl
-     *
-     * @return string 
-     */
-    public function getCanonicalUrl()
-    {
-        return $this->canonicalUrl;
     }
 }
