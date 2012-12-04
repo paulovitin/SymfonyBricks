@@ -105,9 +105,20 @@
                             </ul>
                             <ul id="links-list" class="nav pull-right">
                                 <li>
-                                    <a href="{{ path('contribute') }}">
-                                        <i class="icon-random"></i> {{ 'main_navbar.contribute'|trans }}
-                                    </a>
+                                    <div class="btn-group">
+                                            <a href="{{ path('contribute') }}" class=""><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans }}</a>
+                                            <button class="dropdown-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="{{ path('contribute') }}"><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ path('changelog') }}"><i class="icon-align-left"></i> Changelog</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                 </li>
                                 <li>
                                     <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
