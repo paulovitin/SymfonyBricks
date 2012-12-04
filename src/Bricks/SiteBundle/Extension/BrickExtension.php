@@ -1,6 +1,7 @@
 <?php
 namespace Bricks\siteBundle\Extension;
 
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Bricks\SiteBundle\Entity\Brick;
 
 /**
@@ -8,6 +9,13 @@ use Bricks\SiteBundle\Entity\Brick;
  */
 class BrickExtension extends \Twig_Extension
 {
+    private $router;
+   
+    public function __construct(Router $router)
+    {
+        $this->router = $router;
+    }
+    
     public function getFunctions()
     {
         return array(
@@ -19,7 +27,7 @@ class BrickExtension extends \Twig_Extension
      * print a string of tag titles separated by $separator
      * 
      * @param Brick $brick Brick object
-     * @param unknown_type $separator string to separate tag titles
+     * @param string $separator string to separate tag titles
      * @return string
      */
     public function brickFormattedTags(Brick $brick, $separator = ',')
@@ -34,8 +42,11 @@ class BrickExtension extends \Twig_Extension
             
             if ($tag) {
                 // add tag title
-                $output .= $tag->getTitle();
+                $output .= <<<EOD
+<a href="{$this->router->generate('brick_search', array('tag' => $tag->getSlug()))}">{$tag->getTitle()}</a>
+EOD;
                 
+                // if not last iteration
                 if ($k < $brickHasTagsLength-1) {
                     // add separator
                     $output .= $separator.' ';

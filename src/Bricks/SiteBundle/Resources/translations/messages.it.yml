@@ -25,7 +25,11 @@ brick:
     
     # brick search
     search:
-        page_title: Risultati della ricerca "%q%"
+        form:
+            q: Cerca nel titolo
+            button_submit: Cerca
+        page_title: Risultati della ricerca
+        no_results: nessun risultato trovato
 
 # general translations (alphabetical order)
 back_to_the_list: torna alla lista

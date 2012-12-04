@@ -87,13 +87,14 @@ class BrickController extends Controller
     public function searchAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $q = $this->getRequest()->get('q');
         
-        $entities = $em->getRepository('BricksSiteBundle:Brick')->search($q);
+        // search for bricks
+        $entities = $em->getRepository('BricksSiteBundle:Brick')->search(array(
+            'q' => $this->getRequest()->get('q'),
+            'tag_slug' => $this->getRequest()->get('tag')
+        ));
         
         return array(
-            'q'        => $q,
             'entities' => $entities
         );
     }

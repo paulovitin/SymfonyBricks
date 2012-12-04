@@ -2,43 +2,48 @@
 
 {% block main %}
 
-    <div id="brick-search-wrapper">
-
-        <div class="row">
-            <div class="span12">
-            
-                <h1>{{ 'brick.search.page_title'|trans({'%q%': q}) }}</h1>
-                
-                <hr>
-                
-                {% if entities|length > 0 %}
-                    <ul class="bricks-list">
-                        {% for brick in entities %}
-                            <li>
-                                <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
-                                    {{ brick.title }}
-                                </a>
-                                <p>
-                                    <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
-                                    |
-                                    <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
-                                </p>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    {% if 'it' == app.request.locale %}
-                        nessun risultato trovato
-                    {% elseif 'es' == app.request.locale %}
-                        no se encontraron resultados
-                    {% else %}
-                        no bricks found
-                    {% endif %}
-                {% endif %}
-            
-            </div>
-        </div>
+    <div class="row">
+        <div class="span12">
         
+            <form action="{{ path('brick_search') }}" id="form-search" class="well">
+                <h1>{{ 'brick.search.page_title'|trans }}</h1>
+                
+                <div class="box">
+                    <label>{{ 'brick.search.form.q'|trans }}</label>
+                    <input name="q" class="span6" type="text" value="{{ app.request.get('q') }}">
+                </div>
+                
+                <div class="box">
+                    <label>Tag</label>
+                    <input name="tag" class="span3" size="16" type="text" value="{{ app.request.get('tag') }}">
+                </div>
+                
+                <div class="box buttons">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i> {{ 'brick.search.form.button_submit'|trans }}</button>
+                </div>
+            </form>
+            
+            {% if entities|length > 0 %}
+                <ul class="bricks-list">
+                    {% for brick in entities %}
+                        <li>
+                            <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
+                                {{ brick.title }}
+                            </a>
+                            <p>
+                                <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
+                                |
+                                <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d/m/Y') }}
+                            </p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                {{ 'brick.search.no_results'|trans }}
+            {% endif %}
+        
+        </div>
     </div>
     
 {% endblock %}
