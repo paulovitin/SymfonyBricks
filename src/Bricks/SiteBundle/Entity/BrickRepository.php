@@ -12,7 +12,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class BrickRepository extends EntityRepository
 {
-    public function search($q)
+    /**
+     * search Bricks
+     * 
+     * $params = array(
+     *     'q' => string, search $params['q'] in Bricks' title
+     *     'tag_slug' => string, search Bricks having $params['tag_slug'] as Tag (search Tag by $params['tag_slug'], exact matching)
+     * )
+     * 
+     * @param array $params array of parameters
+     * @return multitype:
+     */
+    public function search(array $params = array())
     {
         $em = $this->getEntityManager();
          
@@ -21,13 +32,34 @@ class BrickRepository extends EntityRepository
             ->from('BricksSiteBundle:Brick', 'e')
         ;
         
-        // set 'q' doctrine parameter
-        $qb->setParameter('q', '%'.$q.'%');
+        /**
+         * $params['q'] filter
+         * 
+         * search in Brick.title field
+         */
+        if (array_key_exists('q', $params) && '' !== trim($params['q'])) {
+            $qb->andWhere($qb->expr()->like('e.title', ':q'))
+                ->setParameter('q', '%'.$params['q'].'%')
+            ;
+        }
         
         /**
-         * searche in 'title' field
+         * $params['tag_slug'] filter
+         * 
+         * search in Tag.slug field
          */
-        $qb->andWhere($qb->expr()->like('e.title', ':q'));
+        if (array_key_exists('tag_slug', $params) && '' !== trim($params['tag_slug'])) {
+            
+            $qb->innerJoin('e.brickHasTags', 'bht')
+                ->innerJoin('bht.tag', 't')
+                
+                ->andWhere('t.slug = :tag_slug')
+                ->setParameter('tag_slug', $params['tag_slug'])
+            ;
+        }
+        
+        // order by title
+        $qb->addOrderBy('e.title');
         
         return $qb->getQuery()->getResult();
     }
