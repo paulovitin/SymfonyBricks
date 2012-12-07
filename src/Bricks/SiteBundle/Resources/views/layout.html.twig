@@ -17,29 +17,16 @@
         {# canonical url #}
         <link rel="canonical" href="{% spaceless %}{% block canonical_url %}{{ app.request.uri }}{% endblock canonical_url %}{% endspaceless %}"/>
         
-        {% javascripts '@javascripts' %}
+        {# load header javascripts #}
+        {% javascripts '@javascripts_header' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         
         {# FOSJsRoutingBundle generated routes by controller #}
         <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
-        {% block javascripts_header %}
-            {# twitter #}
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-            
-            <script type="text/javascript">
-              (function() {
-                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                po.src = 'https://apis.google.com/js/plusone.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-              })();
-            </script>
-        {% endblock %}
-
         {# google analytics code #}
         <script type="text/javascript">
-
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-35256283-1']);
           _gaq.push(['_setDomainName', 'symfonybricks.com']);
@@ -50,9 +37,9 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
-
         </script>
         
+        {# load stylesheets #}
         {% stylesheets '@stylesheets' %}
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" />
         {% endstylesheets %}
@@ -241,9 +228,23 @@
             </div>
         </footer>
         
-        {% render 'BricksUserBundle:Security:_modalLogin' %}
-
+        {# load footer javascripts #}
+        {% javascripts '@javascripts_footer' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        
+        <script>
+            $(function() {
+                // initialize Socialite buttons
+            	Socialite.load();
+            })
+        </script>
+        
+        {# block #}
         {% block javascripts_footer '' %}
+        
+        {% render 'BricksUserBundle:Security:_modalLogin' %}
+        
     </body>
 
 </html>

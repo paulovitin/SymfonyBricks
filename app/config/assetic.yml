@@ -25,17 +25,18 @@ assetic:
             filters:
                 - cssrewrite
                 - ?yui_css
-        javascripts:
+        javascripts_header:
             inputs:
                 - %kernel.root_dir%/../web/assets/jquery/jquery-1.8.2.js
-                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-transition.js
-                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-dropdown.js
-                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-tab.js
-                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-alert.js
-                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-modal.js
-                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap-tooltip.js
-                - %kernel.root_dir%/../web/assets/bootstrap-tags/lib/bootstrap-tags.js
                 - bundles/fosjsrouting/js/router.js
+            filters:
+                - cssrewrite
+                - ?yui_css
+        javascripts_footer:
+            inputs:
+                - %kernel.root_dir%/../web/assets/bootstrap/js/bootstrap.min.js
+                - %kernel.root_dir%/../web/assets/bootstrap-tags/lib/bootstrap-tags.js
+                - %kernel.root_dir%/../web/assets/socialite/socialite.js
                 - @BricksSiteBundle/Resources/js/*.js
                 - @BricksSiteBundle/Resources/js/*/*.js
             filters:
