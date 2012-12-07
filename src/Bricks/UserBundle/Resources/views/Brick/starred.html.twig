@@ -16,11 +16,14 @@
                             <td>
                                 <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}">{{ entity.title }}</a>
                                 <br>
-                                <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': entity.user.username}) }}">{{ entity.user }}</a>
-                                |
-                                <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ entity.updatedAt|date('d/m/Y') }}
-                                |
-                                {{ macrosBrick.toggleUserStarsBrick(entity) }}
+                                <p class="brick-info">
+                                    <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': entity.user.username}) }}">{{ entity.user }}</a>
+                                    |
+                                    <br>
+                                    <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ entity.updatedAt|date('d/m/Y') }}
+                                    |
+                                    {{ macrosBrick.toggleUserStarsBrick(entity) }}
+                                </p>
                             </td>
                         </tr>
                     {% endfor %}
