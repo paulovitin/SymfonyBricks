@@ -275,3 +275,26 @@ for example: Bricks\SiteBundle\resources\views\macros\macrosInfo.html.twig
         padding-left:    180px;
     }
 }
+
+
+/******************************************************************************************
+SOCIALITE
+
+elements loaded through Socialite jquery plugin
+https://github.com/dbushell/Socialite
+
+css rules inspired by https://github.com/dbushell/Socialite/blob/master/demo/demo.css
+
+important: everything must be inside a tag with class="social-buttons"
+******************************************************************************************/
+.social-buttons {
+    display: block; list-style: none; padding: 0; margin-right: 10px;
+    
+    & > div { display: block; margin: 0; padding: 0px; float: left; }
+    
+    .twitter-share { width: 100px; height: 22px; background-position: 0 0; }
+    .googleplus-one { width: 50px; height: 22px; background-position: -75px 0; }
+    .facebook-like { width: 50px; height: 65px; background-position: -145px 0; }
+    .linkedin-share { width: 60px; height: 65px; background-position: -215px 0; }
+    
+}
