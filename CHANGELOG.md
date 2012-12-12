@@ -1,5 +1,48 @@
 # Changelog
 
+###2012-12-12###
+
+- page developers created
+    - [7d882d594500c250076c6ac5e9a2ec0d5e695fbb](https://github.com/inmarelibero/SymfonyBricks/commit/7d882d594500c250076c6ac5e9a2ec0d5e695fbb)
+    - [7bf215e932f55c4a8410fce35d3c4bd1cc07d509](https://github.com/inmarelibero/SymfonyBricks/commit/7bf215e932f55c4a8410fce35d3c4bd1cc07d509)
+    - [39802f134e475d447d8ba623ed8ab3b95933b939](https://github.com/inmarelibero/SymfonyBricks/commit/39802f134e475d447d8ba623ed8ab3b95933b939)
+
+###2012-12-07###
+
+- installed Socialite jquery plugin
+    - [afc25c0dd776e9510d551ab739bf7d2bff68ce8f](https://github.com/inmarelibero/SymfonyBricks/commit/afc25c0dd776e9510d551ab739bf7d2bff68ce8f)
+
+###2012-12-04###
+
+- use of Disqus to implement brick comments/discussion
+    - [54b0a59592add564dc7f2abec47329b3b05259a0](https://github.com/inmarelibero/SymfonyBricks/commit/54b0a59592add564dc7f2abec47329b3b05259a0)
+- tweaked search results
+    - [941a79703c0066f000157f4029b0cfb36fb55ed8](https://github.com/inmarelibero/SymfonyBricks/commit/941a79703c0066f000157f4029b0cfb36fb55ed8)
+    - [8635709077b4039a1349f0452f4151c19ede50b1](https://github.com/inmarelibero/SymfonyBricks/commit/8635709077b4039a1349f0452f4151c19ede50b1)
+    
+###2012-12-03###
+
+- added tags feature
+    - [17f58c3a9068a2e085fa5e926d24aca1d825da61](https://github.com/inmarelibero/SymfonyBricks/commit/17f58c3a9068a2e085fa5e926d24aca1d825da61)
+    
+###2012-11-29###
+
+- add social sharing in brick show page 
+    - [b8f3d0ac14a2a9b61902d69a702c915292eb61c2](https://github.com/inmarelibero/SymfonyBricks/commit/b8f3d0ac14a2a9b61902d69a702c915292eb61c2)
+    
+###2012-11-28###
+
+- refactored bricks page in user reserved area
+    - [d5c0862abfe6a99f63bece6e7928d3c54c9a8473](https://github.com/inmarelibero/SymfonyBricks/commit/d5c0862abfe6a99f63bece6e7928d3c54c9a8473)
+
+###2012-11-27###
+
+- new logo added
+    - [be1ec6b0765d286e705cb07d4c7498814ef391cf](https://github.com/inmarelibero/SymfonyBricks/commit/be1ec6b0765d286e705cb07d4c7498814ef391cf)
+- Environment dependant FOSJsRoutingBundle generated routes
+    - [3e037ae57082dee13d521d770c4c9e175c6ceab9](https://github.com/inmarelibero/SymfonyBricks/commit/3e037ae57082dee13d521d770c4c9e175c6ceab9)
+    - [ae78987058eb88d2cc83b5117a9560af820a059f](https://github.com/inmarelibero/SymfonyBricks/commit/ae78987058eb88d2cc83b5117a9560af820a059f)    
+
 ###2012-11-22###
 
 - added canonical_url field to a Brick
