@@ -26,15 +26,6 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/contribute", name="contribute")
-     * @Template()
-     */
-    public function contributeAction()
-    {
-        return array();
-    }
-    
-    /**
      * @Route("/changelog", name="changelog")
      * @Template()
      */
@@ -54,5 +45,23 @@ class DefaultController extends Controller
         return array(
             'changelog_content' => $changelog_content
         );
+    }
+    
+    /**
+     * @Route("/contribute", name="contribute")
+     * @Template()
+     */
+    public function contributeAction()
+    {
+        return array();
+    }
+    
+    /**
+     * @Route("/developers", name="developers")
+     * @Template()
+     */
+    public function developersAction()
+    {
+        return array();
     }
 }
