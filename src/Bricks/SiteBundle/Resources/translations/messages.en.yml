@@ -11,6 +11,7 @@ main_navbar:
     github_repository: github repository
     register: register
     sign_in: sign in
+    developers: developers
 
 # entries related to a Brick
 brick:
