@@ -1,0 +1,57 @@
+{% if threads %}
+    <table class="table-threads table">
+
+        <thead>
+            <tr>
+                <th>{% trans from 'FOSMessageBundle' %}fos_message_bundle.subject{% endtrans %}</th>
+                <th>{% trans from 'FOSMessageBundle' %}fos_message_bundle.messages{% endtrans %}</th>
+                <th>{% trans from 'FOSMessageBundle' %}fos_message_bundle.last_message{% endtrans %}</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for thread in threads %}
+                <tr class="{{ (fos_message_is_read(thread)) ? 'message-read':'message-not-read'}}">
+                    <td>
+                        <a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}">
+                            {{ thread.subject }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ thread.messages|length }}
+                    </td>
+                    <td class="last-message">
+                        {% if thread.lastMessage %}
+                            <a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}#message_{{ thread.lastMessage.id }}" title="{% trans from 'FOSMessageBundle' %}goto_last{% endtrans %}">
+                                {% if not fos_message_is_read(thread) %}
+                                    <i class="icon-envelope"></i>{% endif %}
+                                {{ thread.lastMessage.body|truncate }}
+                            </a>
+                            <div class="by">
+                                {% set sender_username = '<a href="' ~ path('userprofile_show', {'username': thread.lastMessage.sender.username})~'">' ~ thread.lastMessage.sender|e ~ '</a>' %}
+                                {{ 'fos_message_bundle.by'|trans({'%username%': sender_username}, 'FOSMessageBundle')|raw }}
+
+                                {{ 'fos_message_bundle.on'|trans({'%date%': thread.lastMessage.createdAt|date}, 'FOSMessageBundle') }}
+                            </div>
+                        {% else %}
+                            ----
+                        {% endif %}
+                    </td>
+                    <td class="actions">
+                        <form action="{{ url('fos_message_thread_delete', {'threadId': thread.id}) }}" method="post" onsubmit="return confirm('{{ 'fos_message_bundle.delete_thread_confirm'|trans({}, 'FOSMessageBundle')|escape('js') }}')">
+                            <button type="submit" class="btn btn-mini">
+                                <i class="icon-trash"></i> {% trans from 'FOSMessageBundle' %}fos_message_bundle.delete_thread{% endtrans %}
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+{% else %}
+    {% trans from 'FOSMessageBundle' %}fos_message_bundle.no_threads{% endtrans %}
+{% endif %}

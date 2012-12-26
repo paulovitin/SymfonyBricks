@@ -20,6 +20,14 @@ bricks_user:
     requirements:
         _locale:  %route_locale_requirements%
 
+bricks_message:
+    resource: "@BricksMessageBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
+
 # additional unlocalized login action
 login:
     pattern:   /login
@@ -70,6 +78,12 @@ fos_user_change_password:
     requirements:
         _locale:  %route_locale_requirements%
 
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /{_locale}/user/message
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
 
 # Internal routing configuration to handle ESI
 #_internal:

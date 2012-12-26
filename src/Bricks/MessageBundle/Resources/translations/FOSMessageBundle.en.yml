@@ -1,0 +1,31 @@
+fos_message_bundle:
+    form:
+        recipient:
+            label: Recipient
+            help_block: Insert the username of the recipient
+
+        subject:
+            label: Subject
+            help_block: Set the subject of the thread
+
+        body:
+            label: Message
+
+    by: by %username%
+    delete_thread: delete thread
+    delete_thread_confirm: "Confirm thread deletion?"
+    inbox: inbox
+    inbox_title: Inbox
+    last_message: Last message
+    messages: Messages
+    messages_title: Messages
+    new: new
+    no_threads: no threads to show
+    on: on %date%
+    reply: Reply
+    send: send
+    send_new: Compose a new message
+    send_new_title: New message
+    sent: sent
+    sent_title: Sent
+    subject: Subject

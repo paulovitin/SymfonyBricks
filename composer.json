@@ -24,7 +24,8 @@
         "stof/doctrine-extensions-bundle": "dev-master",
         "knplabs/knp-markdown-bundle": "1.2.*@dev",
         "friendsofsymfony/jsrouting-bundle": "*",
-        "knplabs/knp-disqus-bundle": "dev-master"
+        "knplabs/knp-disqus-bundle": "dev-master",
+        "friendsofsymfony/message-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

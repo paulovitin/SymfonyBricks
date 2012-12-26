@@ -1,0 +1,10 @@
+fos_message_bundle:
+    form:
+        error:
+            no_recipient_specified: Ningún destinatario especificado
+            no_user_with_that_username: Ningún usuario con este nombre
+            please_enter_a_body: Especificar un mensaje
+            please_enter_a_subject: Especificar un sujeto
+            the_body_is_too_short: El mensaje es demasiado corto|El mensaje es demasiado corto
+            the_subject_is_too_long: El sujeto es demasiado largo|El sujeto es demasiado largo
+            the_subject_is_too_short: El sujeto es demasiado corto|El sujeto es demasiado corto

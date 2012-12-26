@@ -15,6 +15,11 @@
                                 <i class="icon-home"></i> {{ 'user_navbar.dashboard'|trans({}, 'UserBundle')|capitalize }}
                             </a>
                         </li>
+                        <li id="messages">
+                            <a href="{{ path('fos_message_inbox') }}">
+                                <i class="icon-inbox"></i> {{ 'user_navbar.message'|trans({}, 'UserBundle')|capitalize }}
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ path('user_brick_starred') }}">
                                 <i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}

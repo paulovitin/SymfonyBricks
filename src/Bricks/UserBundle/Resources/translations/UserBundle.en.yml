@@ -14,6 +14,7 @@ user_navbar:
     change_password: Change password
     create_brick: CREATE NEW BRICK
     bricks_starred: Starred Bricks
+    message: Messages
 
 # Bricks
 # bricks related interfaces

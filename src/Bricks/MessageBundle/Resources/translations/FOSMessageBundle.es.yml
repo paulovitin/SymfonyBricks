@@ -1,0 +1,31 @@
+fos_message_bundle:
+    form:
+        recipient:
+            label: Destinatario
+            help_block: Introducir el nombre de usuario del destinatario
+
+        subject:
+            label: Sujeto
+            help_block: Establecer el sujeto de la conversación
+
+        body:
+            label: Mensaje
+
+    by: de %username%
+    delete_thread: eliminar conversación
+    delete_thread_confirm: "Confirmar la eliminación de la conversación?"
+    inbox: recibidos
+    inbox_title: Recibidos
+    last_message: Ultimo mensaje
+    messages: Mensajes
+    messages_title: Mensajes
+    new: nuevo
+    no_threads: no conversaciones
+    on: el %date%
+    reply: Responder
+    send: envía
+    send_new: Escribir un nuevo mensaje
+    send_new_title: Nuevo mensaje
+    sent: enviados
+    sent_title: Enviados
+    subject: Sujeto
