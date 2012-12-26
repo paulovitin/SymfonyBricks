@@ -3,6 +3,12 @@
 .project
 .settings
 
+# Netbeans project files
+nbproject
+
+# PhpStorm project files
+.idea
+
 # Bootstrap
 app/bootstrap*
 
