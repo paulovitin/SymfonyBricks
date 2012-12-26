@@ -14,6 +14,7 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 use Bricks\SiteBundle\Entity\Brick;
 use Bricks\UserBundle\Form\Type\BrickType;
 use Bricks\SiteBundle\Entity\UserStarsBrick;
+use Bricks\UserBundle\Form\Type\UserMessageType;
 
 /**
  * Brick controller.
@@ -158,5 +159,22 @@ class BrickController extends Controller
         */
         
         return new Response(json_encode($jsonResponse), 200, array('Content-Type'=>'application/json'));
+    }
+    
+    /**
+     * Show the UserMessage form to send a comment to the brick author, creating a new UserThread
+     *
+     * @Template()
+     */
+    public function _userMessageFormAction(Brick $brick)
+    {
+        $form   = $this->createForm(new UserMessageType(), array(
+            'brick_id' => $brick->getId(),
+            'recipient_id' => $brick->getUser()->getId()
+        ));
+        
+        return array(
+            'form' => $form->createView(),
+        );
     }
 }
