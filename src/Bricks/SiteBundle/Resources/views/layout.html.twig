@@ -143,11 +143,12 @@
                                                 <li>
                                                     <a href="{{ path('fos_user_change_password') }}"><i class="icon-lock"></i> {{ 'user_navbar.change_password'|trans({}, 'UserBundle')|capitalize }}</a>
                                                 </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a href="{{ path('logout') }}"><i class="icon-signout"></i> {{ 'user_navbar.logout'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                </li>
                                             </ul>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('logout') }}"><i class="icon-signout"></i></a>
                                     </li>
                                 {% else %}
                                     <li>

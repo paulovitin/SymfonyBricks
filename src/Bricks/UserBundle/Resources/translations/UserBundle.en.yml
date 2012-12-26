@@ -15,6 +15,7 @@ user_navbar:
     create_brick: CREATE NEW BRICK
     bricks_starred: Starred Bricks
     message: Messages
+    logout: Logout
 
 # Bricks
 # bricks related interfaces
