@@ -51,6 +51,9 @@
                     {{ macrosBrick.toggleUserStarsBrick(brick) }}
                     |
                     <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
+                    
+                    <br>
+                    {% render 'BricksSiteBundle:Brick:_userMessageForm' with {brick: brick} %}
                 </p>
             </div>
             
