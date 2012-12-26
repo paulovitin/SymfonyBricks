@@ -7,16 +7,17 @@ rules for all the templates loaded through Bricks\MessageBundle\MessageControlle
 /* import bootstrap mixins */
 @import "../../../../../web/assets/bootstrap/less/mixins.less";
 
+/* common bar */
 #messages-bar {
-    padding:    5px;
-    border: 1px solid #CCC;
-    .border-radius(2px);
-    background: #FAFAFA;
+    padding:        5px;
     margin-bottom:  10px;
     overflow: hidden;
-    
-    
-    .btn-group { float: left;}
+
+    border:     1px solid #CCC;
+    .border-radius(2px);
+    background: #FAFAFA;
+
+    .btn-group { float: left; }
 }
 
 /**
@@ -26,9 +27,7 @@ rules for all the templates loaded through Bricks\MessageBundle\MessageControlle
 */
 body.route-fos_message_inbox, body.route-fos_message_sent {
     table.table-threads { border: 1px solid #CCC;
-        td,th {
-            padding:  4px;
-        }
+        td,th { padding:  4px; }
 
         thead { background: #F1F1F1; }
         tbody {
@@ -43,9 +42,7 @@ body.route-fos_message_inbox, body.route-fos_message_sent {
                 }
 
                 td.last-message { font-size: 14px;
-                    .by {
-                        font-size: 12px;
-                    }
+                    .by { font-size: 12px; }
                 }
 
                 td.actions { text-align: right; }
@@ -61,11 +58,11 @@ body.route-fos_message_inbox, body.route-fos_message_sent {
 */
 body.route-fos_message_thread_view {
     .messenger_thread_message {
+        margin-bottom:  10px;
         border: 1px solid #CCC;
         .border-radius(2px);
         background: #FAFAFA;
-        margin-bottom:  10px;
-        
+
         .messenger_thread_message_info {
             padding:    5px;
             background: #CCC;
@@ -91,8 +88,6 @@ body.route-fos_message_thread_new {
     #form-message-new-thread {
         input[type="text"] { width: 400px; }
         textarea { width: 414px; height: 200px; }
-        .help-inline { vertical-align: top; padding-top:    4px;}
+        .help-inline { vertical-align: top; padding-top: 4px;}
     }
 }
-
-
