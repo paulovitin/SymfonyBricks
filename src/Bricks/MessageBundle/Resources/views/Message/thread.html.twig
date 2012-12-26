@@ -1,0 +1,38 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+{% block fos_message_content %}
+
+    <h2>{{ thread.subject }}</h2>
+    
+    {% for message in thread.messages %}
+        <div class="messenger_thread_message">
+            <div class="messenger_thread_message_info">
+                {% set sender_username = '<a href="' ~ path('userprofile_show', {'username': thread.lastMessage.sender.username})~'">' ~ thread.lastMessage.sender|e ~ '</a>' %}
+                {% trans with {'%username%': sender_username} from 'FOSMessageBundle' %}fos_message_bundle.by{% endtrans %}
+
+                {% trans with {'%date%': message.createdAt|date} from 'FOSMessageBundle' %}fos_message_bundle.on{% endtrans %}
+            </div>
+    
+            <div class="messenger_thread_message_body" id="message_{{ message.id }}">
+                {{ message.body }}
+            </div>
+        </div>
+    {% endfor %}
+
+    <form id="form-message-reply" action="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}" method="post" novalidate>
+
+        {{ form_widget(form.body) }}
+
+        {{ form_rest(form) }}
+
+        {% if form_errors(form.body) %}
+            <div class="errors">
+                {{ form_errors(form.body) }}
+            </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">
+            <i class="icon-share-alt"></i> {% trans from 'FOSMessageBundle' %}fos_message_bundle.reply{% endtrans %}
+        </button
+    </form>
+
+{% endblock %}

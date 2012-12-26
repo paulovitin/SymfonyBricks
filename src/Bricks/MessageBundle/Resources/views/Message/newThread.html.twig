@@ -1,0 +1,90 @@
+{% extends 'FOSMessageBundle::layout.html.twig' %}
+
+{% import 'BricksSiteBundle::macros/macrosBootstrapForms.html.twig' as macrosBootstrapForms %}
+
+{% block fos_message_content %}
+
+    
+    <form id="form-message-new-thread" action="{{ url('fos_message_thread_new') }}" method="post" class="form form-horizontal" novalidate>
+        <fieldset>
+            <legend>
+                {{ 'fos_message_bundle.send_new_title'|trans({}, 'FOSMessageBundle') }}
+            </legend>
+        
+            {{ macrosBootstrapForms.controlGroup(form.recipient, {
+                label: 'fos_message_bundle.form.recipient.label'|trans({}, 'FOSMessageBundle'),
+                helpBlock: 'fos_message_bundle.form.recipient.help_block'|trans({}, 'FOSMessageBundle')
+            }) }}
+    
+            {{ macrosBootstrapForms.controlGroup(form.subject, {
+                label: 'fos_message_bundle.form.subject.label'|trans({}, 'FOSMessageBundle'),
+                helpBlock: 'fos_message_bundle.form.subject.help_block'|trans({}, 'FOSMessageBundle')
+            }) }}
+            
+            {{ macrosBootstrapForms.controlGroup(form.body, {
+                label: 'fos_message_bundle.form.body.label'|trans({}, 'FOSMessageBundle')
+            }) }}
+            
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit">
+                    <i class="icon-ok"></i> {{ 'fos_message_bundle.send'|trans({}, 'FOSMessageBundle')|capitalize }}
+                </button>
+            </div>
+        
+            {{ form_rest(form) }}
+        </fieldset>
+    </form>
+
+{% endblock %}
+
+{% block javascripts_footer %}
+    <script>
+        $(function() {
+        	$('#{{ form.recipient.vars.id }}').typeahead({
+        		minLength: 2,
+        		items: 10,
+            	source: function(query, process) {
+            		$.ajax({
+                          url: Routing.generate('ajax_autocomplete_users'),
+                          data: {
+                              'q': query
+                          },
+                          dataType: 'json',
+                          /**
+                           * data: array of usernames fetched from database, the format is like
+                           *    array(3) {
+                           *        [0]=>
+                           *        array(1) {
+                           *            ["username"]=>
+                           *            string(5) "user1"
+                           *        }
+                           *        [1]=>
+                           *        array(1) {
+                           *            ["username"]=>
+                           *            string(5) "user2"
+                           *        }
+                           *        [...]
+                           *    }
+                           * and need to be converted
+                           */
+                          success: function (data) {
+                              // array of usernames to be returned
+                              var output = [];
+
+                              // number of results
+                              var dataLength = data.length;
+
+                              for (var i=0; i<dataLength; i++) {
+                                  var item = data[i];
+                                  output.push(item.username);
+                              }
+
+                              process(output);
+                          }
+        			})
+            	}
+        	}) 
+        });
+    </script>
+{% endblock %}
+ 

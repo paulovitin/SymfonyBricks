@@ -34,10 +34,14 @@ class AppKernel extends Kernel
                 
             // KnpDisqusBundle
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
+
+            // FOSMessageBundle
+            new FOS\MessageBundle\FOSMessageBundle(),
             
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\UserBundle\BricksUserBundle(),
+            new Bricks\MessageBundle\BricksMessageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,0 +1,37 @@
+{#
+     Print a <div class="control-group"> for Bootstrap forms layout
+     
+     options: {
+         'label: text of the label to display
+         'helpBlock': help text to dbe displayed under the input field
+     }
+#}
+{% macro controlGroup(formField, options) %}
+
+    <div class="control-group {{ (form_errors(formField)) ? 'error':'' }}">
+    
+        {% if options.label is defined %}
+            <label class="control-label">{{ options.label }}</label>
+        {% else %}
+            {{ form_label(formField, null, {label_attr: {'class': 'control-label'}}) }}
+        {% endif %}
+
+        <div class="controls">
+            {{ form_widget(formField) }}
+            
+            {% if form_errors(formField) %}
+                <span class="help-inline">
+                    {{ form_errors(formField) }}
+                </span>
+            {% endif %}
+            
+            {% if options.helpBlock is defined %}
+                <span class="help-block">
+                    {{ options.helpBlock }}
+                </span>
+            {% endif %}
+        </div>
+        
+    </div>
+
+{% endmacro %}

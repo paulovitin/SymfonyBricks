@@ -48,6 +48,7 @@ doctrine:
                 dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
                 alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
                 is_bundle: false
+            FOSMessageBundle: ~
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -58,6 +59,12 @@ swiftmailer:
     encryption: ssl
     auth_mode:  login
     spool:     { type: memory }
+
+services:
+ twig.extension.text:
+     class: Twig_Extensions_Extension_Text
+     tags:
+         - { name: twig.extension }
 
 fos_user:
     db_driver: orm
@@ -90,3 +97,12 @@ stof_doctrine_extensions:
     
 knp_disqus:
     api_key: WVvKRRE3fnk8HDSq4foXmBo5pr3KPTmaWsa3QyC8LpYOroTfeuL6AAItlw4n3ehg
+
+fos_message:
+    db_driver: orm
+    thread_class: Bricks\MessageBundle\Entity\Thread
+    message_class: Bricks\MessageBundle\Entity\Message
+    new_thread_form:
+        type: message_bundle.new_thread_form.type.default
+    reply_form:
+        type: message_bundle.reply_message_form.type.default

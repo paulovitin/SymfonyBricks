@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping
+        http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+
+    <class name="FOS\MessageBundle\FormModel\NewThreadMultipleMessage">
+        <property name="recipients">
+            <constraint name="All">
+                <constraint name="FOS\MessageBundle\Validator\Authorization">
+                    <option name="groups">
+                        <value>custom</value>
+                    </option>
+                </constraint>
+                <constraint name="FOS\MessageBundle\Validator\SelfRecipient">
+                    <option name="groups">
+                        <value>custom</value>
+                    </option>
+                </constraint>
+                <constraint name="NotBlank">
+                    <option name="message">fos_message_bundle.form.error.no_recipient_specified</option>
+                    <option name="groups">
+                        <value>custom</value>
+                    </option>
+                </constraint>
+                <constraint name="Type">
+                    <option name="value">FOS\MessageBundle\Model\ParticipantInterface</option>
+                </constraint>
+            </constraint>
+        </property>
+        <property name="subject">
+            <constraint name="NotBlank">
+                <option name="message">fos_message_bundle.form.error.please_enter_a_subject</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">255</option>
+                <option name="minMessage">fos_message_bundle.form.error.the_subject_is_too_short|fos_message_bundle.form.error.the_subject_is_too_short</option>
+                <option name="maxMessage">fos_message_bundle.form.error.the_subject_is_too_long|fos_message_bundle.form.error.the_subject_is_too_long</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="body">
+            <constraint name="NotBlank">
+                <option name="message">fos_message_bundle.form.error.please_enter_a_body</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="MinLength">
+                <option name="limit">2</option>
+                <option name="message">fos_message_bundle.form.error.the_body_is_too_short</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+        </property>
+    </class>
+
+    <class name="FOS\MessageBundle\FormModel\NewThreadMessage">
+
+        <constraint name="FOS\MessageBundle\Validator\Spam">
+            <option name="groups">
+                <value>custom</value>
+            </option>
+        </constraint>
+
+        <property name="recipient">
+            <constraint name="FOS\MessageBundle\Validator\Authorization">
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="FOS\MessageBundle\Validator\SelfRecipient">
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="NotBlank">
+                <option name="message">fos_message_bundle.form.error.no_user_with_that_username</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="Type">
+                <option name="value">FOS\MessageBundle\Model\ParticipantInterface</option>
+            </constraint>
+        </property>
+
+        <property name="subject">
+            <constraint name="NotBlank">
+                <option name="message">fos_message_bundle.form.error.please_enter_a_subject</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="max">255</option>
+                <option name="minMessage">fos_message_bundle.form.error.the_subject_is_too_short|fos_message_bundle.form.error.the_subject_is_too_short</option>
+                <option name="maxMessage">fos_message_bundle.form.error.the_subject_is_too_long|fos_message_bundle.form.error.the_subject_is_too_long</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+        </property>
+
+        <property name="body">
+            <constraint name="NotBlank">
+                <option name="message">fos_message_bundle.form.error.please_enter_a_body</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fos_message_bundle.form.error.the_body_is_too_short|fos_message_bundle.form.error.the_body_is_too_short</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+        </property>
+
+    </class>
+
+    <class name="FOS\MessageBundle\FormModel\ReplyMessage">
+
+        <constraint name="FOS\MessageBundle\Validator\ReplyAuthorization">
+            <option name="groups">
+                <value>custom</value>
+            </option>
+        </constraint>
+
+        <property name="body">
+            <constraint name="NotBlank">
+                <option name="message">fos_message_bundle.form.error.please_enter_a_body</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+            <constraint name="Length">
+                <option name="min">2</option>
+                <option name="minMessage">fos_message_bundle.form.error.the_body_is_too_short|fos_message_bundle.form.error.the_body_is_too_short</option>
+                <option name="groups">
+                    <value>custom</value>
+                </option>
+            </constraint>
+        </property>
+
+    </class>
+
+</constraint-mapping>
