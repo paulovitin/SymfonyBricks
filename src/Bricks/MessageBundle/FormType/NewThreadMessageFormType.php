@@ -15,15 +15,14 @@ class NewThreadMessageFormType extends BaseFormType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('recipient', 'fos_user_username', array(
-                'label' => 'fos_message_bundle.recipient.label'
-            ))
+            ->add('recipient', 'fos_user_username')
             ->add('subject', 'text')
             ->add('body', 'textarea');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        // set custom validation group
         $resolver->setDefaults(array(
             'validation_groups' => array('custom')
         ));

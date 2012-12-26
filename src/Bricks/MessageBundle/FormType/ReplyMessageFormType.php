@@ -13,6 +13,7 @@ class ReplyMessageFormType extends BaseFormType
 {
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
+        // set custom validation group
         $resolver->setDefaults(array(
             'validation_groups' => array('custom')
         ));
