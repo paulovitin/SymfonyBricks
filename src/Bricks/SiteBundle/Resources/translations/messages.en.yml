@@ -34,6 +34,7 @@ brick:
         
 # general translations (alphabetical order)
 back_to_the_list: Back to the list
+close: close
 delete: delete
 edit: edit
 save: save
