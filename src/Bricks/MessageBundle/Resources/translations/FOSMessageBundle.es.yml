@@ -24,8 +24,10 @@ fos_message_bundle:
     on: el %date%
     reply: Responder
     send: envía
+    send_from_brick: Envía un mensaje al autor
     send_new: Escribir un nuevo mensaje
     send_new_title: Nuevo mensaje
     sent: enviados
+    sent_confirmation: Mensaje corectamente enviado
     sent_title: Enviados
     subject: Sujeto

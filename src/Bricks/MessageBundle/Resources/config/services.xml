@@ -7,7 +7,12 @@
     <services>
 
         <service id="message_bundle.new_thread_form.type.default" class="Bricks\MessageBundle\FormType\NewThreadMessageFormType" public="false" />
+
         <service id="message_bundle.reply_message_form.type.default" class="Bricks\MessageBundle\FormType\ReplyMessageFormType" public="false" />
+
+        <service id="message_bundle.bricks_message_new_thread_message_from_brick_form.type" class="Bricks\MessageBundle\FormType\NewThreadMessageFromBrickFormType">
+            <argument type="service" id="translator" />
+        </service>
 
     </services>
     
