@@ -21,6 +21,24 @@ rules for all the templates loaded through Bricks\MessageBundle\MessageControlle
 }
 
 /**
+  Show the UserMessage form to send a comment to the brick author, creating a new UserThread
+
+  route: _userMessageFormAction
+*/
+#modal-form-message-ajax-send-from-brick {
+    #ajax-messages {
+        p.error { color: red; }
+        p.success { color: green; }
+    }
+    label.control-label { padding-top: 0px; }
+
+    textarea {
+        width: 80%;
+        height: 200px;
+    }
+}
+
+/**
     inbox, sent messages
 
     route: fos_message_inbox, fos_message_sent
