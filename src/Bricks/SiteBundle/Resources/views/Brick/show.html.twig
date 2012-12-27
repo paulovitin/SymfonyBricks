@@ -23,37 +23,60 @@
         
             <h1>{{ brick.title }}</h1>
             
-            <p class="description">{{ brick.description }}</p>
+            <div class="description">{{ brick.description }}</div>
             
             <div id="info">
-                <div id="social-share" class="social-buttons">
-                    <a  class="socialite twitter-share"
-                        href="http://twitter.com/share"
-                        data-url="{{ app.request.uri }}"
-                        data-text="{{ brick.title }}"
-                        data-via="SymfonyBricks"
-                    >
-                        Twitter
-                    </a>
-                    <a  class="socialite googleplus-one"
-                        data-size="medium"
-                        data-url="{{ app.request.uri }}"
-                    >
-                        Google+
-                    </a>
+                <div class="row">
+                    <div class="span8">
+                        <p class="brick-info">
+                            <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
+                            |
+                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d M Y') }}
+                            <br>
+                            {{ macrosBrick.toggleUserStarsBrick(brick) }}
+                            |
+                            <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
+                        </p>
+                    </div>
+                    <div class="span4">
+                        <div id="social-share" class="social-buttons">
+                            <a  class="socialite twitter-share"
+                                href="http://twitter.com/share"
+                                data-url="{{ app.request.uri }}"
+                                data-text="{{ brick.title }}"
+                                data-via="SymfonyBricks"
+                            >
+                                Twitter
+                            </a>
+                            <a  class="socialite googleplus-one"
+                                data-size="medium"
+                                data-url="{{ app.request.uri }}"
+                            >
+                                Google+
+                            </a>
+                        </div>
+
+                        {% render 'BricksMessageBundle:Brick:_userMessageForm' with {brick: brick} %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span12 actions">
+
+                        <div class="btn-group pull-left">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="icon-bookmark"></i> {{ 'index'|trans({}, 'route_brick_show')|capitalize }}
+                                <span class="caret"></span>
+                            </a>
+                            <ul id="chapters-index" class="dropdown-menu"></ul>
+                        </div>
+
+                        <a href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 200);" class="pull-right view-on-scroll">
+                            {{ 'scroll_to_top'|trans({}, 'route_brick_show') }} <i class="icon-chevron-up"></i>
+                        </a>
+
+                    </div>
                 </div>
 
-                {% render 'BricksMessageBundle:Brick:_userMessageForm' with {brick: brick} %}
-
-                <p class="brick-info">
-                    <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
-                    |
-                    <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d M Y') }}
-                    <br>
-                    {{ macrosBrick.toggleUserStarsBrick(brick) }}
-                    |
-                    <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
-                </p>
             </div>
 
             <div class="content">
@@ -61,9 +84,55 @@
             </div>
 
             <hr>
-            
+
             {{ knp_disqus_render('symfonybricks', {'identifier': '/brick-'~brick.id, 'limit': 10}) }}
         </div>
     </div>
-        
+
+    <script>
+        $(function() {
+            // apply affix behavior
+            $('#info').affix({
+                offset: $('#info').position().top - 1
+            });
+
+            // adjust .content margin-top when #info is affixed
+            $(window).on('scroll', function() {
+               if ($('#info').hasClass('affix')) {
+                   var infoHeight = $('#info').height();
+                   $('#info + .content').css('margin-top', infoHeight);
+               } else {
+                   $('#info + .content').css('margin-top', 0);
+               }
+            });
+
+            /**
+             * compile chapters index
+             */
+            var chaptersIndex = $('#chapters-index');
+
+            $('.content').find('h1').each(function(index) {
+
+                // set the "id" attribute to <h1> elements
+                $(this).attr('id', 'chapter'+index);
+
+                // <a> tag representing the link to a chapter
+                var a = $('<a href="javascript:void(0);" data-offset-top="'+$(this).offset().top+'"/>').html(
+                    $(this).html()
+                );
+
+                // bind click event to scroll to chapter
+                a.click(function() {
+                    var offset = $(this).data('offset-top') - $('#info').height();
+                    $('html, body').animate({scrollTop: offset}, 200);
+                });
+
+                // add <a> tag to chapters list in <ul>
+                chaptersIndex.append(
+                    $('<li />').html(a)
+                )
+            });
+        });
+
+    </script>
 {% endblock %}
