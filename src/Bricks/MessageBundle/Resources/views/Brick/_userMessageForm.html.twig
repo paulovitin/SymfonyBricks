@@ -98,8 +98,13 @@
                 },
                 success: function(data, textStatus, jqXHR) {
                     ajaxMessagesContainer.html(
-                        $('<p class="success" />').html(
-                            '{{ 'fos_message_bundle.sent_confirmation'|trans({}, 'FOSMessageBundle') }}'
+                        $('<p class="success" />').append(
+                            '{{ 'fos_message_bundle.sent_confirmation'|trans({}, 'FOSMessageBundle') }}',
+                            $('<p class="actions" />').append(
+                                '<a href="javascript:void(0);" data-dismiss="modal" aria-hidden="true">{{ 'close'|trans }}</a>',
+                                ' | ',
+                                '<a href="{{ path('fos_message_sent') }}">{{ 'fos_message_bundle.go_to_sent'|trans({}, 'FOSMessageBundle')|lower }}</<a>'
+                            )
                         )
                     );
                 },

@@ -14,6 +14,7 @@ fos_message_bundle:
     by: da %username%
     delete_thread: elimina conversazione
     delete_thread_confirm: "Confermare l'eliminazione della conversazione?"
+    go_to_sent: Vai ai messaggi inviati
     inbox: in arrivo
     inbox_title: In arrivo
     last_message: Ultimo messaggio
