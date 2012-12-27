@@ -1,3 +1,8 @@
+/* import bootstrap variables */
+@import "../../../../../web/assets/bootstrap/less/variables.less";
+/* import bootstrap mixins */
+@import "../../../../../web/assets/bootstrap/less/mixins.less";
+
 /******************************************************************************************
 CONTROLLER-BRICK.LESS
 
@@ -11,29 +16,39 @@ rules for all the templates loaded through Bricks\SiteBundle\BrickController
 */
 body.route-brick_show {
     .description {
-        margin-bottom:  40px;
         font-size: 14px;
+        padding-bottom: 40px;
     }
     
     #info {
-        overflow: hidden;
-        padding:    15px 0px;
-        margin-bottom:  40px;
-        
-        border-color:   #CCC;
-        border-width:   1px 0px;
-        border-style:   solid;
-        
-        
-        #social-share {
-            float:  right;
+        top:  0px;
+
+        .border-radius(4px);
+        #gradient > .vertical(#F1F1F1, #E0E0E0);
+
+        .view-on-scroll { visibility: hidden; }
+
+        .actions { padding: 0px 10px 10px 10px;
+            a { font-weight: normal; }
         }
-        #button-form-message-ajax-send-from-brick {
-            float: right; clear: both;
-            margin-top: 5px;
+
+        &.affix { .view-on-scroll { visibility: visible; } }
+
+        .row {
+            [class^="span"] {
+                padding: 10px;
+            }
+
+            #social-share {
+                float:  right;
+            }
+            #button-form-message-ajax-send-from-brick {
+                float: right; clear: both;
+                margin-top: 5px;
+            }
         }
     }
-    
+
     .content {
         h1 { font-size:  20px; }
         
