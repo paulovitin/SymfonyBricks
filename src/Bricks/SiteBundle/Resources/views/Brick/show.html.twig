@@ -55,11 +55,11 @@
                     <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
                 </p>
             </div>
-            
+
             <div class="content">
                 {{ brick.content|markdown }}
             </div>
-            
+
             <hr>
             
             {{ knp_disqus_render('symfonybricks', {'identifier': '/brick-'~brick.id, 'limit': 10}) }}
