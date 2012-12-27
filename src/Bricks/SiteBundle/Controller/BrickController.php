@@ -14,6 +14,7 @@ use JMS\SecurityExtraBundle\Annotation\Secure;
 use Bricks\SiteBundle\Entity\Brick;
 use Bricks\UserBundle\Form\Type\BrickType;
 use Bricks\SiteBundle\Entity\UserStarsBrick;
+use Bricks\UserBundle\Form\Type\UserMessageType;
 
 /**
  * Brick controller.

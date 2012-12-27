@@ -42,7 +42,9 @@
                         Google+
                     </a>
                 </div>
-                
+
+                {% render 'BricksMessageBundle:Brick:_userMessageForm' with {brick: brick} %}
+
                 <p class="brick-info">
                     <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
                     |
