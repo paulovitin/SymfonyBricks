@@ -20,11 +20,7 @@
 
     <div class="row">
         <div class="span12">
-        
-            <h1>{{ brick.title }}</h1>
-            
-            <div class="description">{{ brick.description }}</div>
-            
+
             <div id="info">
                 <div class="row">
                     <div class="span8">
@@ -76,11 +72,18 @@
 
                     </div>
                 </div>
+            </div>
 
+            <h1 class="title">
+                {{ brick.title }}
+            </h1>
+
+            <div class="description">
+                {{ brick.description }}
             </div>
 
             <div class="content">
-                {{ brick.content|markdown }}
+                {{ brick_highlight_code(brick.content|markdown)|raw }}
             </div>
 
             <hr>
@@ -99,10 +102,10 @@
             // adjust .content margin-top when #info is affixed
             $(window).on('scroll', function() {
                if ($('#info').hasClass('affix')) {
-                   var infoHeight = $('#info').height();
-                   $('#info + .content').css('margin-top', infoHeight);
+                   var infoHeight = $('#info').outerHeight(true);
+                   $('#info + *').css('margin-top', infoHeight);
                } else {
-                   $('#info + .content').css('margin-top', 0);
+                   $('#info + *').css('margin-top', 0);
                }
             });
 
@@ -135,4 +138,5 @@
         });
 
     </script>
+
 {% endblock %}

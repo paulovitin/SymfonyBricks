@@ -3,6 +3,7 @@ imports:
     - { resource: assetic.yml    }
     - { resource: locales.yml   }
     - { resource: security.yml   }
+    - { resource: "@HighlightBundle/Resources/config/config.yml" }
 
 parameters:
     locale:   en #default locale
@@ -106,3 +107,12 @@ fos_message:
         type: message_bundle.new_thread_form.type.default
     reply_form:
         type: message_bundle.reply_message_form.type.default
+
+highlight:
+   providers: [ geshi ]
+   globals:
+       linenos: true
+       cssclass: highlight
+   geshi:
+       linestyle: normal
+       cssclass: geshi

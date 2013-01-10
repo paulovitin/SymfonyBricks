@@ -37,6 +37,9 @@ class AppKernel extends Kernel
 
             // FOSMessageBundle
             new FOS\MessageBundle\FOSMessageBundle(),
+
+            // HighlightBundle
+            new Highlight\Bundle\HighlightBundle(),
             
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
