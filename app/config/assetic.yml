@@ -2,7 +2,7 @@
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ BricksSiteBundle, BricksUserBundle ]
+    bundles:        [ BricksSiteBundle, BricksUserBundle, HighlightBundle ]
     java:           %java_path%
     filters:
         cssrewrite: ~
@@ -23,6 +23,7 @@ assetic:
             inputs:
                 - @lesses
                 - %kernel.root_dir%/../web/assets/FontAwesome/css/font-awesome.css
+                - @HighlightBundle/Resources/public/*.css
             filters:
                 - cssrewrite
                 - ?yui_css

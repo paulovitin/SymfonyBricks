@@ -15,46 +15,77 @@ rules for all the templates loaded through Bricks\SiteBundle\BrickController
     route: brick_show
 */
 body.route-brick_show {
+
+    .title, .description, .content { font-family: Verdana, Arial, sans-serif; }
     .description {
         font-size: 14px;
-        padding-bottom: 40px;
+        padding-bottom: 20px;
     }
     
     #info {
-        top:  0px;
+        top:      0px;
+        z-index:  100;
+
+        margin-bottom: 40px;
 
         .border-radius(4px);
         #gradient > .vertical(#F1F1F1, #E0E0E0);
 
         .view-on-scroll { visibility: hidden; }
+        &.affix { .view-on-scroll { visibility: visible; } }
 
         .actions { padding: 0px 10px 10px 10px;
             a { font-weight: normal; }
         }
 
-        &.affix { .view-on-scroll { visibility: visible; } }
-
         .row {
-            [class^="span"] {
-                padding: 10px;
-            }
+            [class^="span"] { padding: 10px; }
 
-            #social-share {
-                float:  right;
-            }
+            #social-share { float:  right; }
+
             #button-form-message-ajax-send-from-brick {
-                float: right; clear: both;
+                float: right;
+                clear: both;
                 margin-top: 5px;
             }
         }
     }
 
     .content {
-        h1 { font-size:  20px; }
+        h1 {
+            font-size:  20px;
+            margin-top: 40px;
+            border-bottom:  1px solid #CCC;
+
+            &:first-child { margin-top: 0px; }
+        }
         
         ul { margin: 0 0 10px 25px;
             li { list-style-type: disc; }
         }
+
+        &, p, a { font-size: 14px; }
+        a { font-weight: normal; }
+
+        pre {
+            padding:  1px 1px 1px 1px;
+            border: 1px solid #CCC;
+            .border-radius(0px);
+            background-color: #ECECEC;
+
+            ol {
+                margin-bottom: 0px;
+                .border-radius(0px);
+                color: #AAA;
+
+                &, li { list-style-type: decimal; }
+                li {
+                    background: #FFFFFF;
+                    margin-left:  24px;
+                }
+            }
+        }
+
     }
 }
 
