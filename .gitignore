@@ -8,6 +8,7 @@ nbproject
 
 # PhpStorm project files
 .idea
+atlassian-ide-plugin.xml
 
 # Bootstrap
 app/bootstrap*
