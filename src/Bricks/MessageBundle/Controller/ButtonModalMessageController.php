@@ -12,27 +12,44 @@ use Symfony\Component\HttpFoundation\Response;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
 use Bricks\SiteBundle\Entity\Brick;
-use Bricks\MessageBundle\FormType\NewThreadMessageFromBrickFormType;
 
 /**
- * Brick controller
  *
- * Integrate message functionalities into bricks
  */
-class BrickController extends Controller
+class ButtonModalMessageController extends Controller
 {
     /**
-     * Show the UserMessage form to send a comment to the brick author, creating a new UserThread
+     * Show the UserMessage form to send a message to a specified user
      *
      * @Template()
      */
-    public function _userMessageFormAction(Brick $brick)
+    public function _buttonModalMessageToUserAction(Brick $brick)
     {
         $form = $this->createForm($this->container->get('message_bundle.bricks_message_new_thread_message_from_brick_form.type'), array(
             'brick' => $brick,
             'recipient' => $brick->getUser()
         ));
-        
+
+        return array(
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * Show the UserMessage form to send a message to the admin, claiming the ownership of a brick
+     *
+     * @Template()
+     */
+    public function _buttonModalMessageClaimBrickAction(Brick $brick)
+    {
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        $form = $this->createForm($this->container->get('message_bundle.bricks_message_new_thread_message_from_brick_form.type'), array(
+            'brick' => $brick,
+            'recipient' => $userManager->findUserByUsername('inmarelibero'),
+            'body' => $this->get('translator')->trans('fos_message_bundle.form.claim_brick.body', array(), 'FOSMessageBundle')
+        ));
+
         return array(
             'form' => $form->createView(),
         );
@@ -41,10 +58,11 @@ class BrickController extends Controller
     /**
      * Sends a message
      *
-     * @Route("/ajax-send-from-brick", name="message_ajax_send_from_brick")
+     * @Route("/ajax-send", name="message_ajax_send")
+     * @method("POST")
      * @Template()
      */
-    public function ajaxSendFromBrickAction()
+    public function ajaxSendAction()
     {
         /*
          * set the sender
@@ -75,7 +93,9 @@ class BrickController extends Controller
             $message = $composer->newThread()
                 ->setSender($sender)
                 ->addRecipient($data['recipient'])
-                ->setSubject("{$sender->getUsername()} comment")
+                ->setSubject(
+                    (strlen($data['body']) > 50) ? substr($data['body'], 0, 47).'...' : $data['body']
+                )
                 ->setBody($data['body'])
                 ->getMessage()
             ;
@@ -85,7 +105,6 @@ class BrickController extends Controller
              */
             $brick = $data['brick'];
             if ($brick) {
-                $message->getThread()->setSubject("{$sender->getUsername()} comment about \"{$brick->getTitle()}\"");
                 $message->getThread()->setBrick($brick);
             }
 
