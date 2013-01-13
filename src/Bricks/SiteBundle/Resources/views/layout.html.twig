@@ -253,6 +253,16 @@
             $(function() {
                 // initialize Socialite buttons
             	Socialite.load();
+
+                /**
+                 * bind 'submit' event to all form.button-modal-message-form forms to submit messages through ajax
+                 *
+                 * see BricksMessageBundle:ButtonModalMessage:_buttonModalMessage.html.twig
+                 */
+
+                $('form.button-modal-message-form').on('submit', function(e) {
+                    return messageAjaxSend($(this));
+                });
             })
         </script>
         

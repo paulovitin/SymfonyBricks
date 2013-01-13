@@ -52,7 +52,10 @@
                             </a>
                         </div>
 
-                        {% render 'BricksMessageBundle:Brick:_userMessageForm' with {brick: brick} %}
+                        <div class="message-actions">
+                            {% render 'BricksMessageBundle:ButtonModalMessage:_buttonModalMessageToUser' with {brick: brick} %}
+                            {% render 'BricksMessageBundle:ButtonModalMessage:_buttonModalMessageClaimBrick' with {brick: brick} %}
+                        </div>
                     </div>
                 </div>
                 <div class="row">

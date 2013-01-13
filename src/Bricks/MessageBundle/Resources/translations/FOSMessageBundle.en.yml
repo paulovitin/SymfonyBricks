@@ -11,7 +11,13 @@ fos_message_bundle:
         body:
             label: Message
 
+        claim_brick:
+            title: Claim brick ownership
+            help: This form will send a private message to the administrator, asking him to transfer the current ownership of this brick to you. You will be contacted to verify your argumentations.
+            body: I claim the ownership of this guide, because I think that the source where this content was taken from belongs to me.
+
     by: by %username%
+    claim_brick: Claim the ownership of this brick
     delete_thread: delete thread
     delete_thread_confirm: "Confirm thread deletion?"
     go_to_sent: Go to sent messages
@@ -23,6 +29,7 @@ fos_message_bundle:
     new: new
     no_threads: no threads to show
     on: on %date%
+    related_to_brick: related to brick %link%
     reply: Reply
     send: send
     send_from_brick: Send a message to the autor

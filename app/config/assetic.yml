@@ -41,6 +41,7 @@ assetic:
                 - %kernel.root_dir%/../web/assets/socialite/socialite.js
                 - @BricksSiteBundle/Resources/js/*.js
                 - @BricksSiteBundle/Resources/js/*/*.js
+                - @BricksMessageBundle/Resources/js/*.js
             filters:
                 - cssrewrite
                 - ?yui_css

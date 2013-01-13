@@ -34,20 +34,26 @@ body.route-brick_show {
         .view-on-scroll { visibility: hidden; }
         &.affix { .view-on-scroll { visibility: visible; } }
 
+        #social-share {
+            float:  right;
+            margin-bottom: 15px;
+        }
+
+        .message-actions {
+            & > button {
+                float: right;
+                clear: both;
+                margin-bottom: 5px;
+                &:last-child { margin-bottom: 0px; }
+            }
+        }
+
         .actions { padding: 0px 10px 10px 10px;
             a { font-weight: normal; }
         }
 
         .row {
             [class^="span"] { padding: 10px; }
-
-            #social-share { float:  right; }
-
-            #button-form-message-ajax-send-from-brick {
-                float: right;
-                clear: both;
-                margin-top: 5px;
-            }
         }
     }
 

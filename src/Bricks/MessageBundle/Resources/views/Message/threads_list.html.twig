@@ -14,10 +14,16 @@
 
             {% for thread in threads %}
                 <tr class="{{ (fos_message_is_read(thread)) ? 'message-read':'message-not-read'}}">
-                    <td>
+                    <td class="subject">
                         <a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}">
                             {{ thread.subject }}
                         </a>
+                        {% if thread.brick %}
+                            {% set brick = thread.brick %}
+                            <p class="info">
+                                {{ 'fos_message_bundle.related_to_brick'|trans({'%link%': '<a href="'~path('brick_show', {id: brick.id, slug: brick.slug})~'" target="_blank">"'~brick.title|truncate(30)~'"</a>'}, 'FOSMessageBundle')|raw }}
+                            </p>
+                        {% endif %}
                     </td>
                     <td>
                         {{ thread.messages|length }}

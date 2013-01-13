@@ -11,7 +11,13 @@ fos_message_bundle:
         body:
             label: Mensaje
 
+        claim_brick:
+            title: Petición propriedad brick
+            help: Este formulario enviará un mensaje privado al administrador, pidiéndole que te transfiera la propiedad actual de este brick. Nos comunicaremos contigo para verificar tus argumentaciones.
+            body: Reclamo la propiedad de esta guía, porque creo que la fuente de donde se tomó el contenido me pertenece.
+
     by: de %username%
+    claim_brick: Pedir la propriedad de este brick
     delete_thread: eliminar conversación
     delete_thread_confirm: "Confirmar la eliminación de la conversación?"
     go_to_sent: Ir a los mensajes enviados
@@ -23,6 +29,7 @@ fos_message_bundle:
     new: nuevo
     no_threads: no conversaciones
     on: el %date%
+    related_to_brick: relacionado con el brick %link%
     reply: Responder
     send: envía
     send_from_brick: Envía un mensaje al autor
