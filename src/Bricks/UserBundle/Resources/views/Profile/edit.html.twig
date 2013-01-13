@@ -1,19 +1,33 @@
 {% extends "BricksUserBundle::layout.html.twig" %}
 
+{% import 'BricksSiteBundle::macros/macrosBootstrapForms.html.twig' as macrosBootstrapForms %}
+
 {% block main %}
 
     <div class="row">
-        <div class="span6 offset3">
+        <div class="span8 offset2">
         
             <h1>{{ 'profile.page_title'|trans({}, 'FOSUserBundle') }}</h1>
             
             <br><br>
         
-            <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit security-form">
-                {{ form_widget(form) }}
+            <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit security-form form form-horizontal" novalidate>
+
+
+                {{ macrosBootstrapForms.controlGroup(form.username) }}
+
+                {{ macrosBootstrapForms.controlGroup(form.email) }}
+
+                {{ macrosBootstrapForms.controlGroup(form.emailpolicy_send_on_new_message) }}
+
+                {{ macrosBootstrapForms.controlGroup(form.current_password) }}
+
+                {{ form_rest(form) }}
+
                 <div>
                     <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary" />
                 </div>
+
             </form>
             
         </div>

@@ -1,0 +1,23 @@
+{% extends 'BricksSiteBundle:Email:email_layout.html.twig' %}
+
+{% block main %}
+
+    {{ sender.username }} sent you this message on SymfonyBricks:
+
+    <br><br>
+
+    <div style="border: 1px solid #CCC; background: #FAFAFA; padding: 10px;">
+        {{ userMessage.body }}
+    </div>
+
+    <br><br>
+
+    {% if userMessage.thread %}
+        {% set thread = userMessage.thread %}
+
+        <a href="{{ url('fos_message_thread_view', {'threadId': thread.id}) }}#message_{{ userMessage.id }}">View this message on SymfonyBricks.</a>
+    {% else %}
+        <a href="{{ url('fos_message_inbox') }}">View this message on SymfonyBricks.</a>
+    {% endif %}
+
+{% endblock %}

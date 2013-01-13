@@ -27,6 +27,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        admin: %admin%
 
 # Doctrine Configuration
 doctrine:
@@ -53,13 +55,13 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: %mailer_transport%
-    host:      %mailer_host%
-    username:  %mailer_user%
-    password:  %mailer_password%
+    transport:  %mailer_transport%
+    host:       %mailer_host%
+    username:   %mailer_user%
+    password:   %mailer_password%
     encryption: ssl
     auth_mode:  login
-    spool:     { type: memory }
+    spool:      { type: memory }
 
 services:
  twig.extension.text:
@@ -87,6 +89,10 @@ fos_user:
     resetting:
         email:
             template:   BricksUserBundle:Resetting:resetting.email.twig
+
+    profile:
+        form:
+            type: bricks_user_profile
 
 stof_doctrine_extensions:
     default_locale: %locale%
