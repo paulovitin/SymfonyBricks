@@ -22,6 +22,13 @@ class User extends BaseUser implements ParticipantInterface
     protected $id;
 
     /**
+     * @var boolean $emailpolicy_send_on_new_message
+     *
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $emailpolicy_send_on_new_message = true;
+
+    /**
      * @var datetime $created_at
      *
      * @Gedmo\Timestampable(on="create")
@@ -106,6 +113,29 @@ class User extends BaseUser implements ParticipantInterface
     }
 
     /**
+     * Set emailpolicy_send_on_new_message
+     *
+     * @param boolean $emailpolicySendOnNewMessage
+     * @return User
+     */
+    public function setEmailpolicySendOnNewMessage($emailpolicySendOnNewMessage)
+    {
+        $this->emailpolicy_send_on_new_message = $emailpolicySendOnNewMessage;
+    
+        return $this;
+    }
+
+    /**
+     * Get emailpolicy_send_on_new_message
+     *
+     * @return boolean 
+     */
+    public function getEmailpolicySendOnNewMessage()
+    {
+        return $this->emailpolicy_send_on_new_message;
+    }
+
+    /**
      * Set created_at
      *
      * @param \DateTime $createdAt
@@ -154,7 +184,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Add bricks
      *
-     * @param Bricks\SiteBundle\Entity\Brick $bricks
+     * @param \Bricks\SiteBundle\Entity\Brick $bricks
      * @return User
      */
     public function addBrick(\Bricks\SiteBundle\Entity\Brick $bricks)
@@ -167,7 +197,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Remove bricks
      *
-     * @param Bricks\SiteBundle\Entity\Brick $bricks
+     * @param \Bricks\SiteBundle\Entity\Brick $bricks
      */
     public function removeBrick(\Bricks\SiteBundle\Entity\Brick $bricks)
     {
@@ -177,7 +207,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Get bricks
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getBricks()
     {
@@ -187,7 +217,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Add userStarsBricks
      *
-     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     * @param \Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
      * @return User
      */
     public function addUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
@@ -200,7 +230,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Remove userStarsBricks
      *
-     * @param Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
+     * @param \Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks
      */
     public function removeUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
     {
@@ -210,7 +240,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Get userStarsBricks
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getUserStarsBricks()
     {

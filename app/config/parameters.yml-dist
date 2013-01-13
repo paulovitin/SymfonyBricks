@@ -15,3 +15,7 @@ parameters:
     
     # java path required for yui compressor
     java_path:         /usr/bin/java
+
+    admin:
+        mail_address: -
+

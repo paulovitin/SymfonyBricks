@@ -1,0 +1,48 @@
+{#
+    Base template for evey email sent by SymfonyBricks.com
+#}
+
+<html>
+    <head>
+        <title>SymfonyBricks.com</title>
+    </head>
+    <body>
+
+        <style type="text/css">
+            body {
+                font-family: Verdana, Arial, sans-serif;
+            }
+        </style>
+
+        <table>
+            <tr>
+                <td style="width: 120px;">
+                    <a href="http://symfonybricks.com">
+                        <img alt="SymfonyBricks.com" width="120" src="http://symfonybricks.com/img/homepage-logo-cropped.png" />
+                    </a>
+                </td>
+                <td>
+                    <a href="http://symfonybricks.com">
+                        <b>SymfonyBricks.com</b>
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+        <br><br>
+
+        {% block main '' %}
+
+        <br><br><br><br>
+
+        <hr>
+
+        <br>
+
+        <p style="font-size: 10px; color: #CCC;">
+            You are receiving this email because you gave your permission to SymfonyBricks.com to send it.
+            <br>
+            To stop receiving this kind of updates, change your user preferences on <a href="{{ url('fos_user_profile_edit') }}">this</a> page.
+        </p>
+    </body>
+</html>

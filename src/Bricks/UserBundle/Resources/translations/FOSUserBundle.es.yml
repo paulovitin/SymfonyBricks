@@ -13,6 +13,8 @@ security:
 # Profile
 profile:
     page_title: Modificar perfil
+    emailpolicy_send_on_new_message:
+        label: Envíame un correo electrónico cuando un usuario me envía un mensaje
 
 # Password change
 change_password:
