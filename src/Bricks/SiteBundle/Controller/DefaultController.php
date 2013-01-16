@@ -18,7 +18,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $bricks = $em->getRepository('BricksSiteBundle:Brick')->findBy(array('published' => true));
+        $bricks = $em->getRepository('BricksSiteBundle:Brick')->findBy(array('published' => true), array('updated_at' => 'DESC'));
         
         return array(
             'bricks' => $bricks
