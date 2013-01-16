@@ -1,9 +1,11 @@
 <?php
 namespace Bricks\SiteBundle\Listener;
 
-use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+
+use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 
 class ExceptionListener
 {
@@ -22,13 +24,22 @@ class ExceptionListener
             // exception object
             $exception = $event->getException();
 
-            $message = $this->templating->render(
-                'BricksSiteBundle:Exception:exception.html.twig',
-                array('exception' => $exception)
+            // new Response object
+            $response = new Response();
+
+            // set response content
+            $response->setContent(
+                $this->templating->render('BricksSiteBundle:Exception:exception.html.twig', array('exception' => $exception))
             );
 
-            // new Response object
-            $response = new Response($message, $exception->getStatusCode());
+            // HttpExceptionInterface is a special type of exception that
+            // holds status code and header details
+            if ($exception instanceof HttpExceptionInterface) {
+                $response->setStatusCode($exception->getStatusCode());
+                $response->headers->replace($exception->getHeaders());
+            } else {
+                $response->setStatusCode(500);
+            }
 
             // set the new $response object to the $event
             $event->setResponse($response);
