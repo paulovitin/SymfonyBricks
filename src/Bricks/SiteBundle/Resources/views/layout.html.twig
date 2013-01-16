@@ -115,7 +115,7 @@
                                         <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
                                     </a>
                                 </li>
-                                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
                                     <li>
                                         <div class="btn-group">
                                             <a href="{{ path('user_dashboard') }}" class=""><i class="icon-user"></i> {{ app.user.username }}</a>
