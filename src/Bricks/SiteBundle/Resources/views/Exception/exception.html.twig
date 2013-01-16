@@ -1,0 +1,25 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{# SEO blocks #}
+{% block meta_title_content %}Error {{ exception.statusCode }} | SymfonyBricks.com{% endblock %}
+{% block meta_description_content %}Exception page.{% endblock %}
+
+{% block body_class 'route-exception' %}
+
+{% block main %}
+
+    <div class="route-exception-wrapper">
+        <h1>Whoops, looks like something went wrong.</h1>
+
+        <br><br><br>
+
+        <h3>
+            Page returned: <span>Error {{ exception.statusCode }}</span>
+        </h3>
+
+        <p>
+            The resource you were looking for has not been found.
+        </p>
+    </div>
+
+{% endblock %}

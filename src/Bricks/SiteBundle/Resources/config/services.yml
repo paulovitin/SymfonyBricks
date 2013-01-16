@@ -6,4 +6,10 @@ services:
         arguments: [@router, @twig]
         tags:
            - { name: twig.extension }
-           
+
+    # Custom exception listener
+    kernel.listener.bricks_exception_lstener:
+        class: Bricks\SiteBundle\Listener\ExceptionListener
+        arguments: [@templating, @kernel]
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
