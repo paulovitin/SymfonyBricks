@@ -40,7 +40,10 @@ class AppKernel extends Kernel
 
             // HighlightBundle
             new Highlight\Bundle\HighlightBundle(),
-            
+
+            // RaulFraileLadybugBundle
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\UserBundle\BricksUserBundle(),
