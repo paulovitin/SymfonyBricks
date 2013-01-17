@@ -23,21 +23,13 @@ body.route-brick_show {
     }
     
     #info {
-        top:      0px;
-        z-index:  100;
+        margin-bottom:  30px;
 
-        margin-bottom: 40px;
-
-        .border-radius(4px);
-        #gradient > .vertical(#F1F1F1, #E0E0E0);
-
-        .view-on-scroll { visibility: hidden; }
-        &.affix { .view-on-scroll { visibility: visible; } }
-
-        #social-share {
-            float:  right;
-            margin-bottom: 15px;
+        p {
+            font-size: 14px;
+            a { font-weight: normal; }
         }
+
 
         .message-actions {
             & > button, & > a {
@@ -51,6 +43,31 @@ body.route-brick_show {
 
         .actions { padding: 0px 10px 10px 10px;
             a { font-weight: normal; }
+        }
+    }
+
+    #affix-info {
+        top:      0px;
+        z-index:  100;
+
+        margin-bottom:  30px;
+
+        .border-radius(4px);
+        #gradient > .vertical(#F1F1F1, #E0E0E0);
+
+        &.affix { #scroll-to-top { visibility: visible; } }
+
+        #brick-chapters { float: left; }
+        #scroll-to-top {
+            visibility:   hidden;
+            float: left;
+            margin-top:   4px;
+            margin-left:  20px;
+        }
+
+        #social-share {
+            float:  right;
+            margin-top: 4px;
         }
 
         .row {
