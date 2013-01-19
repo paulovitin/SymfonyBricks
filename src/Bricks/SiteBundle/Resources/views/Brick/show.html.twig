@@ -2,9 +2,15 @@
 
 {% import "BricksSiteBundle::macros/macrosBrick.html.twig" as macrosBrick %}
 
-{# SEO blocks #}
-{% block meta_title_content %}{{ brick.title }} | SymfonyBricks.com{% endblock %}
-{% block meta_description_content %}{{ brick.description }}{% endblock %}
+{# META TAGS blocks #}
+{% set meta_title_content = "SymfonyBricks.com | "~brick.title %}
+{% set meta_description_content = brick.description %}
+
+{% block meta_title_content %}{{ meta_title_content }}{% endblock %}
+{% block meta_description_content %}{{ meta_description_content }}{% endblock %}
+{% block meta_og_title_content %}{{ meta_title_content }}{% endblock %}
+{% block meta_og_description_content %}{{ meta_description_content }}{% endblock %}
+{# END META TAGS blocks #}
 
 {# canonical url #}
 {% block canonical_url %}
@@ -23,11 +29,13 @@
         <div id="info">
             <div class="row">
                 <div class="span9">
-                    <p itemprop="author" itemscope itemtype="http://schema.org/Person">
-                        <i class="icon-user"></i>
-                        <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}" itemprop="url">
-                            <span itemprop="name">{{ brick.user }}</span>
-                        </a>
+                    <p>
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                            <i class="icon-user"></i>
+                            <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}" itemprop="url">
+                                <span itemprop="name">{{ brick.user }}</span>
+                            </a>
+                        </span>
 
                         |
 
