@@ -1,26 +1,53 @@
 /******************************************************************************************
 rules for FOSUserBundle templates
 ******************************************************************************************/
-form.security-form {
+div.security-form-container {
     margin: 0 auto;
-    padding-right:  22px;
-    
+
     .errors {
         color:          @red;
         margin-bottom:  20px;
     }
-    
+
     input[type="text"], input[type="password"], input[type="email"] {
-        width:      100%;
+        width:      438px;
         padding:    10px;
         font-size:  18px;
     }
     input[type="checkbox"] + label {
         display: inline-block;
     }
-    input[type="submit"] {
-        display: inline-block;
-        float: right;
-        margin-right:   -22px;
+
+    div.sign-in-content {
+        overflow: hidden;
+        #remember_me { margin-top: -3px;}
+        label[for="remember_me"] { margin-top: 7px; }
+        a#forgot-password {
+            float: right;
+            margin-right: 10px;
+            margin-top: 6px;
+            font-weight: normal;
+            font-size: 12px;
+        }
+
+        button[type="submit"] {
+            display: inline-block;
+            float: right;
+        }
+    }
+
+    #oauth-resources {
+        text-align: center;
+        a {
+            display: inline-block;
+            margin: 0px 5px 0px 5px;
+
+            background-repeat: no-repeat;
+            background-position: 3px;
+            padding-left: 30px;
+
+            &.login-github { background-image: url('/img/login/github_icon.png'); }
+            &.login-sensiolabs_connect { background-image: url('/img/login/sensiolab_icon.png'); }
+        }
     }
 }

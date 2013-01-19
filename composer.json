@@ -27,7 +27,8 @@
         "knplabs/knp-disqus-bundle": "dev-master",
         "friendsofsymfony/message-bundle": "dev-master",
         "nicodmf/highlight-bundle": "2.1.*",
-        "raulfraile/ladybug-bundle": "dev-master"
+        "raulfraile/ladybug-bundle": "dev-master",
+        "hwi/oauth-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

@@ -9,6 +9,9 @@ security:
         remember_me: Remember me
         submit: Sign in
     forgot_password: forgot password?
+    oauth:
+        signin_with_owner_label: You can also enter
+        signin_with_owner: "{0} Login with github|{1} Login with SensioLabs Connect"
 
 # Profile
 profile:

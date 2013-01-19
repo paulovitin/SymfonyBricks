@@ -22,6 +22,18 @@ class User extends BaseUser implements ParticipantInterface
     protected $id;
 
     /**
+     * @ORM\Column(name="github_id", type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $githubId;
+
+    /**
+     * @ORM\Column(name="github_token", type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $githubToken;
+
+    /**
      * @var boolean $emailpolicy_send_on_new_message
      *
      * @ORM\Column(type="boolean", nullable=true)
@@ -245,5 +257,51 @@ class User extends BaseUser implements ParticipantInterface
     public function getUserStarsBricks()
     {
         return $this->userStarsBricks;
+    }
+
+    /**
+     * Set githubId
+     *
+     * @param string $githubId
+     * @return User
+     */
+    public function setGithubId($githubId)
+    {
+        $this->githubId = $githubId;
+    
+        return $this;
+    }
+
+    /**
+     * Get githubId
+     *
+     * @return string 
+     */
+    public function getGithubId()
+    {
+        return $this->githubId;
+    }
+
+    /**
+     * Set githubToken
+     *
+     * @param string $githubToken
+     * @return User
+     */
+    public function setGithubToken($githubToken)
+    {
+        $this->githubToken = $githubToken;
+    
+        return $this;
+    }
+
+    /**
+     * Get githubToken
+     *
+     * @return string 
+     */
+    public function getGithubToken()
+    {
+        return $this->githubToken;
     }
 }

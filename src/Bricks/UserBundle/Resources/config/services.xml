@@ -12,9 +12,31 @@
             <argument type="service" id="doctrine.orm.entity_manager" />
         </service>
 
+        <service id="bricks.user_provider" class="Bricks\UserBundle\Security\Provider\UserProvider" public="false">
+            <argument type="service" id="fos_user.user_manager" />
+        </service>
+
         <service id="bricks_user.profile.form.type" class="Bricks\UserBundle\Form\Type\ProfileFormType">
             <tag name="form.type" alias="bricks_user_profile" />
             <argument>%fos_user.model.user.class%</argument>
+        </service>
+
+        <service id="bricks.oauth.registration_form_handler" class="Bricks\UserBundle\Form\Handler\OAuthRegistrationFormHandler">
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="fos_user.util.token_generator" />
+        </service>
+
+        <service id="bricks.oauth.registration_form_type" class="Bricks\UserBundle\Form\Type\OAuthRegistrationFormType">
+            <tag name="form.type" alias="bricks_oauth_user_registration" />
+        </service>
+
+        <service    id="bricks.oauth.registration_form"
+                    factory-method="createNamed"
+                    factory-service="form.factory"
+                    class="Symfony\Component\Form\Form"
+        >
+            <argument>"bricks_oauth_user_registration"</argument>
+            <argument>"bricks_oauth_user_registration"</argument>
         </service>
 
     </services>

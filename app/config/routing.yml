@@ -1,3 +1,45 @@
+####################################################################################################
+# HWIOAuthBundle routes
+####################################################################################################
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
+
+# hwi_oauth
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+
+github_login:
+    pattern: /login/github
+
+github_check:
+    pattern: /login/check-github
+
+sensiolabs_connect_check:
+    pattern: /login/check-sensiolabs-connect
+
+logout:
+    pattern: /logout
+
+login_check:
+    pattern: /login_check
+#    pattern: /en/login_check
+#    pattern:   /{_locale}/login_check
+#    defaults:  { _locale: %locale% }
+#    requirements:
+#        _locale:  %route_locale_requirements%
+
+
+
+####################################################################################################
+# Bricks bundles routes
+####################################################################################################
+
 # homepage not localized: load the homepage with default language
 index_not_localized:
     pattern:   /
@@ -29,26 +71,30 @@ bricks_message:
         _locale:  %route_locale_requirements%
 
 # additional unlocalized login action
-login:
-    pattern:   /login
-    defaults:  { _controller: FOSUserBundle:Security:login, _locale: %locale% }
+#login:
+#    pattern:   /login
+#    defaults:  { _controller: FOSUserBundle:Security:login, _locale: %locale% }
 
 # required unlocalized logout action
-logout:
-    pattern:   /logout
-    defaults:  { _controller: FOSUserBundle:Security:logout, _locale: %locale% }
+#logout:
+#    pattern:   /logout
+#    defaults:  { _controller: FOSUserBundle:Security:logout, _locale: %locale% }
 
+####################################################################################################
 # FOSJsRoutingBundle routes
+####################################################################################################
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"        
 
+####################################################################################################
 # FOSUserBundle routes
-fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix:   /{_locale}/
-    defaults:  { _locale: %locale% }
-    requirements:
-        _locale:  %route_locale_requirements%
+####################################################################################################
+#fos_user_security:
+#    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+#    prefix:   /{_locale}/
+#    defaults:  { _locale: %locale% }
+#    requirements:
+#        _locale:  %route_locale_requirements%
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
@@ -78,14 +124,12 @@ fos_user_change_password:
     requirements:
         _locale:  %route_locale_requirements%
 
+####################################################################################################
+# FOSMessageBundle
+####################################################################################################
 fos_message:
     resource: "@FOSMessageBundle/Resources/config/routing.xml"
     prefix: /{_locale}/user/message
     defaults:  { _locale: %locale% }
     requirements:
         _locale:  %route_locale_requirements%
-
-# Internal routing configuration to handle ESI
-#_internal:
-#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#    prefix:   /_internal

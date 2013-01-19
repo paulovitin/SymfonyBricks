@@ -19,19 +19,19 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-                
+
             // FOSUserBundle
             new FOS\UserBundle\FOSUserBundle(),
-            
+
             // StofDoctrineExtensionsBundle
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            
+
             // KnpMarkdownBundle
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-                
+
             // FOSJsRoutingBundle
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-                
+
             // KnpDisqusBundle
             new Knp\Bundle\DisqusBundle\KnpDisqusBundle(),
 
@@ -43,6 +43,9 @@ class AppKernel extends Kernel
 
             // RaulFraileLadybugBundle
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+
+            // HWIOAuthBundle
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
 
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),

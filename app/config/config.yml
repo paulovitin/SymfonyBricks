@@ -122,3 +122,33 @@ highlight:
    geshi:
        linestyle: normal
        cssclass: geshi
+
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+
+    connect:
+        account_connector: bricks.user_provider
+        registration_form_handler: bricks.oauth.registration_form_handler
+        registration_form: bricks.oauth.registration_form
+
+    resource_owners:
+        github:
+            type:                github
+            client_id:           %oauth.github.client_id%
+            client_secret:       %oauth.github.client_secret%
+            #scope:               ""
+        sensiolabs_connect:
+            type:                sensio_connect
+            client_id:           %oauth.sensiolabs_connect.client_id%
+            client_secret:       %oauth.sensiolabs_connect.client_secret%
+            scope:               "SCOPE_EMAIL SCOPE_PUBLIC"
+
+    # optional FOSUserBundle integration
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            github: githubId

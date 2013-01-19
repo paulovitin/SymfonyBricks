@@ -7,37 +7,69 @@
 
 {% block main %}
 
-    <div class="row">
-        <div class="span6 offset3">
-        
-            <h1>{{ 'security.login.page_title'|trans({}, 'FOSUserBundle') }}</h1>
-            
-            <br><br>
-        
-            <form action="{{ path("fos_user_security_check") }}" method="post" class="security-form">
-            
-                {% if error %}
-                    <div class="errors">{{ error|trans({}, 'FOSUserBundle') }}</div>
-                {% endif %}
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-            
-                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-            
-                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-                <input type="password" id="password" name="_password" required="required" />
-            
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-                
-                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-primary" />
-            </form>
-            
-            <br><br>
-            
-            <a href="{{ path('fos_user_resetting_request') }}">{{ 'security.forgot_password'|trans({}, 'FOSUserBundle') }}</a>
-            
-        </div>
+    <div class="security-form-container">
+        {% if error %}
+            <div>{{ error }}</div>
+        {% endif %}
+
+        {# HWIOAuthBundle uses the same template for the login and the connect functionality currently
+           so we need to check if the user is already authenticated. #}
+        {% if not app.user %}
+
+            <div class="row">
+                <div class="span6 offset3">
+
+                    <h1>{{ 'security.login.page_title'|trans({}, 'FOSUserBundle') }}</h1>
+
+                    <br><br>
+
+                    <form action="{{ path('login_check') }}" method="post">
+
+                        {% if error %}
+                            <div class="errors">{{ error|trans({}, 'FOSUserBundle') }}</div>
+                        {% endif %}
+
+                        <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                        <input type="text" id="username" name="_username" required="required" />
+
+                        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                        <input type="password" id="password" name="_password" required="required" />
+
+                        <div class="sign-in-content">
+                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+
+                            <button type="submit" id="_submit" name="_submit" class="btn btn-primary pull-right">
+                                {{ 'security.login.submit'|trans({}, 'FOSUserBundle') }} <i class="icon-arrow-right"></i>
+                            </button>
+
+                            <a href="{{ path('fos_user_resetting_request') }}" id="forgot-password">
+                                {{ 'security.forgot_password'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        </div>
+                    </form>
+
+                    <br><br>
+
+                    <div id="oauth-resources">
+                        {% for owner in hwi_oauth_resource_owners() %}
+                            <a class="btn login-{{ owner }}" href="{{ hwi_oauth_login_url(owner) }}">
+                                {{ 'security.oauth.signin_with_owner'|transchoice(loop.index0, {}, 'FOSUserBundle', 'en') }}
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+        {% else %}
+            <div id="oauth-resources">
+                {% for owner in hwi_oauth_resource_owners() %}
+                    <a class="btn login-{{ owner }}" href="{{ hwi_oauth_login_url(owner) }}">
+                        {{ 'security.oauth.signin_with_owner'|transchoice(loop.index0, {}, 'FOSUserBundle') }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
-    
 {% endblock %}

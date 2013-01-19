@@ -16,6 +16,13 @@ parameters:
     # java path required for yui compressor
     java_path:         /usr/bin/java
 
+    oauth:
+        github:
+            client_id:           ''
+            client_secret:       ''
+        sensiolabs_connect:
+            client_id:           ''
+            client_secret:       ''
+
     admin:
         mail_address: -
-
