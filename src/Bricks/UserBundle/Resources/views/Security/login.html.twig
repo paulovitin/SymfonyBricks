@@ -51,13 +51,15 @@
 
                     <br><br>
 
-                    <div id="oauth-resources">
-                        {% for owner in hwi_oauth_resource_owners() %}
-                            <a class="btn login-{{ owner }}" href="{{ hwi_oauth_login_url(owner) }}">
-                                {{ 'security.oauth.signin_with_owner'|transchoice(loop.index0, {}, 'FOSUserBundle', 'en') }}
-                            </a>
-                        {% endfor %}
-                    </div>
+                    {% if app.environment == 'dev' %}
+                        <div id="oauth-resources">
+                            {% for owner in hwi_oauth_resource_owners() %}
+                                <a class="btn login-{{ owner }}" href="{{ hwi_oauth_login_url(owner) }}">
+                                    {{ 'security.oauth.signin_with_owner'|transchoice(loop.index0, {}, 'FOSUserBundle', 'en') }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
 
                 </div>
             </div>
