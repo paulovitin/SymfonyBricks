@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
     <head>
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 
@@ -98,27 +98,28 @@
                             <ul id="links-list" class="nav pull-right">
                                 <li>
                                     <div class="btn-group">
-                                            <a href="{{ path('contribute') }}" class=""><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans }}</a>
-                                            <button class="dropdown-toggle" data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="{{ path('developers') }}"><i class="icon-cog"></i> {{ 'main_navbar.developers'|trans|capitalize }}</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ path('contribute') }}"><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ path('changelog') }}"><i class="icon-align-left"></i> Changelog</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                </li>
-                                <li>
-                                    <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
-                                        <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
-                                    </a>
+                                        <a href="{{ path('contribute') }}" class=""><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans }}</a>
+                                        <button class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="{{ path('developers') }}"><i class="icon-cog"></i> {{ 'main_navbar.developers'|trans|capitalize }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('contribute') }}"><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('changelog') }}"><i class="icon-align-left"></i> Changelog</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
+                                                    <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
                                     <li>
@@ -136,7 +137,7 @@
                                                 </li>
                                                 <li class="divider"></li>
                                                 <li>
-                                                    <a href="{{ path('user_brick_starred') }}"><i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                <a href="{{ path('user_brick_starred') }}"><i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}</a>
                                                 </li>
                                                 <li>
                                                     <a href="{{ path('user_brick') }}"><i class="icon-book"></i> {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|capitalize }}</a>
