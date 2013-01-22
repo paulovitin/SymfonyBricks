@@ -16,6 +16,7 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../web/assets/bootstrap/less/bootstrap.less
                 - @BricksSiteBundle/Resources/less/*.less
+                - @BricksWikiBundle/Resources/less/*.less
                 - @BricksUserBundle/Resources/less/*.less
                 - @BricksMessageBundle/Resources/less/*.less
             filters: lessphp

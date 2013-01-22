@@ -46,6 +46,7 @@ class AppKernel extends Kernel
 
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
+            new Bricks\WikiBundle\BricksWikiBundle(),
             new Bricks\UserBundle\BricksUserBundle(),
             new Bricks\MessageBundle\BricksMessageBundle(),
         );
