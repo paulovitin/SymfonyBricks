@@ -5,8 +5,8 @@
     #    RewriteBase /
     #</IfModule>
 
-    RewriteCond %{HTTP_HOST} ^symfonybricks\.com
-    RewriteRule ^(.*)$ https://symfonybricks.com/$1 [R,L]
+#    RewriteCond %{HTTP_HOST} ^symfonybricks\.com
+#    RewriteRule ^(.*)$ https://symfonybricks.com/$1 [R,L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^(.*)$ app.php [QSA,L]
