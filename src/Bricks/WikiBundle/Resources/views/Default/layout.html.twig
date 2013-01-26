@@ -1,0 +1,43 @@
+{% extends 'BricksSiteBundle::layout.html.twig' %}
+
+{% block body_class 'route-wiki' %}
+
+{% block main %}
+
+    <div id="route-wiki-wrapper">
+        <div class="row header">
+            <div class="span12">
+                <h1>Help</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+
+                <div id="help-menu">
+                    <ul class="nav nav-list">
+                        <li>
+                            <a href="{{ path('wiki_symfonybricks') }}">
+                                <i class="icon-book"></i> SymfonyBrick.com
+                            </a>
+                        </li>
+
+                        <li class="nav-header">
+                            Dictionary
+                        </li>
+                        <li>
+                            <a href="{{ path('wiki_dictionary_brick') }}">
+                                <i class="icon-book"></i> Brick
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="span9 wiki-main">
+                {% block wiki_main '' %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -27,3 +27,7 @@ composer.phar
 
 # Configuration files
 app/config/parameters.yml
+
+# Capifony configuration
+app/config/deploy.rb
+.rsync_cache/

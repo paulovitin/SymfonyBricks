@@ -12,6 +12,7 @@ main_navbar:
     register: registrarse
     sign_in: entrar
     developers: desarrolladores
+    wiki: wiki
 
 # entries regarding stuff related to a Brick
 brick:

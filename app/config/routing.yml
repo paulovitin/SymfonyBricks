@@ -53,6 +53,14 @@ bricks_site:
     defaults:  { _locale: %locale% }
     requirements:
         _locale:  %route_locale_requirements%
+
+bricks_wiki:
+    resource: "@BricksWikiBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}/wiki
+    defaults:  { _locale: %locale% }
+    requirements:
+        _locale:  %route_locale_requirements%
     
 bricks_user:
     resource: "@BricksUserBundle/Controller/"
