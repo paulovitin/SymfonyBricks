@@ -55,13 +55,13 @@ class User extends BaseUser implements ParticipantInterface
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\Brick", mappedBy="user", cascade={"persist"})
      * @ORM\OrderBy({"created_at" = "ASC"})
      */
     private $bricks;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\UserStarsBrick", mappedBy="user", cascade={"persist"})
      */
@@ -69,18 +69,18 @@ class User extends BaseUser implements ParticipantInterface
 
     /**************************************************************************************************
      *	custom functions
-    **************************************************************************************************/
+     **************************************************************************************************/
     public function __construct()
     {
         parent::__construct();
         // your own logic
     }
-    
+
     /**
      * return if a user marked a $brick as "starred".
-     * 
+     *
      * marking a brick as "starred" is like putting it in the "favorites"
-     * 
+     *
      * @param Brick $brick
      * @return boolean
      */
@@ -91,33 +91,33 @@ class User extends BaseUser implements ParticipantInterface
                 return true;
             }
         }
-        
+
         return false;
     }
-    
+
     /**
      * return the starred bricks for a user
-     * 
+     *
      * @return multitype:NULL
      */
     public function getStarredBricks()
     {
         $entities = array();
-        
+
         foreach ($this->getUserStarsBricks() as $usb) {
             $entities[] = $usb->getBrick();
         }
-        
+
         return $entities;
     }
-    
+
     /**************************************************************************************************
      *	getters and setters
-    **************************************************************************************************/
+     **************************************************************************************************/
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -133,14 +133,14 @@ class User extends BaseUser implements ParticipantInterface
     public function setEmailpolicySendOnNewMessage($emailpolicySendOnNewMessage)
     {
         $this->emailpolicy_send_on_new_message = $emailpolicySendOnNewMessage;
-    
+
         return $this;
     }
 
     /**
      * Get emailpolicy_send_on_new_message
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getEmailpolicySendOnNewMessage()
     {
@@ -156,14 +156,14 @@ class User extends BaseUser implements ParticipantInterface
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -179,14 +179,14 @@ class User extends BaseUser implements ParticipantInterface
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -202,7 +202,7 @@ class User extends BaseUser implements ParticipantInterface
     public function addBrick(\Bricks\SiteBundle\Entity\Brick $bricks)
     {
         $this->bricks[] = $bricks;
-    
+
         return $this;
     }
 
@@ -219,7 +219,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Get bricks
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getBricks()
     {
@@ -235,7 +235,7 @@ class User extends BaseUser implements ParticipantInterface
     public function addUserStarsBrick(\Bricks\SiteBundle\Entity\UserStarsBrick $userStarsBricks)
     {
         $this->userStarsBricks[] = $userStarsBricks;
-    
+
         return $this;
     }
 
@@ -252,7 +252,7 @@ class User extends BaseUser implements ParticipantInterface
     /**
      * Get userStarsBricks
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUserStarsBricks()
     {
@@ -268,14 +268,14 @@ class User extends BaseUser implements ParticipantInterface
     public function setGithubId($githubId)
     {
         $this->githubId = $githubId;
-    
+
         return $this;
     }
 
     /**
      * Get githubId
      *
-     * @return string 
+     * @return string
      */
     public function getGithubId()
     {
@@ -291,14 +291,14 @@ class User extends BaseUser implements ParticipantInterface
     public function setGithubToken($githubToken)
     {
         $this->githubToken = $githubToken;
-    
+
         return $this;
     }
 
     /**
      * Get githubToken
      *
-     * @return string 
+     * @return string
      */
     public function getGithubToken()
     {
