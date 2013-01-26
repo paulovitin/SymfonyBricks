@@ -35,8 +35,8 @@
                     factory-service="form.factory"
                     class="Symfony\Component\Form\Form"
         >
-            <argument>"bricks_oauth_user_registration"</argument>
-            <argument>"bricks_oauth_user_registration"</argument>
+            <argument>bricks_oauth_user_registration</argument>
+            <argument>bricks_oauth_user_registration</argument>
         </service>
 
     </services>
