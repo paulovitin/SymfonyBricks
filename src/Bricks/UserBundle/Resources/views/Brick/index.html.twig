@@ -17,14 +17,17 @@
                         <td>
                             <i class="icon-book"></i> {{ 'brick.title'|trans|capitalize }}
                         </td>
-                        <td>
-                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans|capitalize }}
-                        </td>
-                        <td>
+                        <td class="published">
                             <i class="icon-bullhorn"></i> {{ 'brick.published'|trans|capitalize }}
                         </td>
-                        <td>
-                            <i class="icon-reorder"></i> {{ 'brick.actions'|trans({}, 'UserBundle')|capitalize }}
+                        <td class="license">
+                            <i class="icon-legal"></i> {{ 'brick.license'|trans|capitalize }}
+                        </td>
+                        <td class="last_update">
+                            <i class="icon-calendar"></i> {{ 'brick.last_update'|trans|capitalize }}
+                        </td>
+                        <td class="actions">
+                            <i class="icon-reorder"></i>
                         </td>
                     </tr>
                 </thead>
@@ -34,10 +37,7 @@
                             <td>
                                 <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}">{{ entity.title }}</a>
                             </td>
-                            <td id="last_update">
-                                {{ entity.updatedat|date('H:i:s | d M Y') }}
-                            </td>
-                            <td id="published">
+                            <td class="published">
                                 <a href="{{ path('user_brick_toggle_published', { 'id': entity.id }) }}">
                                     {% if (entity.published) %}
                                         <i class="icon-published icon-ok"></i>
@@ -46,7 +46,20 @@
                                     {% endif %}
                                 </a>
                             </td>
-                            <td id="actions">
+                            <td class="license">
+                                {% if entity.brickLicense %}
+                                    {{ entity.brickLicense.titleShort }}
+                                {% else %}
+                                    {{ 'brick.no_license_applied'|trans }}
+                                {% endif %}
+                            </td>
+                            <td class="last_update">
+                                {{ entity.updatedat|date('d M Y') }}
+                                <br>
+                                {{ entity.updatedat|date('H:i:s') }}
+
+                            </td>
+                            <td class="actions">
                                 <a href="{{ path('user_brick_edit', { 'id': entity.id }) }}" ><i class="icon-edit"></i></a>
                                 {% render 'BricksUserBundle:Brick:_deleteForm' with {'id': entity.id} %}
                             </td>

@@ -1,6 +1,7 @@
 {% extends 'BricksSiteBundle::layout.html.twig' %}
 
 {% import "BricksSiteBundle::macros/macrosBrick.html.twig" as macrosBrick %}
+{% import "BricksSiteBundle::macros/macrosBrickLicense.html.twig" as macrosBrickLicense %}
 
 {# META TAGS blocks #}
 {% set meta_title_content = "SymfonyBricks.com | "~brick.title %}
@@ -36,21 +37,20 @@
                                 <span itemprop="name">{{ brick.user }}</span>
                             </a>
                         </span>
-
                         |
-
                         <i class="icon-calendar"></i>
                         {{ 'brick.last_update'|trans }}:
                         <time itemprop="dateModified" datetime="{{ brick.updatedAt|date('Y-m-d') }}">
                             {{ brick.updatedAt|date('d M Y') }}
                         </time>
-
-                        <br>
-
+                    </p>
+                    <p>
+                        {{ 'brick.license'|trans|title }}: {{ (brick.brickLicense) ? macrosBrickLicense.brickLicenseModal(brick.brickLicense) : '-' }}
+                    </p>
+                    <p>
                         <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
-
-                        <br>
-
+                    </p>
+                    <p>
                         {{ macrosBrick.toggleUserStarsBrick(brick) }}
                     </p>
                 </div>

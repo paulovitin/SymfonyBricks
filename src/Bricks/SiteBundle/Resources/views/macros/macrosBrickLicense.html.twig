@@ -1,0 +1,32 @@
+{#
+    bootstrap modal to display info about a brick license
+
+    display a link which opens a modal window
+
+    parameters:
+        - brickLicense: a brickLicense object
+#}
+{% macro brickLicenseModal(brickLicense) %}
+
+    {% set modalId = "brick-license-modal-"~brickLicense.id %}
+
+    <a href="#{{ modalId }}" class="info-modal-caller" role="button" data-toggle="modal">
+        {{ brickLicense.titleShort }}
+    </a>
+
+    <div id="{{ modalId }}" class="modal hide fade info-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>
+                <i class="icon-legal"></i> {{ brickLicense.title }}
+            </h3>
+        </div>
+        <div class="modal-body">
+            {{ brickLicense.content|nl2br }}
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal" >Close</a>
+        </div>
+    </div>
+
+{% endmacro %}

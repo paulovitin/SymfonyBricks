@@ -32,6 +32,7 @@ brick:
     tags: tags
     brickHasTags:
         help_text: To add a tag, write it in the box below and press "Enter"
+    license: license
     
     help:
         title:
@@ -107,4 +108,15 @@ brick:
                         <b>singular:</b> if possible, try to use a <i>singular nouns</i>; for example use <b>databse</b> instead of <b>databases</b>.
                     </li>
                 </ul>
+
+        license:
+            title: "Brick: License"
+            body: |
+                You can choose a license to apply to your guide by simply picking one in the field "License".
+                <br><br>
+                If you don't apply any license, SymfonyBricks.com will claim no intellectual property rights over the material you provide. Your profile and materials uploaded remain yours. However, because the material is publicly viewed, you agree to allow others to view your content. By default no license is applied.
+                <br><br>
+                Material without an explicit license is protected by copyright and is by default <b>All Rights Reserved</b>. The person or people who wrote the material are protected as such.
+                <br>
+                Anyway consider applying a license to your work, so people using material you wrote must respect the terms of the license you chose.
                 
