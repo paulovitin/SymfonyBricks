@@ -28,19 +28,34 @@
                         {{ form_errors(form) }}
                     </div>
                 {% endif %}
-                
+
                 <div class="control-group">
                     {# info modal #}
                     <div class="control-label pull-right" for="{{ form.title.vars.id }}">
                         {{ macrosInfo.bootstrapInfoModal('brick.help.title.title'|trans({}, 'UserBundle'), 'brick.help.title.body'|trans({}, 'UserBundle')) }}
                     </div>
-                    
+
                     {# label #}
                     <div class="control-label" for="{{ form.title.vars.id }}">
                         {{ 'brick.title'|trans({}, 'UserBundle')|capitalize }}
                     </div>
                     <div class="controls">
                         {{ form_widget(form.title) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    {# info modal #}
+                    <div class="control-label pull-right" for="{{ form.brick_license.vars.id }}">
+                        {{ macrosInfo.bootstrapInfoModal('brick.help.license.title'|trans({}, 'UserBundle'), 'brick.help.license.body'|trans({}, 'UserBundle')) }}
+                    </div>
+
+                    {# label #}
+                    <div class="control-label" for="{{ form.brick_license.vars.id }}">
+                        {{ 'brick.license'|trans({}, 'UserBundle')|capitalize }}
+                    </div>
+                    <div class="controls">
+                        {{ form_widget(form.brick_license) }}
                     </div>
                 </div>
                 

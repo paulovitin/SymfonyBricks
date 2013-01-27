@@ -24,6 +24,8 @@ brick:
     last_update: ultimo aggiornamento
     starring_text: Starred
     not_starring_text: Star
+    license: licenza
+    no_license_applied: no
     
     # brick search
     search:

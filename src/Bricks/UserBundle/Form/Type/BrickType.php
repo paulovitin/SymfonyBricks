@@ -5,6 +5,7 @@ namespace Bricks\UserBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 use Bricks\UserBundle\Form\DataTransformer\TagsToIdsTransformer;
 
@@ -27,6 +28,15 @@ class BrickType extends AbstractType
             ->add('description', 'textarea')
             ->add('canonical_url', 'text')
             ->add('content', 'textarea')
+            ->add('brick_license', 'entity', array(
+                'class' => 'BricksSiteBundle:BrickLicense',
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.title', 'ASC');
+                },
+                'property' => 'title',
+                'empty_value' => '== no license =='
+            ))
         ;
         
         // data transformer for brickHasTags field
