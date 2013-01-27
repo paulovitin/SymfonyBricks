@@ -31,6 +31,7 @@ brick:
     tags: tags
     brickHasTags:
         help_text: Para añadir un Tag, escribelo en el espacio de abajo y pulsa "Intro"
+    license: licencia
     
     help:
         title:
@@ -94,4 +95,14 @@ brick:
                         <b>singular:</b> si es posible, usar un <i>nombre singular</i>; por ejemplo utilizar <b>databse</b> en lugar de <b>databases</b>.
                     </li>
                 </ul>
-                
+
+        license:
+            title: "Brick: Licencia"
+            body: |
+                Puedes elegir una licencia para que sea aplicada a tu guía simplemente eligiendo una en el campo "Licencia".
+                <br><br>
+                Si no solicitas una licencia, SymfonyBricks.com reclamará ningún derecho de propiedad intelectual sobre el material que proporcionas. Tu perfil y materiales subidos siguen siendo tuyos. Sin embargo, debido a que el material es visto en público, te comprometes a permitir que otras personas vean tu contenido. De forma predeterminada ninguna licencia se aplica.
+                <br><br>
+                Material sin una licencia explícita está protegido por copyright y es por defecto <b>Todos los derechos reservados</b>. La persona o personas que escribieron el material están protegidas de esta forma.
+                <br>
+                De todas formas considera la aplicación de una licencia para tu trabajo, así que las personas que utilizan material que escribiste deban respetar los términos de la licencia que eligiste.

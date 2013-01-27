@@ -77,7 +77,25 @@ class Brick
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      */
     private $user;
-    
+
+    /**
+     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\BrickHasTag", mappedBy="brick", cascade={"persist"})
+     */
+    public $brickHasTags;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\UserStarsBrick", mappedBy="user", cascade={"persist"})
+     */
+    private $userStarsBricks;
+
+    /**
+     * @var object $brickLicense
+     *
+     * @ORM\ManyToOne(targetEntity="Bricks\SiteBundle\Entity\BrickLicense")
+     * @ORM\JoinColumn(name="brick_license_id", referencedColumnName="id", nullable=true)
+     */
+    private $brickLicense;
+
     /**
      * @var datetime $updated_at
      *
@@ -85,7 +103,7 @@ class Brick
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
-    
+
     /**
      * @var datetime $created_at
      *
@@ -93,17 +111,7 @@ class Brick
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $created_at;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\BrickHasTag", mappedBy="brick", cascade={"persist"})
-     */
-    public $brickHasTags;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Bricks\SiteBundle\Entity\UserStarsBrick", mappedBy="user", cascade={"persist"})
-     */
-    private $userStarsBricks;
-    
+
     /**************************************************************************************************
      *	custom functions
     **************************************************************************************************/
@@ -408,5 +416,28 @@ class Brick
     public function getUserStarsBricks()
     {
         return $this->userStarsBricks;
+    }
+
+    /**
+     * Set brickLicense
+     *
+     * @param \Bricks\SiteBundle\Entity\BrickLicense $brickLicense
+     * @return Brick
+     */
+    public function setBrickLicense(\Bricks\SiteBundle\Entity\BrickLicense $brickLicense = null)
+    {
+        $this->brickLicense = $brickLicense;
+    
+        return $this;
+    }
+
+    /**
+     * Get brickLicense
+     *
+     * @return \Bricks\SiteBundle\Entity\BrickLicense 
+     */
+    public function getBrickLicense()
+    {
+        return $this->brickLicense;
     }
 }

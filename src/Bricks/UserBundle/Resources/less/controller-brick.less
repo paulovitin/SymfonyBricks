@@ -19,12 +19,14 @@ body.route-user_brick {
         thead {
             #gradient .vertical(#F8F8F8, #DEDEDE);
             font-weight:    bold;
+
+            td.published { width: 125px; text-align: center; }
+            td.last_update { width: 150px; }
+            td.license { width: 100px; }
+            td.actions { width: 55px; text-align: center; }
         }
         tbody {
-            td#last_update {
-                font-size:  12px;
-            }
-            td#published { text-align: center;
+            td.published { text-align: center;
                 a {
                     i.icon-published { color: #51A351; }
                     i.icon-not-published {
@@ -33,7 +35,11 @@ body.route-user_brick {
                     }
                 }
             }
-            td#actions { text-align: center;
+            td.license { font-size: 11px; text-align: center; }
+            td.last_update {
+                font-size:  12px;
+            }
+            td.actions { text-align: center;
                 a {
                     color: #333;
                     margin-right:   4px;
@@ -65,6 +71,10 @@ body.route-user_brick_new, body.route-user_brick_create, body.route-user_brick_e
         textarea {
             width: 100%;
             .border-radius(0px);
+        }
+
+        select {
+            width: 100%;
         }
         
         /*
