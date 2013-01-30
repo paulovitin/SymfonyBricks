@@ -23,7 +23,7 @@ assetic:
         stylesheets:
             inputs:
                 - @lesses
-                - %kernel.root_dir%/../web/assets/FontAwesome/css/font-awesome.css
+                - %kernel.root_dir%/../web/assets/FortAwesome-Font-Awesome-3.0/css/font-awesome.min.css
                 - @HighlightBundle/Resources/public/*.css
             filters:
                 - cssrewrite
