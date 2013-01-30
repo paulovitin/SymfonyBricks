@@ -7,6 +7,35 @@
     <div class="row">
         <div class="span8" style="text-align: left;">
             <img src="{{ asset('img/homepage-logo-cropped.png') }}" alt="SymfonyBricks" {#style="height: 80px;"#} />
+
+            <br><br>
+
+            <p style="font-size: 22px;">
+                {% if 'it' == app.request.locale %}
+                    Costruito dalla comunità Symfony, per la comunità.
+                {% elseif 'es' == app.request.locale %}
+                    Construido por la comunidad Symfony, para la comunidad.
+                {% else %}
+                    Built by the Symfony community, for the community.
+                {% endif %}
+            </p>
+            <br>
+            <p>
+                <i class="icon-lightbulb" style="vertical-align: middle;"></i>
+                {% if 'it' == app.request.locale %}
+                    Hai creato qualcosa di nuovo o risolto un problema relativo ad progetto Symfony?
+                    <br />
+                    Condividi qui le tue idee e la tua eperienza!
+                {% elseif 'es' == app.request.locale %}
+                    Creaste algo nuevo o resolviste un problema relacionado con Symfony?
+                    <br />
+                    ¡Comparte aquí tus ideas y experiencia!
+                {% else %}
+                    Did you create something new o resolved a problem related to a Symfony project?
+                    <br />
+                    Share here your ideas and experience!
+                {% endif %}
+            </p>
         </div>
         <div class="span4 right-col">
             <ul>
@@ -28,53 +57,21 @@
                     </a>
                 </li>
             </ul>
-            <br>
-            <p style="font-size: 20px;">
+
+            <br><br>
+
+            <i class="icon-quote-left icon-4x pull-left icon-muted"></i>
+            <p style="">
                 {% if 'it' == app.request.locale %}
-                    SymfonyBricks punta ad essere un repository di guide, frammenti di codice, ricette ed altro ancora.
+                    L'obiettivo di SymfonyBricks è diventare una piattaforma social dove gli sviluppatori possano condividere la loro esperienza sul lavorare con Symfony.
+                    <br />
+                    Il codice sorgente di <a href="{{ url('homepage') }}">symfonybricks.com</a> è interamente open source.
                 {% elseif 'es' == app.request.locale %}
-                    SymfonyBricks pretende ser un repositorio de guías, fragmentos de código, recetas y mucho más.
+
                 {% else %}
-                    SymfonyBricks aims to be a repository of guides, snippets of code, recipes and even more.
-                {% endif %}
-            </p>
-        </div>
-    </div>
-    
-    <br><br>
-    
-    <div class="row">
-        <div class="span4">
-            <p style="font-size: 22px;">
-                {% if 'it' == app.request.locale %}
-                    Costruito dalla comunità,<br>per la comunità.
-                {% elseif 'es' == app.request.locale %}
-                    Construido por la comunidad,<br>para la comunidad
-                {% else %}
-                    Built by the community,<br>for the community
-                {% endif %}
-            </p>
-            <br>
-        </div>
-        <div class="span8">
-            <p>
-                <i class="icon-wrench" style="vertical-align: middle;"></i>
-                {% if 'it' == app.request.locale %}
-                    contenuti condivisi da chiunque almeno una volta abbia risolto un problema relativo a Symfony
-                {% elseif 'es' == app.request.locale %}
-                    contenidos compartidos por todos los que al menos una vez hayan resuelto un problema relacionado con Symfony
-                {% else %}
-                    knowledge is shared by anyone in his life ever solved a problem regarding Symfony
-                {% endif %}
-            </p>
-            <p>
-                <i class="icon-wrench" style="vertical-align: middle;"></i>
-                {% if 'it' == app.request.locale %}
-                    utile agli stessi sviluppatori Symfony: non reinventiamo la ruota ogni volta!
-                {% elseif 'es' == app.request.locale %}
-                    útil para los mismos desarrolladores Symfony: no reinventemos la rueda cada vez!
-                {% else %}
-                    useful to the same Symfony developers: don't reinvent the wheel!
+                    The purpose of SymfonyBricks is to become a social platform where developers can share their experiences about working with Symfony.
+                    <br>
+                    The source code of <a href="{{ url('homepage') }}">symfonybricks.com</a> is fully open source.
                 {% endif %}
             </p>
         </div>
