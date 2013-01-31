@@ -6,21 +6,21 @@
         {# META TAGS #}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <title>{% spaceless %}{% block meta_title_content %}SymfonyBricks.com{% endblock %}{% endspaceless %}</title>
-        <meta name="description" content="{% spaceless %}{% block meta_description_content %}Built by the community for the community. SymfonyBricks aims to be a repository of code, snippets and recipes useful to Symfony developers{% endblock %}{% endspaceless %}" />
-        <meta name="keywords" content="{% spaceless %}{% block meta_keywords_content %}symfony, symfony2, symfony bricks, snippets, codes, recipes, cookbook, guides{% endblock %}{% endspaceless %}" />
-        <meta name="robots" content="{% spaceless %}{% block meta_robots_content %}index, follow{% endblock %}{% endspaceless %}" />
-        <meta name="googlebot" content="{% spaceless %}{% block meta_googlebot_content %}index, follow{% endblock %}{% endspaceless %}" />
-        <meta name="author" content="{% spaceless %}{% block meta_author_content %}symfonybricks.com{% endblock %}{% endspaceless %}" />
-        <meta name="language" content="{% spaceless %}{% block meta_language_content %}{{ app.request.locale }}{% endblock %}{% endspaceless %}" />
+        <title>{% block meta_title_content %}SymfonyBricks.com{% endblock %}</title>
+        <meta name="description" content="{% block meta_description_content %}Built by the community for the community. SymfonyBricks aims to be a repository of code, snippets and recipes useful to Symfony developers{% endblock %}" />
+        <meta name="keywords" content="{% block meta_keywords_content %}symfony, symfony2, symfony bricks, snippets, codes, recipes, cookbook, guides{% endblock %}" />
+        <meta name="robots" content="{% block meta_robots_content %}index, follow{% endblock %}" />
+        <meta name="googlebot" content="{% block meta_googlebot_content %}index, follow{% endblock %}" />
+        <meta name="author" content="{% block meta_author_content %}symfonybricks.com{% endblock %}" />
+        <meta name="language" content="{% block meta_language_content %}{{ app.request.locale }}{% endblock %}" />
 
-        <meta property="og:title" content="{% spaceless %}{% block meta_og_title_content %}SymfonyBricks.com{% endblock %}{% endspaceless %}" />
-        <meta property="og:description" content="{% spaceless %}{% block meta_og_description_content %}Built by the community for the community. SymfonyBricks aims to be a repository of code, snippets and recipes useful to Symfony developers{% endblock %}{% endspaceless %}" />
-        <meta property="og:image" content="{% spaceless %}{% block meta_og_image_content %}http://symfonybricks.com/img/logo-square.png{% endblock %}{% endspaceless %}" />
+        <meta property="og:title" content="{% block meta_og_title_content %}SymfonyBricks.com{% endblock %}" />
+        <meta property="og:description" content="{% block meta_og_description_content %}Built by the community for the community. SymfonyBricks aims to be a repository of code, snippets and recipes useful to Symfony developers{% endblock %}" />
+        <meta property="og:image" content="{% block meta_og_image_content %}http://symfonybricks.com/img/logo-square.png{% endblock %}" />
         {# END META TAGS #}
         
         {# canonical url #}
-        <link rel="canonical" href="{% spaceless %}{% block canonical_url %}{{ app.request.uri }}{% endblock canonical_url %}{% endspaceless %}"/>
+        <link rel="canonical" href="{% block canonical_url %}{{ app.request.uri }}{% endblock canonical_url %}"/>
         
         {# load header javascripts #}
         {% javascripts '@javascripts_header' %}
