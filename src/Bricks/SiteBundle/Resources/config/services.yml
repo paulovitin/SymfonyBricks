@@ -13,3 +13,9 @@ services:
         arguments: [@templating, @kernel]
         tags:
             - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+
+    bricks.sitemap.listener:
+        class: Bricks\SiteBundle\Listener\SitemapListener
+        arguments: [@router, @doctrine.orm.entity_manager, %interface_translation_locales%]
+        tags:
+            - { name: presta.sitemap.listener }

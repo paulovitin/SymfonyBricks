@@ -44,6 +44,9 @@ class AppKernel extends Kernel
             // RaulFraileLadybugBundle
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
 
+            // PrestaSitemapBundle
+            new Presta\SitemapBundle\PrestaSitemapBundle(),
+
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\WikiBundle\BricksWikiBundle(),
