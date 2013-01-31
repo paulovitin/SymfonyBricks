@@ -4,7 +4,7 @@
 {% import "BricksSiteBundle::macros/macrosBrickLicense.html.twig" as macrosBrickLicense %}
 
 {# META TAGS blocks #}
-{% set meta_title_content = "SymfonyBricks.com | "~brick.title %}
+{% set meta_title_content = brick.title~" | SymfonyBricks.com" %}
 {% set meta_description_content = brick.description %}
 
 {% block meta_title_content %}{{ meta_title_content }}{% endblock %}

@@ -1,8 +1,13 @@
 {% extends 'BricksSiteBundle::layout.html.twig' %}
 
 {# META TAGS blocks #}
-{% block meta_title_content %}Developers | SymfonyBricks.com{% endblock %}
-{% block meta_description_content %}SymfonyBricks is made by people: discover who they are.{% endblock %}
+{% set meta_title_content = "Developers | SymfonyBricks.com" %}
+{% set meta_description_content = "SymfonyBricks is made by people: discover who they are." %}
+
+{% block meta_title_content %}{{ meta_title_content }}{% endblock %}
+{% block meta_description_content %}{{ meta_description_content }}{% endblock %}
+{% block meta_og_title_content %}{{ meta_title_content }}{% endblock %}
+{% block meta_og_description_content %}{{ meta_description_content }}{% endblock %}
 {# END META TAGS blocks #}
 
 {% block main %}
