@@ -6,7 +6,9 @@
     parameters:
         - brickLicense: a brickLicense object
 #}
-{% macro brickLicenseModal(brickLicense) %}
+{% macro brickLicenseModal(brick) %}
+
+    {% set brickLicense = brick.brickLicense %}
 
     {% set modalId = "brick-license-modal-"~brickLicense.id %}
 

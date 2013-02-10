@@ -45,7 +45,7 @@
                         </time>
                     </p>
                     <p>
-                        {{ 'brick.license'|trans|title }}: {{ (brick.brickLicense) ? macrosBrickLicense.brickLicenseModal(brick.brickLicense) : '-' }}
+                        {{ 'brick.license'|trans|title }}: {{ (brick.brickLicense) ? macrosBrickLicense.brickLicenseModal(brick) : '-' }}
                     </p>
                     <p>
                         <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
@@ -123,6 +123,7 @@
     </div>
 
     <script>
+
         $(function() {
             var affixedElement = $('#affix-info');
             // apply affix behavior

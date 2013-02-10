@@ -4,6 +4,7 @@ namespace Bricks\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use FOS\UserBundle\Entity\User;
 
 /**
  * Bricks\SiteBundle\Entity\BrickLicense
@@ -50,7 +51,7 @@ class BrickLicense
     {
         return $this->title;
     }
-    
+
     /**************************************************************************************************
      *	getters and setters
     **************************************************************************************************/
