@@ -111,7 +111,9 @@
                 </div>
 
                 <div class="content" itemprop="text">
+                    {% autoescape %}
                     {{ brick_highlight_code(brick.content|markdown)|raw }}
+                    {% endautoescape %}
                 </div>
 
                 <hr>

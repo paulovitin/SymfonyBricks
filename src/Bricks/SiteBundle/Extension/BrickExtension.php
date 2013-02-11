@@ -90,7 +90,14 @@ EOD;
             $node->parentNode->replaceChild($highlightedDomFragment, $node);
         }
 
-        return $doc->saveHTML();
+
+        /* very dirty code; wanna fix it? */
+        $content = $doc->saveHTML();
+        $content = preg_replace('#<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">#sm', '', $content);
+        $content = preg_replace('#<html><body>#sm', '', $content);
+        $content = preg_replace('#</body></html>#sm', '', $content);
+
+        return html_entity_decode($content);
     }
 
     public function getName()
