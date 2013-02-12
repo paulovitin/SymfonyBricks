@@ -92,8 +92,6 @@ class BrickController extends Controller
         $entity  = new Brick();
         $form = $this->createForm(new BrickType($em), $entity);
         
-        
-        $form = $this->createForm(new BrickType($em), $entity);
         $formHandler = $this->container->get('brick.form.handler');
         
         $process = $formHandler->process($entity);
