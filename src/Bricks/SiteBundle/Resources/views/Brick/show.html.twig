@@ -15,11 +15,13 @@
 
 {# canonical url #}
 {% block canonical_url %}
+    {%- spaceless %}
     {% if brick.canonicalUrl|trim != '' %}
         {{ brick.canonicalUrl|trim }}
     {% else %}
         {{ parent() }}
     {% endif %}
+    {% endspaceless -%}
 {% endblock canonical_url %}
 
 
