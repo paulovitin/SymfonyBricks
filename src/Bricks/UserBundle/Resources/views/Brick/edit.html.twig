@@ -191,6 +191,11 @@
                         },
         	            complete: function(e) {
         	            	$('#content-preview').html(e.responseText);
+
+                            // highlight code
+                            syntaxHighlight({
+                                'container': $('#content-preview')
+                            });
                         }
             		})
                 }

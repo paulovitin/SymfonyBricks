@@ -26,7 +26,6 @@
         "friendsofsymfony/jsrouting-bundle": "*",
         "knplabs/knp-disqus-bundle": "dev-master",
         "friendsofsymfony/message-bundle": "dev-master",
-        "nicodmf/highlight-bundle": "2.1.*",
         "raulfraile/ladybug-bundle": "dev-master",
         "presta/sitemap-bundle": "dev-master"
     },

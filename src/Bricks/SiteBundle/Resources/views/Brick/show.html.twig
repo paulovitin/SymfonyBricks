@@ -113,9 +113,7 @@
                 </div>
 
                 <div class="content" itemprop="text">
-                    {% autoescape %}
-                    {{ brick_highlight_code(brick.content|markdown)|raw }}
-                    {% endautoescape %}
+                    {{ brick.content|markdown }}
                 </div>
 
                 <hr>
@@ -128,7 +126,17 @@
 
     <script>
 
+
         $(function() {
+            // highlight code
+            syntaxHighlight({
+                'container': $(".content")
+            });
+
+
+            /**
+             * initialize the bar with chapters etc..
+             */
             var affixedElement = $('#affix-info');
             // apply affix behavior
             affixedElement.affix({
@@ -145,7 +153,7 @@
                }
             });
 
-            /**
+            /*
              * compile chapters index
              */
             var chaptersIndex = $('#chapters-index');

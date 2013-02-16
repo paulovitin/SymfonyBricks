@@ -22,8 +22,7 @@ class BrickExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'brick_formatted_tags' => new \Twig_Function_Method($this, 'brickFormattedTags'),
-            'brick_highlight_code' => new \Twig_Function_Method($this, 'brickHighlightCode'),
+            'brick_formatted_tags' => new \Twig_Function_Method($this, 'brickFormattedTags')
         );
     }
     
@@ -59,45 +58,6 @@ EOD;
         }
 
         return $output;
-    }
-
-    /**
-     * Highlight the content of <pre> tags of $source string via HighlightBundle
-     *
-     * @param $source string containing <pre> tags to be highlighted
-     * @return string string containing <pre> tags with highlighted code
-     */
-    public function brickHighlightCode($source)
-    {
-        $highlighter = $this->twig->getExtension('twig.extension.highlight');
-
-        // create a DOMDocument to replace the content of <pre> tags with highlighted code
-        $doc = new \DOMDocument();
-
-        // load $source string as html
-        $doc->loadHTML($source);
-
-        $xpath = new \DOMXPath($doc);
-
-        // replace the content of <pre> tags with highlighted code
-        foreach ($xpath->query('//pre') as $node) {
-
-            $highlightedSource = ($highlighter->highlight(trim($node->firstChild->nodeValue), 'html'));
-
-            $highlightedDomFragment = $doc->createDocumentFragment();
-            $highlightedDomFragment->appendXML("<![CDATA[{$highlightedSource}]]>");
-
-            $node->parentNode->replaceChild($highlightedDomFragment, $node);
-        }
-
-
-        /* very dirty code; wanna fix it? */
-        $content = $doc->saveHTML();
-        $content = preg_replace('#<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">#sm', '', $content);
-        $content = preg_replace('#<html><body>#sm', '', $content);
-        $content = preg_replace('#</body></html>#sm', '', $content);
-
-        return html_entity_decode($content);
     }
 
     public function getName()
