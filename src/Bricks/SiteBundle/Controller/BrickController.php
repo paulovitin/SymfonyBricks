@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use JMS\SecurityExtraBundle\Annotation\Secure;
+use Symfony\Component\DomCrawler\Crawler;
 
 use Bricks\SiteBundle\Entity\Brick;
 use Bricks\UserBundle\Form\Type\BrickType;
@@ -167,6 +168,59 @@ class BrickController extends Controller
         }
         */
         
+        return new Response(json_encode($jsonResponse), 200, array('Content-Type'=>'application/json'));
+    }
+
+    /**
+     * Fetch the content of a url by curl
+     *
+     * @Route("/fetchlink", name="fetch_link", options={"expose"=true})
+     * @param string $url
+     */
+    public function fetchLinkAction()
+    {
+        require_once __DIR__.'/../../../../app/markdownify/markdownify.php';
+
+        $url = $this->getRequest()->get('url');
+
+        if (is_null($url)) {
+            return false;
+        }
+
+        $options = array(
+            CURLOPT_RETURNTRANSFER => true,     // return web page
+            CURLOPT_HEADER         => false,    // don't return headers
+            CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+            CURLOPT_ENCODING       => "",       // handle all encodings
+            CURLOPT_USERAGENT      => "spider", // who am i
+            CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
+            CURLOPT_TIMEOUT        => 120,      // timeout on response
+            CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+        );
+
+        $ch      = curl_init( $url );
+        curl_setopt_array( $ch, $options );
+        $content = curl_exec( $ch );
+        $err     = curl_errno( $ch );
+        $errmsg  = curl_error( $ch );
+        $header  = curl_getinfo( $ch );
+        curl_close( $ch );
+
+        //$crawler = new Crawler($content);
+        //$content = $crawler->filter('body');
+
+        $md = new \Markdownify();
+        $content = $md->parseString($content);
+
+        //$content = html_entity_decode(strip_tags($content));
+
+
+        $jsonResponse = array(
+            'markdown_content' => html_entity_decode($content),
+            'markdown_entity_decoded' => html_entity_decode(strip_tags($content))
+        );
+
         return new Response(json_encode($jsonResponse), 200, array('Content-Type'=>'application/json'));
     }
 }

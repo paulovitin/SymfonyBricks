@@ -68,8 +68,18 @@ class BrickController extends Controller
     public function newAction()
     {
         $em = $this->getDoctrine()->getManager();
-        
+
         $entity = new Brick();
+
+        if ($this->getRequest()->getMethod() == 'POST') {
+            $c = $this->getRequest()->get('content');
+
+            $c = html_entity_decode($c);
+
+            //ldd($c);
+            $entity->setContent($c);
+        }
+
         $form   = $this->createForm(new BrickType($em), $entity);
 
         return array(
