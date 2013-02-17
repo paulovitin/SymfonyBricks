@@ -172,55 +172,60 @@ class BrickController extends Controller
     }
 
     /**
-     * Fetch the content of a url by curl
+     * Fetch the content of a url by curl and retrieve the markdown content
      *
-     * @Route("/fetchlink", name="fetch_link", options={"expose"=true})
-     * @param string $url
+     * @Route("/fetchurlcontent", name="fetch_url_content", options={"expose"=true})
      */
     public function fetchLinkAction()
     {
-        require_once __DIR__.'/../../../../app/markdownify/markdownify.php';
-
         $url = $this->getRequest()->get('url');
 
         if (is_null($url)) {
-            return false;
+            return new Response('', 500);
         }
 
         $options = array(
-            CURLOPT_RETURNTRANSFER => true,     // return web page
-            CURLOPT_HEADER         => false,    // don't return headers
-            CURLOPT_FOLLOWLOCATION => true,     // follow redirects
-            CURLOPT_ENCODING       => "",       // handle all encodings
-            CURLOPT_USERAGENT      => "spider", // who am i
-            CURLOPT_AUTOREFERER    => true,     // set referer on redirect
-            CURLOPT_CONNECTTIMEOUT => 120,      // timeout on connect
-            CURLOPT_TIMEOUT        => 120,      // timeout on response
-            CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER         => true,
+
+            /*
+             * TODO: fix
+             * Warning: curl_setopt_array(): CURLOPT_FOLLOWLOCATION cannot be activated
+             * when safe_mode is enabled or an open_basedir is set in
+             */
+            //CURLOPT_FOLLOWLOCATION => true,
+
+            CURLOPT_ENCODING       => "",
+            CURLOPT_USERAGENT      => "spider",
+            CURLOPT_AUTOREFERER    => true,
+            CURLOPT_CONNECTTIMEOUT => 120,
+            CURLOPT_TIMEOUT        => 120,
+            CURLOPT_MAXREDIRS      => 10,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false
         );
 
         $ch      = curl_init( $url );
         curl_setopt_array( $ch, $options );
         $content = curl_exec( $ch );
-        $err     = curl_errno( $ch );
-        $errmsg  = curl_error( $ch );
+        //$err     = curl_errno( $ch );
+        //$errmsg  = curl_error( $ch );
         $header  = curl_getinfo( $ch );
         curl_close( $ch );
 
-        //$crawler = new Crawler($content);
-        //$content = $crawler->filter('body');
 
-        $md = new \Markdownify();
-        $content = $md->parseString($content);
+        // use PKMarkdownifyBundle to convert html to markdown
+        $markdownify = @$this->container->get('pk.markdownify');
+        $markdownContent = @$markdownify->parseString($content);
 
-        //$content = html_entity_decode(strip_tags($content));
-
+        // html render from markup content
+        $htmlContent = $this->container->get('markdown.parser')->transformMarkdown($markdownContent);
 
         $jsonResponse = array(
-            'markdown_content' => html_entity_decode($content),
-            'markdown_entity_decoded' => html_entity_decode(strip_tags($content))
+            'markdown' => $markdownContent,
+            'html' => $htmlContent
         );
 
-        return new Response(json_encode($jsonResponse), 200, array('Content-Type'=>'application/json'));
+        return new Response(json_encode($jsonResponse), $header['http_code'], array('Content-Type'=>'application/json'));
     }
 }

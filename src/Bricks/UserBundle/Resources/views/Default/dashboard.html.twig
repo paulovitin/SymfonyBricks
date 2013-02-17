@@ -12,14 +12,21 @@
                     <a href="{{ path('user_brick_starred') }}">
                         <i class="icon-star"></i>
                         <br><br>
-                        {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|upper }}
+                        {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|upper }} ({{ app.user.starredBricks|length }})
                     </a>
                 </li>
                 <li>
                     <a href="{{ path('user_brick') }}">
                         <i class="icon-book"></i>
                         <br><br>
-                        {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|upper }}
+                        {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|upper }} ({{ app.user.bricks|length }})
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ path('user_brick_new') }}">
+                        <i class="icon-file-alt"></i>
+                        <br><br>
+                        {{ 'user_navbar.create_brick'|trans({}, 'UserBundle')|upper }}
                     </a>
                 </li>
             </ul>

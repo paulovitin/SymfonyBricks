@@ -26,6 +26,10 @@ brick:
     not_starring_text: Star
     license: license
     no_license_applied: no
+    fetch_url:
+        title: Create brick by retrieving url content
+        help: This procedure is meant to help you to create a new brick starting from the content of an existent web page.<br><br>Enter the url in the box below and SymfonyBricks will try to retrieve the content of that page.<br>
+        error: Some errors occurred while retrieving the page. Please check the url and try again.
     
     # brick search
     search:

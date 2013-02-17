@@ -44,6 +44,9 @@ class AppKernel extends Kernel
             // PrestaSitemapBundle
             new Presta\SitemapBundle\PrestaSitemapBundle(),
 
+            // PKMarkdownifyBundle
+            new PK\MarkdownifyBundle\PKMarkdownifyBundle(),
+
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\WikiBundle\BricksWikiBundle(),

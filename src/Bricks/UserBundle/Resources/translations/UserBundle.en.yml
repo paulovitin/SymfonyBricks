@@ -13,6 +13,8 @@ user_navbar:
     edit_profile: Edit profile
     change_password: Change password
     create_brick: CREATE NEW BRICK
+    create_brick_blank: Create blank brick
+    create_brick_by_fetching_url: Create brick by retrieving url content
     bricks_starred: Starred Bricks
     message: Messages
     logout: Logout

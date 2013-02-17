@@ -252,12 +252,13 @@
                 </div>
             </div>
         </footer>
-        
+
+
         {# load footer javascripts #}
         {% javascripts '@javascripts_footer' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        
+
         <script>
             $(function() {
                 // initialize Socialite buttons
@@ -274,12 +275,13 @@
                 });
             })
         </script>
-        
+
         {# block #}
         {% block javascripts_footer '' %}
-        
+
         {% render 'BricksUserBundle:Security:_modalLogin' %}
-        
+        {% include 'BricksSiteBundle:Brick:_modal_brick_from_url.html.twig' %}
+
     </body>
 
 </html>

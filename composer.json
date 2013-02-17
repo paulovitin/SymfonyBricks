@@ -27,7 +27,8 @@
         "knplabs/knp-disqus-bundle": "dev-master",
         "friendsofsymfony/message-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "dev-master",
-        "presta/sitemap-bundle": "dev-master"
+        "presta/sitemap-bundle": "dev-master",
+        "pk/markdownify-bundle": "2.1.*"
     },
     "scripts": {
         "post-install-cmd": [

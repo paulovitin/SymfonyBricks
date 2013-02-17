@@ -62,7 +62,7 @@ class BrickController extends Controller
     /**
      * Displays a form to create a new Brick entity.
      *
-     * @Route("/new", name="user_brick_new")
+     * @Route("/new", name="user_brick_new", options={"expose"=true})
      * @Template("BricksUserBundle:Brick:edit.html.twig")
      */
     public function newAction()
