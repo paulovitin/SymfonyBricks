@@ -11,6 +11,8 @@ class ProfileFormType extends BaseType
     {
         parent::buildForm($builder, $options);
 
+        $builder->remove('current_password');
+
         $builder->add('emailpolicy_send_on_new_message', 'checkbox', array(
             'label' => 'profile.emailpolicy_send_on_new_message.label',
             'translation_domain' => 'FOSUserBundle',
