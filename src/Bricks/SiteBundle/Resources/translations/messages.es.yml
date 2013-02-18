@@ -8,25 +8,23 @@
 # entries to translate the main navigation bar
 main_navbar:
     contribute: contribuir
+    developers: desarrolladores
     github_repository: repositorio github
     register: registrarse
     sign_in: entrar
-    developers: desarrolladores
     wiki: wiki
 
 # entries regarding stuff related to a Brick
 brick:
-    title: título
-    description: descripción
     content: contenido
-    published: publicado
-    not_published: no publicado
+    description: descripción
     last_update: última actualización
-    starring_text: Starred
-    not_starring_text: Star
     license: licencia
     no_license_applied: no
-    
+    not_published: no publicado
+    not_starring_text: Star
+    published: publicado
+
     # brick search
     search:
         form:
@@ -34,6 +32,9 @@ brick:
             button_submit: Buscar
         page_title: Resultados de la búsqueda
         no_results: no se encontraron resultados
+
+    starring_text: Starred
+    title: título
 
 # general translations (alphabetical order)
 back_to_the_list: Volver a la lista

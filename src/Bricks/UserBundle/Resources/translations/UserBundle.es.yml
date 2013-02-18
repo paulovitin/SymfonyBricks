@@ -7,35 +7,32 @@
 # user navbar
 # entries to translate the user navigation bar
 user_navbar:
-    dashboard: DASHBOARD
     bricks: Mis Bricks
-    profile: PERFIL
-    edit_profile: Modificar perfil
-    change_password: Cambiar contraseña
-    create_brick: CREAR BRICK
     bricks_starred: Starred Bricks
-    message: Mensajes
+    create_brick: CREAR BRICK
+    create_brick_blank: Crear un nuevo brick
+    create_brick_by_fetching_url: Crear brick por recuperación de contenidos de un url
+    change_password: Cambiar contraseña
+    dashboard: DASHBOARD
+    edit_profile: Modificar perfil
     logout: Salir
+    message: Mensajes
+    profile: PERFIL
 
 # Bricks
 # bricks related interfaces
 brick:
-    create_new_brick: Crear un nuovo brick
-    edit_brick: Modificar brick
-    title: titulo
-    description: descripción
-    content: contenido
-    preview: previsualización
-    confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"
     actions: acciones
-    tags: tags
     brickHasTags:
         help_text: Para añadir un Tag, escribelo en el espacio de abajo y pulsa "Intro"
-    license: licencia
-    
+    canonical_url: Url canónica
+    confirm_deletion: "Esta operación no puede ser anulada. ¿Seguir?"
+    content: contenido
+    create_new_brick: Crear un nuovo brick
+    description: descripción
+    edit_brick: Modificar brick
     help:
         title:
-            title: "Brick: Título"
             body: |
                 Este es el título del Brick (pieza de código/guía/receta) que estás creando.
                 <br><br>
@@ -62,9 +59,9 @@ brick:
                         <i>"Use of macros to integrate Bootstrap base css Form styles in twig templates"</i>
                     </li>
                 </ul>
-                                
+            title: "Brick: Título"
+
         description:
-            title: "Brick: Descripción"
             body: |
                 Puedes proporcionar una breve descripción adicional sobre el tema que estás tratando: Este campo te permite explicar mejor cuál es el problema al que te estás enfrentando, y cuál es la solución propuesta.
                 <br><br>
@@ -80,8 +77,20 @@ brick:
                         <b>cómo has resuelto el problema y la solución que has adoptado; por ejemplo los bundles que has instalado, las librerias externas instaladas y configuradas, etc ...</b>
                     </li>
                 </ul>
+            title: "Brick: Descripción"
+
+        canonical_url:
+            body: |
+                Puedes especificar una url canónica de un brick. Utilizando la definición de Google, <b>una página canónica es la versión preferida de un conjunto de páginas con contenido muy similar.</b>
+                <br><br>
+                Este campo es útil por ejemplo cuando publicas una guía en tu blog, y luego publicas el mismo contenido en SymfonyBricks también. La <b> Url canónica </ b> permite a Google que no penalize a su entrada de blog en los resultados de búsqueda debido a la repetición del contenido en SymfonyBricks.
+                <br><br>
+                Pon en este campo la url del artículo original/blog post/página web, de esta manera Google dará prioridad a él en lugar de los contenidos publicados en SymfonyBricks.
+                <br><br><br>
+                Más informaciones están disponibles en <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=139394" target="_new"> esta página de ayuda de Google. </a>
+            title: "Brick: Url canónica"
+
         tags:
-            title: "Brick: Tags"
             body: |
                 Los Tags son etiquetas de texto que puedes añadir a un brick; un tag se compone de una o más palabras.
                 <br><br>
@@ -95,9 +104,9 @@ brick:
                         <b>singular:</b> si es posible, usar un <i>nombre singular</i>; por ejemplo utilizar <b>databse</b> en lugar de <b>databases</b>.
                     </li>
                 </ul>
+            title: "Brick: Tags"
 
         license:
-            title: "Brick: Licencia"
             body: |
                 Puedes elegir una licencia para que sea aplicada a tu guía simplemente eligiendo una en el campo "Licencia".
                 <br><br>
@@ -106,3 +115,8 @@ brick:
                 Material sin una licencia explícita está protegido por copyright y es por defecto <b>Todos los derechos reservados</b>. La persona o personas que escribieron el material están protegidas de esta forma.
                 <br>
                 De todas formas considera la aplicación de una licencia para tu trabajo, así que las personas que utilizan material que escribiste deban respetar los términos de la licencia que eligiste.
+            title: "Brick: Licencia"
+    license: licencia
+    preview: previsualización
+    tags: tags
+    title: titulo

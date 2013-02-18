@@ -1,25 +1,21 @@
 fos_message_bundle:
-    form:
-        recipient:
-            label: Recipient
-            help_block: Insert the username of the recipient
-
-        subject:
-            label: Subject
-            help_block: Set the subject of the thread
-
-        body:
-            label: Message
-
-        claim_brick:
-            title: Claim brick ownership
-            help: This form will send a private message to the administrator, asking him to transfer the current ownership of this brick to you. You will be contacted to verify your argumentations.
-            body: I claim the ownership of this guide, because I think that the source where this content was taken from belongs to me.
-
     by: by %username%
     claim_brick: Claim the ownership of this brick
     delete_thread: delete thread
     delete_thread_confirm: "Confirm thread deletion?"
+    form:
+        body:
+            label: Message
+        claim_brick:
+            body: I claim the ownership of this guide, because I think that the source where this content was taken from belongs to me.
+            help: This form will send a private message to the administrator, asking him to transfer the current ownership of this brick to you. You will be contacted to verify your argumentations.
+            title: Claim brick ownership
+        recipient:
+            help_block: Insert the username of the recipient
+            label: Recipient
+        subject:
+            help_block: Set the subject of the thread
+            label: Subject
     go_to_sent: Go to sent messages
     inbox: inbox
     inbox_title: Inbox

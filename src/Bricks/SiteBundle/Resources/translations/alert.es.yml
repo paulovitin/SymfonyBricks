@@ -7,15 +7,14 @@
 alert:
     brick:
         create:
+            error: Se han producido errores
             success: Brick creado con éxito
-            error: Se han producido errores
-        update:
-            success: Modificaciones guardadas con éxito
-            error: Se han producido errores
         delete:
-            success: Brick eliminado con éxito
             error: Se han producido errores
+            success: Brick eliminado con éxito
         togglePublished:
-            published: Brick publicado con éxito 
+            published: Brick publicado con éxito
             unpublished: El brick está ahora NO publicado
-            
+        update:
+            error: Se han producido errores
+            success: Modificaciones guardadas con éxito

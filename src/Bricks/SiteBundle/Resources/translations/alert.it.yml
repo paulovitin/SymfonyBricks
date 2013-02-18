@@ -7,15 +7,14 @@
 alert:
     brick:
         create:
+            error: Si sono verificati degli errori durante il salvataggio
             success: Brick creato con successo
-            error: Si sono verificati degli errori durante il salvataggio
-        update:
-            success: Modifiche salvate con successo
-            error: Si sono verificati degli errori durante il salvataggio
         delete:
-            success: Brick deleted successfully
             error: Si sono verificati degli errori durante la cancellazione
+            success: Brick deleted successfully
         togglePublished:
-            published: Brick pubblicato con successo 
+            published: Brick pubblicato con successo
             unpublished: Il brick è ora NON pubblicato
-            
+        update:
+            error: Si sono verificati degli errori durante il salvataggio
+            success: Modifiche salvate con successo

@@ -67,7 +67,9 @@
                     <br />
                     Il codice sorgente di <a href="{{ url('homepage') }}">symfonybricks.com</a> è interamente open source.
                 {% elseif 'es' == app.request.locale %}
-
+                    El propósito de SymfonyBricks es convertirse en una plataforma social donde los desarrolladores pueden compartir sus experiencias sobre el trabajo con Symfony.
+                    <br />
+                    El código fuente de <a href="{{ url('homepage') }}">symfonybricks.com </ a> es completamente de código abierto.
                 {% else %}
                     The purpose of SymfonyBricks is to become a social platform where developers can share their experiences about working with Symfony.
                     <br>
@@ -153,21 +155,24 @@
                     For the community
                 {% endif %}
             </h2>
-                {% if 'it' == app.request.locale %}
-                    L'obiettivo è diventare un repository omogeneo di frammenti di codice, ricette e guide (e altro che non riusciamo nemmeno ad immaginare ora) riguardanti Symfony e argomenti correlati.
-                {% elseif 'es' == app.request.locale %}
-                    El objetivo es convertirse en un repositorio homogéneo de fragmentos de código, recetas y guías (y más cosas que no podemos ni siquiera imaginar ahora) sobre Symfony y temas relacionados.
-                {% else %}
-                    The purpose is to become an homogeneous repository of code snippets, recipes and guides (and other we cannot even imagine now) about Symfony and topics related to it.
-                {% endif %}
+
+            {% if 'it' == app.request.locale %}
+                L'obiettivo è diventare un repository omogeneo di frammenti di codice, ricette e guide (e altro che non riusciamo nemmeno ad immaginare ora) riguardanti Symfony e argomenti correlati.
+            {% elseif 'es' == app.request.locale %}
+                El objetivo es convertirse en un repositorio homogéneo de fragmentos de código, recetas y guías (y más cosas que no podemos ni siquiera imaginar ahora) sobre Symfony y temas relacionados.
+            {% else %}
+                The purpose is to become an homogeneous repository of code snippets, recipes and guides (and other we cannot even imagine now) about Symfony and topics related to it.
+            {% endif %}
+
             <br><br>
-                {% if 'it' == app.request.locale %}
-                    I contenuti di questo sito sono inviati da te: in base alle tue possibilità potrai condividere una nuova guida, contribuire alla sua traduzione, migliorarla, correggere errori, o semplicemente esprimere un giudizio sulla sua utilità.
-                {% elseif 'es' == app.request.locale %}
-                   Los contenidos de esta plataforma estàn creados por ti: de acuerdo con tu capacidad, podrás compartir una nueva guía, contribuyr a su traducción, mejorarla, corregir errores, o simplemente expresar una opinión sobre su utilidad. 
-                {% else %}
-                    Contents will be submitted by you: depending on your possibilities you will post a new recipe, contribute to its translation, improve them, correct errors, or just express a judgement about its utility.
-                {% endif %}
+
+            {% if 'it' == app.request.locale %}
+                I contenuti di questo sito sono inviati da te: in base alle tue possibilità potrai condividere una nuova guida, contribuire alla sua traduzione, migliorarla, correggere errori, o semplicemente esprimere un giudizio sulla sua utilità.
+            {% elseif 'es' == app.request.locale %}
+               Los contenidos de esta plataforma estàn creados por ti: de acuerdo con tu capacidad, podrás compartir una nueva guía, contribuyr a su traducción, mejorarla, corregir errores, o simplemente expresar una opinión sobre su utilidad.
+            {% else %}
+                Contents will be submitted by you: depending on your possibilities you will post a new recipe, contribute to its translation, improve them, correct errors, or just express a judgement about its utility.
+            {% endif %}
         </div>
     </div>
     

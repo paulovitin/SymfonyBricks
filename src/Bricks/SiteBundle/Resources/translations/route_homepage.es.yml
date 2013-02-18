@@ -3,11 +3,11 @@
 #                                                                                                                  #
 # route name: homepage                                                                                             #
 ####################################################################################################################
+contribute_next_step: 'El paso siguiente es visitar <a href="%href%">la sección "Contribuir"</a> para obtenet mas informaciones.'
 how_to_contribute: contribuir
+know_more: descubrir más
+relevant_links: Enlaces relevantes
 sign_up: |
     REGISTRARSE
     <br>
     <span class="text-small">Regístrate en SymfonyBricks</span>
-relevant_links: Enlaces relevantes
-contribute_next_step: 'El paso siguiente es visitar <a href="%href%">la sección "Contribuir"</a> para obtenet mas informaciones.'
-know_more: descubrir más

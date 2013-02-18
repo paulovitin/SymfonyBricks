@@ -8,29 +8,27 @@
 # entries to translate the main navigation bar
 main_navbar:
     contribute: contribute
+    developers: developers
     github_repository: github repository
     register: register
     sign_in: sign in
-    developers: developers
     wiki: wiki
 
 # entries related to a Brick
 brick:
-    title: title
-    description: description
     content: content
-    published: published
-    not_published: not published
-    last_update: last update
-    starring_text: Starred
-    not_starring_text: Star
-    license: license
-    no_license_applied: no
+    description: description
     fetch_url:
         title: Create brick by retrieving url content
         help: This procedure is meant to help you to create a new brick starting from the content of an existent web page.<br><br>Enter the url in the box below and SymfonyBricks will try to retrieve the content of that page.<br>
         error: Some errors occurred while retrieving the page. Please check the url and try again.
-    
+    last_update: last update
+    license: license
+    no_license_applied: no
+    not_published: not published
+    not_starring_text: Star
+    published: published
+
     # brick search
     search:
         form:
@@ -38,7 +36,10 @@ brick:
             button_submit: Search
         page_title: Search results
         no_results: no bricks found
-        
+
+    starring_text: Starred
+    title: title
+
 # general translations (alphabetical order)
 back_to_the_list: Back to the list
 close: close

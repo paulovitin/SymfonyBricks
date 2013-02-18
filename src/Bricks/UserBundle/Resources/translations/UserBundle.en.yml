@@ -7,38 +7,32 @@
 # user navbar
 # entries to translate the user navigation bar
 user_navbar:
-    dashboard: DASHBOARD
     bricks: My Bricks
-    profile: PROFILE
-    edit_profile: Edit profile
+    bricks_starred: Starred Bricks
     change_password: Change password
     create_brick: CREATE NEW BRICK
     create_brick_blank: Create blank brick
     create_brick_by_fetching_url: Create brick by retrieving url content
-    bricks_starred: Starred Bricks
-    message: Messages
+    dashboard: DASHBOARD
+    edit_profile: Edit profile
     logout: Logout
+    message: Messages
+    profile: PROFILE
 
 # Bricks
 # bricks related interfaces
 brick:
-    create_new_brick: Create new brick
-    edit_brick: Edit brick
-    title: title
-    description: description
-    canonical_url: Canonical Url
-    content: content
-    preview: preview
-    confirm_deletion: "This operation cannot be undone. Confirm the deletion?"
     actions: actions
-    tags: tags
     brickHasTags:
         help_text: To add a tag, write it in the box below and press "Enter"
-    license: license
-    
+    canonical_url: Canonical Url
+    confirm_deletion: "This operation cannot be undone. Confirm the deletion?"
+    content: content
+    create_new_brick: Create new brick
+    description: description
+    edit_brick: Edit brick
     help:
         title:
-            title: "Brick: Title"
             body: |
                 This is the title of the brick (piece of code/guide/recipe) you are creating.
                 <br><br>
@@ -65,9 +59,9 @@ brick:
                         <i>"Use of macros to integrate Bootstrap base css Form styles in twig templates"</i>
                     </li>
                 </ul>
-                
+            title: "Brick: Title"
+
         description:
-            title: "Brick: Description"
             body: |
                 You can provide a brief additional description, about the subject you are going to treat: this field lets you explain better what is the problem you are facing, and what is the proposed solution.
                 <br><br>
@@ -83,20 +77,20 @@ brick:
                         <b>how did you solve the problem and the solution you adopted; eg: what bundles have been installad, external libraries installed and configured, etc...</b>
                     </li>
                 </ul>
-                
+            title: "Brick: Description"
+
         canonical_url:
-            title: "Brick: Canonical url"
             body: |
-                You can specify a canonical url for a brick. Using Google's definition, <b>A canonical page is the preferred version of a set of pages with highly similar content.</b>
+                You can specify a canonical url for a brick. Using Google's definition, <b>a canonical page is the preferred version of a set of pages with highly similar content.</b>
                 <br><br>
-                This field is useful for example when you publish a guide on your blog, and then publish the same conent on SymfonyBricks too. The <b>Canonical url</b> lets Google not to punish your blog post in search results because of the repetition of the content in SymfonyBricks.
+                This field is useful for example when you publish a guide on your blog, and then publish the same content on SymfonyBricks too. The <b>Canonical url</b> lets Google not to punish your blog post in search results because of the repetition of the content in SymfonyBricks.
                 <br><br>
                 Put in this field the url of the original article/blog post/webpage, so google will give priority to it instead of the content published on SymfonyBricks.
                 <br><br><br>
                 More infos are available on <a href="http://support.google.com/webmasters/bin/answer.py?hl=en&answer=139394" target="_new">this Google help page.</a>
-                
+            title: "Brick: Canonical url"
+
         tags:
-            title: "Brick: Tags"
             body: |
                 Tags are labels of text you can attach to a brick; a tag can be composed by one or more words.
                 <br><br>
@@ -110,9 +104,9 @@ brick:
                         <b>singular:</b> if possible, try to use a <i>singular nouns</i>; for example use <b>databse</b> instead of <b>databases</b>.
                     </li>
                 </ul>
+            title: "Brick: Tags"
 
         license:
-            title: "Brick: License"
             body: |
                 You can choose a license to apply to your guide by simply picking one in the field "License".
                 <br><br>
@@ -121,4 +115,8 @@ brick:
                 Material without an explicit license is protected by copyright and is by default <b>All Rights Reserved</b>. The person or people who wrote the material are protected as such.
                 <br>
                 Anyway consider applying a license to your work, so people using material you wrote must respect the terms of the license you chose.
-                
+            title: "Brick: License"
+    license: license
+    preview: preview
+    tags: tags
+    title: title

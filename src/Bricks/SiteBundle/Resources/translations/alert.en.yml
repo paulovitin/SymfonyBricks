@@ -7,15 +7,14 @@
 alert:
     brick:
         create:
+            error: Errors occurred while saving
             success: Brick created successfully
-            error: Errors occurred while saving
-        update:
-            success: Changes were saved successfully
-            error: Errors occurred while saving
         delete:
-            success: Brick deleted successfully
             error: Errors occurred while deleting
+            success: Brick deleted successfully
         togglePublished:
             published: Brick has been published successfully
             unpublished: Brick is now NOT published
-            
+        update:
+            error: Errors occurred while saving
+            success: Changes were saved successfully

@@ -1,38 +1,34 @@
 # Security
 "Bad credentials": Nombre de usuario o contraseña erróneo
 
-security:
-    login:
-        page_title: Entrar
-        username: "Nombre de usuario:"
-        password: "Contraseña:"
-        remember_me: Recordarme
-        submit: Entrar
-    forgot_password: ¿has olvidado tu contraseña?
+# Password change
+change_password:
+    submit: Guardar
+    title: Cambiar contraseña
 
 # Profile
 profile:
-    page_title: Modificar perfil
     emailpolicy_send_on_new_message:
         label: Envíame un correo electrónico cuando un usuario me envía un mensaje
-
-# Password change
-change_password:
-    title: Cambiar contraseña
-    submit: Guardar
+    page_title: Modificar perfil
 
 # Registration
 registration:
     action: Regístrate
-    title: Inscripción a SymfonyBricks
-    submit: Confirmar inscripción
+    checkEmail:
+        congrats: Felicidades, acabas de cumplir el primer paso para ser parte de esta comunidad!
+        message: |
+            Te hemos enviado un correo electrónico con un enlace de seguridad que debes abrir para activar su cuenta.
+        page_title: ¡Gracias por inscrivirte!
+    confirmed:
+        message: Felicidades <b>%username%</b>, tu cuenta ahora está activa.
+        page_title: Inscripción confirmada
     email:
-        subject: "SymfonyBricks: Inscripción"
         message: |
             Hola %username%, gracias por inscrivirte en SymfonyBricks.
-            
+
             Para activar tu cuenta abre este enlaze: %confirmationUrl%
-            
+
             Saludos,
             Eqiupo de SymfonyBricks.
         message_html: |
@@ -41,23 +37,27 @@ registration:
             Para activar tu cuenta abre <a href="%confirmationUrl%">este enlaze</a>.
             <br><br><br>
             Eqiupo de SymfonyBricks.
-    checkEmail:
-        page_title: ¡Gracias por inscrivirte!
-        message: |
-            Te hemos enviado un correo electrónico con un enlace de seguridad que debes abrir para activar su cuenta.
-        congrats: Felicidades, acabas de cumplir el primer paso para ser parte de esta comunidad!
-    confirmed:
-        page_title: Inscripción confirmada
-        message: Felicidades <b>%username%</b>, tu cuenta ahora está activa.
-          
+        subject: "SymfonyBricks: Inscripción"
+    submit: Confirmar inscripción
+    title: Inscripción a SymfonyBricks
+
 # Password resetting
 resetting:
-    title: Restablecer contraseña
+    request:
+        submit: Restablecer contraseña
+        username: "Escribe tu nombre de usuario o tu dirección de correo electrónico:"
     subtitle: |
         Escribe tu dirección de correo electrónico en el cuadro de abajo.
         <br><br>
         Recibirás un correo electrónico con instrucciones para restablecer tu contraseña.
-    request:
-        username: "Escribe tu nombre de usuario o tu dirección de correo electrónico:"
-        submit: Restablecer contraseña
-            
+    title: Restablecer contraseña
+
+# Security
+security:
+    forgot_password: ¿has olvidado tu contraseña?
+    login:
+        page_title: Entrar
+        password: "Contraseña:"
+        remember_me: Recordarme
+        submit: Entrar
+        username: "Nombre de usuario:"
