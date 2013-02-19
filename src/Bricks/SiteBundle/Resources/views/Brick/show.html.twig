@@ -29,43 +29,6 @@
 
     <div itemscope itemtype ="http://schema.org/CreativeWork">
 
-        <div id="info">
-            <div class="row">
-                <div class="span9">
-                    <p>
-                        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                            <i class="icon-user"></i>
-                            <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}" itemprop="url">
-                                <span itemprop="name">{{ brick.user }}</span>
-                            </a>
-                        </span>
-                        |
-                        <i class="icon-calendar"></i>
-                        {{ 'brick.last_update'|trans }}:
-                        <time itemprop="dateModified" datetime="{{ brick.updatedAt|date('Y-m-d') }}">
-                            {{ brick.updatedAt|date('d M Y') }}
-                        </time>
-                    </p>
-                    <p>
-                        {{ 'brick.license'|trans|title }}: {{ (brick.brickLicense) ? macrosBrickLicense.brickLicenseModal(brick) : '-' }}
-                    </p>
-                    <p>
-                        <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
-                    </p>
-                    <p>
-                        {{ macrosBrick.toggleUserStarsBrick(brick) }}
-                    </p>
-                </div>
-                <div class="span3">
-
-                    <div class="message-actions">
-                        {% render 'BricksMessageBundle:ButtonModalMessage:_buttonModalMessageToUser' with {brick: brick} %}
-                        {% render 'BricksMessageBundle:ButtonModalMessage:_buttonModalMessageClaimBrick' with {brick: brick} %}
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div id="affix-info">
             <div class="row">
                 <div class="span8">
@@ -103,7 +66,7 @@
         </div>
 
         <div class="row">
-            <div class="span12">
+            <div class="span9" id="brick">
                 <h1 class="title" itemprop="headline">
                     {{ brick.title }}
                 </h1>
@@ -119,6 +82,60 @@
                 <hr>
 
                 {{ knp_disqus_render('symfonybricks', {'identifier': '/brick-'~brick.id, 'limit': 10}) }}
+            </div>
+            <div class="span3" id="info">
+
+                <table>
+                    <tr itemprop="author" itemscope itemtype="http://schema.org/Person">
+                        <th>
+                            <i class="icon-user"></i>
+                        </th>
+                        <td>
+                            <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}" itemprop="url">
+                                <span itemprop="name">{{ brick.user }}</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <i class="icon-calendar"></i>
+                        </th>
+                        <td>
+                            {{ 'brick.last_update'|trans }}:
+                            <time itemprop="dateModified" datetime="{{ brick.updatedAt|date('Y-m-d') }}">
+                                {{ brick.updatedAt|date('d M Y') }}
+                            </time>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <i class="icon-legal"></i>
+                        </th>
+                        <td>
+                            {{- 'brick.license'|trans -}}: {{- (brick.brickLicense) ? macrosBrickLicense.brickLicenseModal(brick) : '-' -}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <i class="icon-tag"></i>
+                        </th>
+                        <td>
+                            {{ brick_formatted_tags(brick)|raw }}
+                        </td>
+                    </tr>
+
+                </table>
+
+                <p>
+                    {{ macrosBrick.toggleUserStarsBrick(brick) }}
+                </p>
+
+                <br><br><br>
+
+                <div class="message-actions">
+                    {% render 'BricksMessageBundle:ButtonModalMessage:_buttonModalMessageToUser' with {brick: brick} %}
+                    {% render 'BricksMessageBundle:ButtonModalMessage:_buttonModalMessageClaimBrick' with {brick: brick} %}
+                </div>
             </div>
         </div>
 
@@ -146,7 +163,7 @@
             // adjust .content margin-top when #info is affixed
             $(window).on('scroll', function() {
                if (affixedElement.hasClass('affix')) {
-                   var infoHeight = $('#info').outerHeight(true);
+                   var infoHeight = $('#affix-info').outerHeight(true);
                    affixedElement.next().css('margin-top', infoHeight);
                } else {
                    affixedElement.next().css('margin-top', 0);

@@ -16,34 +16,42 @@ rules for all the templates loaded through Bricks\SiteBundle\BrickController
 */
 body.route-brick_show {
 
-    .title, .description, .content { font-family: Verdana, Arial, sans-serif; }
-    .description {
-        font-size: 14px;
-        padding-bottom: 20px;
+    #brick {
+        .title, .description, .content { font-family: Verdana, Arial, sans-serif; }
+        .description {
+            font-size: 14px;
+            padding-bottom: 20px;
+        }
     }
     
     #info {
-        margin-bottom:  30px;
+        padding: 10px 10px 10px 20px;
+        border: 1px solid #CCC;
+        .border-radius(4px);
+        background: rgb(247, 247, 247);
 
-        p, a {
-            font-size: 14px;
-            font-weight: normal;
-            margin-bottom: 0px;
-        }
+        table { margin-bottom:  20px;
+            tr {
+                th, td {
+                    padding: 10px 5px 10px 0px;
 
-
-        .message-actions {
-            & > button, & > a {
-                float: right;
-                clear: both;
-                font-weight: normal;
-                margin-bottom: 5px;
-                &:last-child { margin-bottom: 0px; }
+                    span, p, a {
+                        font-size: 14px;
+                        font-weight: normal;
+                        margin-bottom: 0px;
+                    }
+                }
             }
         }
 
-        .actions { padding: 0px 10px 10px 10px;
-            a { font-weight: normal; }
+        .message-actions {
+            & > button, & > a {
+                float: left;
+                clear: both;
+                font-weight: normal;
+                margin-bottom: 10px;
+                &:last-child { margin-bottom: 0px; }
+            }
         }
     }
 
