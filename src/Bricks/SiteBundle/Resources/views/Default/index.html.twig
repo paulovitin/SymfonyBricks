@@ -83,13 +83,11 @@
     
     <div class="row" style="text-align: justify;">
         <div class="span12">
-            <h2>Bricks</h2>
-            
             <ul class="bricks-list">
                 {% for brick in bricks %}
                     <li>
-                        <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
-                            {{ brick.title }}
+                        <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}" class="title">
+                            <i class="icon-file"></i> {{ brick.title }}
                         </a>
                         <p class="brick-info">
                             <i class="icon-user"></i> <a href="{{ path('userprofile_show', {'username': brick.user.username}) }}">{{ brick.user }}</a>
@@ -97,8 +95,10 @@
                             <i class="icon-calendar"></i> {{ 'brick.last_update'|trans }}: {{ brick.updatedAt|date('d M Y') }}
                             |
                             {{ macrosBrick.toggleUserStarsBrick(brick) }}
-                            |
-                            <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
+                            {% if brick.brickHasTags|length > 0 %}
+                                |
+                                <i class="icon-tag"></i> {{ brick_formatted_tags(brick)|raw }}
+                            {% endif %}
                         </p>
                     </li>
                 {% endfor %}
