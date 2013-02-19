@@ -151,74 +151,37 @@ img.user_profile_image {
 MAIN NAVBAR
 ******************************************************************************************/
 #main-navbar {
-    ul {
-        &#links-list {
-            margin-top: 6px;
-            #gradient .vertical(#F1F1F1, #E0E0E0);
-            border:     1px solid #DDD;
-            .border-radius(3px);
-            
-            li { height: 28px;
-                li.divider { height: inherit; }
-                &:hover {
-                    #gradient .vertical(#FBCE4F, #F8B245);
-                    border-color:     #CC962F;
-                    color:  #636363;
-                    .btn-group {
-                        .caret {
-                            border-top-color:   #333;
-                            border-bottom-color:   #333;
-                        }
-                    }
-                }
-                
-                a {
-                    padding:    3px 10px;
-                    font-weight:    normal;
-                    color:  #313131;
-                    
-                }
-                
-                .btn-group {
-                    margin-top: 1px;
-                    
-                    > a { padding-right: 2px;}
-                    
-                    .dropdown-toggle {
-                        padding-left:   6px;
-                        .border-radius(0px);
-                        background: transparent;
-                        border: 0px none;
-                    }
-                }
-            }
-        }
-        
-        li {
+    ul#links-list { overflow: hidden; margin-left: 20px;
+        li { float: left;
             a {
-                padding-left:   8px;
-                padding-right:   8px;
-                font-size:  12px;
-                
-                i {
-                    vertical-align: middle;
-                    font-size:  16px;
-                }
-            }
-            
-            a#brand { font-size: 20px; }
-        }
-        
-        li#nav-search-bricks { padding-left:   20px;
-            form { margin:  0px;
-                input[type="text"] {
-                    width:  160px;
-                    margin-top: 6px;
-                }
+                padding: 11px 6px 3px 6px;
+                font-size: 13px;
             }
         }
-        
-        li#nav-locales {
+    }
+
+    ul#user {
+        > li {
+            > a {
+                padding-bottom: 5px;
+            }
+            .caret {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    li#nav-search-bricks { padding-left:   20px;
+        form { margin:  0px;
+            input[type="text"] {
+                width:  160px;
+                margin-top: 6px;
+            }
+        }
+    }
+
+    ul#nav-locales {
+        li {
             margin-top: 6px;
             padding-left: 10px;
             .btn-group {
@@ -233,7 +196,7 @@ MAIN NAVBAR
                     z-index:    99;
                     margin-top: -12px;
                     padding:    10px 1px 4px 1px;
-                    
+
                     a {
                         display:    inline-block;
                         padding:    2px 9px 2px 8px;

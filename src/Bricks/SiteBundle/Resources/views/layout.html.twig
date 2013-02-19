@@ -72,8 +72,28 @@
                                     </form>
                                 </li>
                             </ul>
-                            <ul class="nav pull-right">
-                                <li id="nav-locales">
+                            <ul class="nav" id="links-list">
+                                <li>
+                                    <a href="{{ path('wiki_homepage') }}"><i class="icon-question-sign"></i> {{ 'main_navbar.wiki'|trans|capitalize }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('changelog') }}"><i class="icon-align-left"></i> Changelog</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('developers') }}"><i class="icon-cog"></i> {{ 'main_navbar.developers'|trans|capitalize }}</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('contribute') }}"><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
+                                        <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="nav pull-right" id="nav-locales">
+                                <li>
                                     <div class="btn-group">
                                         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                                             {% if interface_translation_locales[app.request.locale] is not null %}
@@ -95,76 +115,46 @@
                                     </div>
                                 </li>
                             </ul>
-                            <ul id="links-list" class="nav pull-right">
-                                <li>
-                                    <a href="{{ path('wiki_homepage') }}"><i class="icon-question-sign"></i> {{ 'main_navbar.wiki'|trans|capitalize }}</a>
-                                </li>
-                                <li>
-                                    <div class="btn-group">
-                                        <a href="{{ path('contribute') }}" class=""><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans }}</a>
-                                        <button class="dropdown-toggle" data-toggle="dropdown">
-                                            <span class="caret"></span>
-                                        </button>
+
+                            <ul class="nav pull-right" id="user">
+                                {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
+                                    <li class="dropdown">
+                                        <a href="{{ path('user_dashboard') }}" class="dropdown-toggle" data-toggle="dropdown">
+                                            {% if app.user.profileImage and app.user.profileImage.isReadable %}
+                                                <img src="{{ vich_uploader_asset(app.user, 'profileImage') | apply_filter('user_profile_small_thumb') }}" class="user_profile_image">
+                                            {% else %}
+                                                <i class="icon-user"></i>
+                                            {% endif %}
+                                            {{ app.user.username }}
+
+                                            <b class="caret"></b>
+                                        </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="{{ path('developers') }}"><i class="icon-cog"></i> {{ 'main_navbar.developers'|trans|capitalize }}</a>
+                                                <a href="{{ path('user_dashboard') }}"><i class="icon-home"></i> {{ 'user_navbar.dashboard'|trans({}, 'UserBundle')|capitalize }}</a>
                                             </li>
-                                            <li>
-                                                <a href="{{ path('contribute') }}"><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ path('changelog') }}"><i class="icon-align-left"></i> Changelog</a>
+                                            <li id="messages">
+                                                <a href="{{ path('fos_message_inbox') }}"><i class="icon-inbox"></i> {{ 'user_navbar.message'|trans({}, 'UserBundle')|capitalize }}</a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
-                                                    <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
-                                                </a>
+                                            <a href="{{ path('user_brick_starred') }}"><i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('user_brick') }}"><i class="icon-book"></i> {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|capitalize }}</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ path('fos_user_profile_edit') }}"><i class="icon-user"></i> {{ 'user_navbar.edit_profile'|trans({}, 'UserBundle')|capitalize }}</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('fos_user_change_password') }}"><i class="icon-lock"></i> {{ 'user_navbar.change_password'|trans({}, 'UserBundle')|capitalize }}</a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ path('logout') }}"><i class="icon-signout"></i> {{ 'user_navbar.logout'|trans({}, 'UserBundle')|capitalize }}</a>
                                             </li>
                                         </ul>
-                                    </div>
-                                </li>
-                                {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
-                                    <li>
-                                        <div class="btn-group">
-                                            <a href="{{ path('user_dashboard') }}" class="">
-                                                {% if app.user.profileImage and app.user.profileImage.isReadable %}
-                                                    <img src="{{ vich_uploader_asset(app.user, 'profileImage') | apply_filter('user_profile_small_thumb') }}" class="user_profile_image">
-                                                {% else %}
-                                                    <i class="icon-user"></i>
-                                                {% endif %}
-                                                {{ app.user.username }}
-                                            </a>
-                                            <button class="dropdown-toggle" data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="{{ path('user_dashboard') }}"><i class="icon-home"></i> {{ 'user_navbar.dashboard'|trans({}, 'UserBundle')|capitalize }}</a>
-                                                </li>
-                                                <li id="messages">
-                                                    <a href="{{ path('fos_message_inbox') }}"><i class="icon-inbox"></i> {{ 'user_navbar.message'|trans({}, 'UserBundle')|capitalize }}</a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li>
-                                                <a href="{{ path('user_brick_starred') }}"><i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ path('user_brick') }}"><i class="icon-book"></i> {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|capitalize }}</a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li>
-                                                    <a href="{{ path('fos_user_profile_edit') }}"><i class="icon-user"></i> {{ 'user_navbar.edit_profile'|trans({}, 'UserBundle')|capitalize }}</a>
-                                                </li>
-                                                <li>
-                                                    <a href="{{ path('fos_user_change_password') }}"><i class="icon-lock"></i> {{ 'user_navbar.change_password'|trans({}, 'UserBundle')|capitalize }}</a>
-                                                </li>
-                                                <li class="divider"></li>
-                                                <li>
-                                                    <a href="{{ path('logout') }}"><i class="icon-signout"></i> {{ 'user_navbar.logout'|trans({}, 'UserBundle')|capitalize }}</a>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </li>
                                 {% else %}
                                     <li>
@@ -179,6 +169,7 @@
                                     </li>
                                 {% endif %}
                             </ul>
+
                         </div>
                         {% block user_menu '' %}
                     </div>
