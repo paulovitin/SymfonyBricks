@@ -57,7 +57,7 @@ class User extends BaseUser implements ParticipantInterface
     public $profileImage;
 
     /**
-     * @ORM\Column(type="string", length=255, name="profile_image_name")
+     * @ORM\Column(type="string", length=255, name="profile_image_name", nullable=true)
      *
      * @var string $profileImageName
      */
