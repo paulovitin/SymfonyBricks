@@ -18,7 +18,23 @@
 
                 {{ macrosBootstrapForms.controlGroup(form.email) }}
 
+                <div class="control-group ">
+
+                    <label class="control-label">{{ form.profileImage.vars.label }}</label>
+
+                    <div class="controls">
+
+                        {% if app.user.profileImage and app.user.profileImage.isReadable %}
+                            <img src="{{ vich_uploader_asset(app.user, 'profileImage') | apply_filter('user_profile_small_thumb') }}" class="user_profile_image">
+                        {% endif %}
+
+                        {{ form_widget(form.profileImage) }}
+                    </div>
+
+                </div>
+
                 {{ macrosBootstrapForms.controlGroup(form.emailpolicy_send_on_new_message) }}
+
 
                 {{ form_rest(form) }}
 

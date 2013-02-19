@@ -127,7 +127,14 @@
                                 {% if app.user and is_granted('IS_AUTHENTICATED_FULLY') %}
                                     <li>
                                         <div class="btn-group">
-                                            <a href="{{ path('user_dashboard') }}" class=""><i class="icon-user"></i> {{ app.user.username }}</a>
+                                            <a href="{{ path('user_dashboard') }}" class="">
+                                                {% if app.user.profileImage and app.user.profileImage.isReadable %}
+                                                    <img src="{{ vich_uploader_asset(app.user, 'profileImage') | apply_filter('user_profile_small_thumb') }}" class="user_profile_image">
+                                                {% else %}
+                                                    <i class="icon-user"></i>
+                                                {% endif %}
+                                                {{ app.user.username }}
+                                            </a>
                                             <button class="dropdown-toggle" data-toggle="dropdown">
                                                 <span class="caret"></span>
                                             </button>
