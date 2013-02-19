@@ -28,7 +28,10 @@
         "friendsofsymfony/message-bundle": "dev-master",
         "raulfraile/ladybug-bundle": "dev-master",
         "presta/sitemap-bundle": "dev-master",
-        "pk/markdownify-bundle": "2.1.*"
+        "pk/markdownify-bundle": "2.1.*",
+        "vich/uploader-bundle": "dev-master",
+        "knplabs/knp-gaufrette-bundle" : "dev-master",
+        "avalanche123/imagine-bundle": "v2.1"
     },
     "scripts": {
         "post-install-cmd": [

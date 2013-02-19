@@ -5,12 +5,17 @@ use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use FOS\MessageBundle\Model\ParticipantInterface;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 use Bricks\SiteBundle\Entity\Brick;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @Vich\Uploadable
  */
 class User extends BaseUser implements ParticipantInterface
 {
@@ -39,6 +44,24 @@ class User extends BaseUser implements ParticipantInterface
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $emailpolicy_send_on_new_message = true;
+
+    /**
+     * @Assert\File(
+     *     maxSize="1M",
+     *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg", "image/gif"}
+     * )
+     * @Vich\UploadableField(mapping="user_profile_image", fileNameProperty="profileImageName")
+     *
+     * @var File $profileImage
+     */
+    public $profileImage;
+
+    /**
+     * @ORM\Column(type="string", length=255, name="profile_image_name")
+     *
+     * @var string $profileImageName
+     */
+    protected $profileImageName;
 
     /**
      * @var datetime $created_at
@@ -109,6 +132,19 @@ class User extends BaseUser implements ParticipantInterface
         }
 
         return $entities;
+    }
+
+    /**
+     * VichUploaderBundle Fix
+     * Dirty, but https://github.com/dustin10/VichUploaderBundle/issues/8 is still an open problem
+     */
+    public function setProfileImage($file)
+    {
+        $this->profileImage = $file;
+
+        if ($file instanceof UploadedFile) {
+            $this->setUpdatedAt(new \DateTime());
+        }
     }
 
     /**************************************************************************************************
@@ -303,5 +339,28 @@ class User extends BaseUser implements ParticipantInterface
     public function getGithubToken()
     {
         return $this->githubToken;
+    }
+
+    /**
+     * Set profileImageName
+     *
+     * @param string $profileImageName
+     * @return User
+     */
+    public function setProfileImageName($profileImageName)
+    {
+        $this->profileImageName = $profileImageName;
+    
+        return $this;
+    }
+
+    /**
+     * Get profileImageName
+     *
+     * @return string 
+     */
+    public function getProfileImageName()
+    {
+        return $this->profileImageName;
     }
 }

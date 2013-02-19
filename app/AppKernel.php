@@ -47,6 +47,13 @@ class AppKernel extends Kernel
             // PKMarkdownifyBundle
             new PK\MarkdownifyBundle\PKMarkdownifyBundle(),
 
+            // VichUploaderBundle, KnpGaufretteBundle
+            new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+
+            // AvalancheImagineBundle
+            new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
+
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\WikiBundle\BricksWikiBundle(),

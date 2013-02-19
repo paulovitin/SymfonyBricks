@@ -98,6 +98,11 @@ PrestaSitemapBundle:
     resource: "@PrestaSitemapBundle/Resources/config/routing.yml"
     prefix:   /
 
+# AvalancheImagineBundle
+_imagine:
+    resource: .
+    type:     imagine
+
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"

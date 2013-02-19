@@ -17,6 +17,10 @@ class ProfileFormType extends BaseType
             'label' => 'profile.emailpolicy_send_on_new_message.label',
             'translation_domain' => 'FOSUserBundle',
         ));
+
+        $builder->add('profileImage', null, array(
+            'label' => 'Profile image'
+        ));
     }
 
     public function getName()

@@ -143,6 +143,10 @@ useful classes for custom styles
 .text-small { font-size: 14px; }
 .text-italic { font-style: italic; }
 
+img.user_profile_image {
+    border: 1px solid #CCC;
+    .border-radius(3px);
+}
 /******************************************************************************************
 MAIN NAVBAR
 ******************************************************************************************/
@@ -154,7 +158,8 @@ MAIN NAVBAR
             border:     1px solid #DDD;
             .border-radius(3px);
             
-            li {
+            li { height: 28px;
+                li.divider { height: inherit; }
                 &:hover {
                     #gradient .vertical(#FBCE4F, #F8B245);
                     border-color:     #CC962F;
@@ -175,9 +180,9 @@ MAIN NAVBAR
                 }
                 
                 .btn-group {
-                    margin-top: 0px;
+                    margin-top: 1px;
                     
-                    > a { padding-right: 2px; }
+                    > a { padding-right: 2px;}
                     
                     .dropdown-toggle {
                         padding-left:   6px;
@@ -214,10 +219,10 @@ MAIN NAVBAR
         }
         
         li#nav-locales {
-            margin-top: 2px;
+            margin-top: 6px;
             padding-left: 10px;
             .btn-group {
-                margin-top: 4px;
+                margin-top: 0px;
                 & > .btn {
                     #gradient .vertical(#F1F1F1, #E0E0E0);
                     padding: 4px 2px 4px 6px;

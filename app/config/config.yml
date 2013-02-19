@@ -115,3 +115,24 @@ fos_message:
 
 presta_sitemap:
     dumper_base_url: "https://symfonybricks.com/"
+
+vich_uploader:
+    db_driver: orm
+    storage: vich_uploader.storage.filesystem
+    mappings:
+        user_profile_image:
+            uri_prefix: /uploads/users
+            upload_destination: %kernel.root_dir%/../web/uploads/users
+            delete_on_remove: true
+            delete_on_update: true
+            namer: bricks.namer_uniqid
+
+avalanche_imagine:
+    source_root:  %kernel.root_dir%/../web
+    web_root:     %kernel.root_dir%/../web
+    cache_prefix: media_cache
+    driver:       gd
+    filters:
+        user_profile_small_thumb:
+            type:    thumbnail
+            options: { size: [26, 26], mode: inset }
