@@ -58,7 +58,7 @@
                         <div class="container">
                             <ul class="nav">
                                 <li>
-                                    <a href="{{ path('homepage') }}" id="brand">
+                                    <a href="{{ path('homepage') }}" id="brand" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'homepage']);">
                                         SymfonyBricks
                                     </a>
                                 </li>
@@ -73,19 +73,27 @@
                             </ul>
                             <ul class="nav" id="links-list">
                                 <li>
-                                    <a href="{{ path('wiki_homepage') }}"><i class="icon-question-sign"></i> {{ 'main_navbar.wiki'|trans|capitalize }}</a>
+                                    <a href="{{ path('wiki_homepage') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'wiki']);">
+                                        <i class="icon-question-sign"></i> {{ 'main_navbar.wiki'|trans|capitalize }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('changelog') }}"><i class="icon-align-left"></i> Changelog</a>
+                                    <a href="{{ path('changelog') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'changelog']);">
+                                        <i class="icon-align-left"></i> Changelog
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('developers') }}"><i class="icon-cog"></i> {{ 'main_navbar.developers'|trans|capitalize }}</a>
+                                    <a href="{{ path('developers') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'developers']);">
+                                        <i class="icon-cog"></i> {{ 'main_navbar.developers'|trans|capitalize }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('contribute') }}"><i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}</a>
+                                    <a href="{{ path('contribute') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'contribute']);">
+                                        <i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new">
+                                    <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'github repository']);">
                                         <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
                                     </a>
                                 </li>
@@ -130,39 +138,53 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="{{ path('user_dashboard') }}"><i class="icon-home"></i> {{ 'user_navbar.dashboard'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                <a href="{{ path('user_dashboard') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'user dasboard']);">
+                                                    <i class="icon-home"></i> {{ 'user_navbar.dashboard'|trans({}, 'UserBundle')|capitalize }}
+                                                </a>
                                             </li>
                                             <li id="messages">
-                                                <a href="{{ path('fos_message_inbox') }}"><i class="icon-inbox"></i> {{ 'user_navbar.message'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                <a href="{{ path('fos_message_inbox') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'user inbox']);">
+                                                    <i class="icon-inbox"></i> {{ 'user_navbar.message'|trans({}, 'UserBundle')|capitalize }}
+                                                </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                            <a href="{{ path('user_brick_starred') }}"><i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}</a>
+                                            <a href="{{ path('user_brick_starred') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'user starred bricks']);">
+                                                <i class="icon-star"></i> {{ 'user_navbar.bricks_starred'|trans({}, 'UserBundle')|capitalize }}
+                                            </a>
                                             </li>
                                             <li>
-                                                <a href="{{ path('user_brick') }}"><i class="icon-book"></i> {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|capitalize }}</a>
-                                            </li>
-                                            <li class="divider"></li>
-                                            <li>
-                                                <a href="{{ path('fos_user_profile_edit') }}"><i class="icon-user"></i> {{ 'user_navbar.edit_profile'|trans({}, 'UserBundle')|capitalize }}</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{ path('fos_user_change_password') }}"><i class="icon-lock"></i> {{ 'user_navbar.change_password'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                <a href="{{ path('user_brick') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'user bricks']);">
+                                                    <i class="icon-book"></i> {{ 'user_navbar.bricks'|trans({}, 'UserBundle')|capitalize }}
+                                                </a>
                                             </li>
                                             <li class="divider"></li>
                                             <li>
-                                                <a href="{{ path('logout') }}"><i class="icon-signout"></i> {{ 'user_navbar.logout'|trans({}, 'UserBundle')|capitalize }}</a>
+                                                <a href="{{ path('fos_user_profile_edit') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'user profile edit']);">
+                                                    <i class="icon-user"></i> {{ 'user_navbar.edit_profile'|trans({}, 'UserBundle')|capitalize }}
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('fos_user_change_password') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'user change password']);">
+                                                    <i class="icon-lock"></i> {{ 'user_navbar.change_password'|trans({}, 'UserBundle')|capitalize }}
+                                                </a>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <a href="{{ path('logout') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'logout']);">
+                                                    <i class="icon-signout"></i> {{ 'user_navbar.logout'|trans({}, 'UserBundle')|capitalize }}
+                                                </a>
                                             </li>
                                         </ul>
                                     </li>
                                 {% else %}
                                     <li>
-                                        <a href="{{ path('fos_user_registration_register') }}">
+                                        <a href="{{ path('fos_user_registration_register') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'registration']);">
                                             <i class="icon-user"></i> {{ 'main_navbar.register'|trans }}
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="{{ path('fos_user_security_login') }}">
+                                        <a href="{{ path('fos_user_security_login') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'login']);">
                                             <i class="icon-signin"></i> {{ 'main_navbar.sign_in'|trans }}
                                         </a>
                                     </li>

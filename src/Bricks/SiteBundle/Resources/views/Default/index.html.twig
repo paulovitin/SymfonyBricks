@@ -40,19 +40,19 @@
         <div class="span4 right-col">
             <ul>
                 <li>
-                    <a href="{{ path('fos_user_registration_register') }}" id="btn-signup" class="btn btn-success">
+                    <a href="{{ path('fos_user_registration_register') }}" id="btn-signup" class="btn btn-success" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'page#index', 'registration']);">
                         <i class="icon-user"></i> {{ 'sign_up'|trans({}, 'route_homepage')|raw }}
                     </a>
                 </li>
             </ul>
             <ul id="two-buttons">
                 <li>
-                    <a href="{{ path('contribute') }}" class="btn btn-primary">
+                    <a href="{{ path('contribute') }}" class="btn btn-primary" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'page#index', 'contribute']);">
                         <i class="icon-random"></i> {{ 'how_to_contribute'|trans({}, 'route_homepage') }}
                     </a>
                 </li>
                 <li>
-                    <a href="{{ path('wiki_homepage') }}" class="btn btn-primary">
+                    <a href="{{ path('wiki_homepage') }}" class="btn btn-primary" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'page#index', 'wiki']);">
                         <i class="icon-plus"></i> {{ 'know_more'|trans({}, 'route_homepage') }}
                     </a>
                 </li>
