@@ -27,14 +27,14 @@ registration:
         message: |
             Hola %username%, gracias por inscribirte en SymfonyBricks.
 
-            Para activar tu cuenta abre este enlaze: %confirmationUrl%
+            Para activar tu cuenta abre este enlace: %confirmationUrl%
 
             Saludos,
             Eqiupo de SymfonyBricks.
         message_html: |
             Hola %username%, gracias por inscribirte en SymfonyBricks.
             <br><br>
-            Para activar tu cuenta abre <a href="%confirmationUrl%">este enlaze</a>.
+            Para activar tu cuenta abre <a href="%confirmationUrl%">este enlace</a>.
             <br><br><br>
             Eqiupo de SymfonyBricks.
         subject: "SymfonyBricks: Inscripción"
