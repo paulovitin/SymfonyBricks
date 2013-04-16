@@ -19,22 +19,22 @@ registration:
         congrats: Felicidades, acabas de cumplir el primer paso para ser parte de esta comunidad!
         message: |
             Te hemos enviado un correo electrónico con un enlace de seguridad que debes abrir para activar su cuenta.
-        page_title: ¡Gracias por inscrivirte!
+        page_title: ¡Gracias por inscribirte!
     confirmed:
         message: Felicidades <b>%username%</b>, tu cuenta ahora está activa.
         page_title: Inscripción confirmada
     email:
         message: |
-            Hola %username%, gracias por inscrivirte en SymfonyBricks.
+            Hola %username%, gracias por inscribirte en SymfonyBricks.
 
-            Para activar tu cuenta abre este enlaze: %confirmationUrl%
+            Para activar tu cuenta abre este enlace: %confirmationUrl%
 
             Saludos,
             Eqiupo de SymfonyBricks.
         message_html: |
-            Hola %username%, gracias por inscrivirte en SymfonyBricks.
+            Hola %username%, gracias por inscribirte en SymfonyBricks.
             <br><br>
-            Para activar tu cuenta abre <a href="%confirmationUrl%">este enlaze</a>.
+            Para activar tu cuenta abre <a href="%confirmationUrl%">este enlace</a>.
             <br><br><br>
             Eqiupo de SymfonyBricks.
         subject: "SymfonyBricks: Inscripción"
