@@ -1,3 +1,9 @@
+# ReridectBundle controllers are loaded before any other
+bricks_redirect:
+    resource: "@BricksRedirectBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 # homepage not localized: load the homepage with default language
 index_not_localized:
     pattern:   /

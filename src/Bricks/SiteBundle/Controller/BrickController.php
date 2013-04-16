@@ -55,26 +55,19 @@ class BrickController extends Controller
     /**
      * Show a brick
      *
-     * @Route("/{id}/{slug}", name="brick_show", requirements={"id"="\d+"})
+     * @Route("/{slug}", name="brick_show")
      * @Template()
      */
-    public function showAction($id, $slug)
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BricksSiteBundle:Brick')->find($id);
+        $entity = $em->getRepository('BricksSiteBundle:Brick')->findOneBy(array(
+            'slug' => $slug
+        ));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Brick entity.');
-        }
-
-        /*
-         * check possible redirection for slug change
-         *
-         * if the $entity exists, but the slug is different, produce a 301 "moved permanently" redirection
-         */
-        if ($slug != $entity->getSlug()) {
-            return $this->redirect($this->generateUrl('brick_show', array( "id" => $id, "slug" => $entity->getSlug())), 302);
         }
 
         /*

@@ -59,6 +59,7 @@ class AppKernel extends Kernel
             new Bricks\WikiBundle\BricksWikiBundle(),
             new Bricks\UserBundle\BricksUserBundle(),
             new Bricks\MessageBundle\BricksMessageBundle(),
+            new Bricks\RedirectBundle\BricksRedirectBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
