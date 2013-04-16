@@ -100,7 +100,7 @@ class SitemapListener implements SitemapListenerInterface
                 // route: "brick_show"
                 foreach ($this->em->getRepository('BricksSiteBundle:Brick')->findBy(array('published' => true)) as $entity) {
                     $event->getGenerator()->addUrl(
-                        new UrlConcrete($this->router->generate('brick_show', array('_locale' => $_locale, 'id' => $entity->getId(), 'slug' => $entity->getSlug()), true), new \DateTime(), UrlConcrete::CHANGEFREQ_HOURLY, 1),
+                        new UrlConcrete($this->router->generate('brick_show', array('_locale' => $_locale, 'slug' => $entity->getSlug()), true), new \DateTime(), UrlConcrete::CHANGEFREQ_HOURLY, 1),
                         'default'
                     );
                 }

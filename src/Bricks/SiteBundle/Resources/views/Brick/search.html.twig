@@ -40,7 +40,7 @@
                 <ul class="bricks-list">
                     {% for brick in entities %}
                         <li>
-                            <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}">
+                            <a href="{{ path('brick_show', {slug: brick.slug}) }}">
                                 {{ brick.title }}
                             </a>
                             <p class="brick-info">

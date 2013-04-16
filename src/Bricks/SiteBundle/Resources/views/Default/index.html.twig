@@ -86,7 +86,7 @@
             <ul class="bricks-list">
                 {% for brick in bricks %}
                     <li>
-                        <a href="{{ path('brick_show', {id: brick.id, slug: brick.slug}) }}" class="title">
+                        <a href="{{ path('brick_show', {slug: brick.slug}) }}" class="title">
                             <i class="icon-file"></i> {{ brick.title }}
                         </a>
                         <p class="brick-info">
