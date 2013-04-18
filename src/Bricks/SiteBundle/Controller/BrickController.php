@@ -53,36 +53,6 @@ class BrickController extends Controller
     }
 
     /**
-     * Show a brick
-     *
-     * @Route("/{slug}", name="brick_show")
-     * @Template()
-     */
-    public function showAction($slug)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('BricksSiteBundle:Brick')->findOneBy(array(
-            'slug' => $slug
-        ));
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Brick entity.');
-        }
-
-        /*
-         * if the brick is not published, return a temporary redirection
-         */
-        if (!$entity->getPublished()) {
-            return $this->redirect($this->generateUrl('brick_not_published'), 307);
-        }
-        
-        return array(
-            'brick' => $entity
-        );
-    }
-
-    /**
      * Search bricks
      *
      * @Route("/search", name="brick_search")
@@ -220,5 +190,35 @@ class BrickController extends Controller
         );
 
         return new Response(json_encode($jsonResponse), $header['http_code'], array('Content-Type'=>'application/json'));
+    }
+
+    /**
+     * Show a brick
+     *
+     * @Route("/{slug}", name="brick_show")
+     * @Template()
+     */
+    public function showAction($slug)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('BricksSiteBundle:Brick')->findOneBy(array(
+            'slug' => $slug
+        ));
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Brick entity.');
+        }
+
+        /*
+         * if the brick is not published, return a temporary redirection
+         */
+        if (!$entity->getPublished()) {
+            return $this->redirect($this->generateUrl('brick_not_published'), 307);
+        }
+
+        return array(
+            'brick' => $entity
+        );
     }
 }
