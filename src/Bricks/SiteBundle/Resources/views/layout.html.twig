@@ -73,28 +73,33 @@
                             </ul>
                             <ul class="nav" id="links-list">
                                 <li>
+                                    <a href="http://blog.symfonybricks.com" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'blog']);">
+                                        blog
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{ path('wiki_homepage') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'wiki']);">
-                                        <i class="icon-question-sign"></i> {{ 'main_navbar.wiki'|trans|capitalize }}
+                                        {{ 'main_navbar.wiki'|trans }}
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ path('changelog') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'changelog']);">
-                                        <i class="icon-align-left"></i> Changelog
+                                        changelog
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ path('developers') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'developers']);">
-                                        <i class="icon-cog"></i> {{ 'main_navbar.developers'|trans|capitalize }}
+                                        {{ 'main_navbar.developers'|trans }}
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ path('contribute') }}" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'contribute']);">
-                                        <i class="icon-random"></i> {{ 'main_navbar.contribute'|trans|capitalize }}
+                                        {{ 'main_navbar.contribute'|trans }}
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://github.com/inmarelibero/SymfonyBricks" target="_new" onclick="_gaq.push(['_trackEvent', 'SymfonyBricks', 'Menu', 'github repository']);">
-                                        <i class="icon-github"></i> {{ 'main_navbar.github_repository'|trans }}
+                                        {{ 'main_navbar.github_repository'|trans }}
                                     </a>
                                 </li>
                             </ul>

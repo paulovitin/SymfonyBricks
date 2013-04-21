@@ -151,11 +151,18 @@ img.user_profile_image {
 MAIN NAVBAR
 ******************************************************************************************/
 #main-navbar {
-    ul#links-list { overflow: hidden; margin-left: 20px;
+    ul#links-list {
+      overflow: hidden;
+      margin-left: 20px;
+      margin-top: 3px;
+
         li { float: left;
             a {
-                padding: 11px 6px 3px 6px;
+                padding: 7px 9px 7px 9px;
                 font-size: 13px;
+                &:hover {
+                  background: #CCC;
+                }
             }
         }
     }
