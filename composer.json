@@ -31,7 +31,8 @@
         "pk/markdownify-bundle": "2.1.*",
         "vich/uploader-bundle": "dev-master",
         "knplabs/knp-gaufrette-bundle" : "dev-master",
-        "avalanche123/imagine-bundle": "v2.1"
+        "avalanche123/imagine-bundle": "v2.1",
+        "eko/feedbundle": "1.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": [

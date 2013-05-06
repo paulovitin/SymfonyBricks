@@ -54,12 +54,16 @@ class AppKernel extends Kernel
             // AvalancheImagineBundle
             new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
 
+            // EkoFeedBundle
+            new Eko\FeedBundle\EkoFeedBundle(),
+
             // Bricks bundles
             new Bricks\SiteBundle\BricksSiteBundle(),
             new Bricks\WikiBundle\BricksWikiBundle(),
             new Bricks\UserBundle\BricksUserBundle(),
             new Bricks\MessageBundle\BricksMessageBundle(),
             new Bricks\RedirectBundle\BricksRedirectBundle(),
+            new Bricks\RSSBundle\BricksRSSBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

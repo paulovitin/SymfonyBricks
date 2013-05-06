@@ -1,4 +1,4 @@
-# ReridectBundle controllers are loaded before any other
+# BricksReridectBundle controllers are loaded before any other
 bricks_redirect:
     resource: "@BricksRedirectBundle/Controller/"
     type:     annotation
@@ -9,7 +9,7 @@ index_not_localized:
     pattern:   /
     defaults:  { _controller: BricksSiteBundle:Default:index, _locale: %locale% }
 
-# Bricks routes
+# BricksSiteBundle
 bricks_site:
     resource: "@BricksSiteBundle/Controller/"
     type:     annotation
@@ -18,6 +18,13 @@ bricks_site:
     requirements:
         _locale:  %route_locale_requirements%
 
+# BricksRSSBundle
+bricks_rss:
+    resource: "@BricksRSSBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+# BricksWikiBundle
 bricks_wiki:
     resource: "@BricksWikiBundle/Controller/"
     type:     annotation
@@ -25,7 +32,8 @@ bricks_wiki:
     defaults:  { _locale: %locale% }
     requirements:
         _locale:  %route_locale_requirements%
-    
+
+# BricksUserBundle
 bricks_user:
     resource: "@BricksUserBundle/Controller/"
     type:     annotation
@@ -34,6 +42,7 @@ bricks_user:
     requirements:
         _locale:  %route_locale_requirements%
 
+# BricksMessageBundle
 bricks_message:
     resource: "@BricksMessageBundle/Controller/"
     type:     annotation
