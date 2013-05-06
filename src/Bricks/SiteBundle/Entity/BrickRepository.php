@@ -14,27 +14,27 @@ class BrickRepository extends EntityRepository
 {
     /**
      * search Bricks
-     * 
+     *
      * $params = array(
      *     'q' => string, search $params['q'] in Bricks' title
      *     'tag_slug' => string, search Bricks having $params['tag_slug'] as Tag (search Tag by $params['tag_slug'], exact matching)
      * )
-     * 
+     *
      * @param array $params array of parameters
      * @return multitype:
      */
     public function search(array $params = array())
     {
         $em = $this->getEntityManager();
-         
+
         $qb = $em->createQueryBuilder()
             ->select('e')
             ->from('BricksSiteBundle:Brick', 'e')
         ;
-        
+
         /**
          * $params['q'] filter
-         * 
+         *
          * search in Brick.title field
          */
         if (array_key_exists('q', $params) && '' !== trim($params['q'])) {
@@ -42,25 +42,59 @@ class BrickRepository extends EntityRepository
                 ->setParameter('q', '%'.$params['q'].'%')
             ;
         }
-        
+
         /**
          * $params['tag_slug'] filter
-         * 
+         *
          * search in Tag.slug field
          */
         if (array_key_exists('tag_slug', $params) && '' !== trim($params['tag_slug'])) {
-            
+
             $qb->innerJoin('e.brickHasTags', 'bht')
                 ->innerJoin('bht.tag', 't')
-                
+
                 ->andWhere('t.slug = :tag_slug')
                 ->setParameter('tag_slug', $params['tag_slug'])
             ;
         }
-        
+
         // order by title
         $qb->addOrderBy('e.title');
-        
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * find published Bricks
+     *
+     * $options = array(
+     *     'return_qb' => if true, reurn $qb object
+     * )
+     *
+     * @param array $options array of parameters
+     * @return multitype:
+     */
+    public function findPublished(array $options = array())
+    {
+        $em = $this->getEntityManager();
+
+        $qb = $em->createQueryBuilder()
+            ->select('e')
+            ->from('BricksSiteBundle:Brick', 'e')
+            ->where('e.published = :published')
+            ->setParameter('published', true)
+        ;
+
+        // order by published_at field
+        $qb->orderBy('e.publishedAt', 'DESC');
+
+        /**
+         * return $qb object
+         */
+        if (array_key_exists('return_qb', $options) && $options['return_qb'] == true) {
+            return $qb;
+        }
+
         return $qb->getQuery()->getResult();
     }
 }

@@ -4,6 +4,7 @@ namespace Bricks\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Eko\FeedBundle\Item\Writer\RoutedItemInterface;
 
 /**
  * Bricks\SiteBundle\Entity\Brick
@@ -13,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * 
  * @Gedmo\Loggable(logEntryClass="Bricks\SiteBundle\Entity\BrickLogEntry")
  */
-class Brick
+class Brick implements RoutedItemInterface
 {
     /**
      * @var integer $id
@@ -61,6 +62,13 @@ class Brick
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $published;
+
+    /**
+     * @var datetime $published_at
+     *
+     * @ORM\Column(name="published_at", type="datetime", nullable=true)
+     */
+    private $publishedAt;
 
     /**
      * @var text $canonicalUrl
@@ -122,7 +130,74 @@ class Brick
     {
         return !$this->getId();
     }
-    
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Brick
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        if ($published == true) {
+            $this->setPublishedAt(new \Datetime());
+        }
+
+        return $this;
+    }
+
+    /**
+     * this method returns entity item title
+     */
+    public function getFeedItemTitle()
+    {
+        return $this->getTitle();
+    }
+
+    /**
+     * this method returns entity item description (or content)
+     */
+    public function getFeedItemDescription()
+    {
+        return "A new brick has been published on SymfonyBricks.com: \"{$this->getTitle()}\"";
+    }
+
+    /**
+     * this method returns entity item publication date
+     */
+    public function getFeedItemPubDate()
+    {
+        return $this->getPublishedAt();
+    }
+
+    /**
+     * this method returns the name of the route
+     */
+    public function getFeedItemRouteName()
+    {
+        return 'brick_show';
+    }
+
+    /**
+     * this method must return an array with the parameters that are required for the route
+     */
+    public function getFeedItemRouteParameters()
+    {
+        return array(
+            'slug' => $this->getSlug()
+        );
+    }
+
+    /**
+     * this method returns the anchor that will be appended to the router-generated url. Note: can be an empty string
+     */
+    public function getFeedItemUrlAnchor()
+    {
+        return '';
+    }
+
     /**************************************************************************************************
      *	getters and setters
     **************************************************************************************************/
@@ -235,19 +310,6 @@ class Brick
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set published
-     *
-     * @param boolean $published
-     * @return Brick
-     */
-    public function setPublished($published)
-    {
-        $this->published = $published;
-    
-        return $this;
     }
 
     /**
@@ -439,5 +501,28 @@ class Brick
     public function getBrickLicense()
     {
         return $this->brickLicense;
+    }
+
+    /**
+     * Set publishedAt
+     *
+     * @param \DateTime $publishedAt
+     * @return Brick
+     */
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get publishedAt
+     *
+     * @return \DateTime 
+     */
+    public function getPublishedAt()
+    {
+        return $this->publishedAt;
     }
 }

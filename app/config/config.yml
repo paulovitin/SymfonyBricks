@@ -136,3 +136,12 @@ avalanche_imagine:
         user_profile_small_thumb:
             type:    thumbnail
             options: { size: [26, 26], mode: inset }
+
+eko_feed:
+    feeds:
+        brick:
+            title:       'SymfonyBricks.com'
+            description: 'List of published bricks'
+            link:        'https://symfonybicks.com'
+            encoding:    'utf-8'
+            author:      'SymfonyBricks' # Only required for Atom feeds
